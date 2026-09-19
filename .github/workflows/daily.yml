@@ -1,0 +1,72 @@
+name: 毎日の自動更新
+
+on:
+  schedule:
+    # 22:00 UTC = 翌 07:00 JST。GitHub の cron は混雑時に数分〜十数分遅れることがある。
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+    inputs:
+      mock:
+        description: 'ダミーデータで試す（認証情報なしでも動く）'
+        type: boolean
+        default: false
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      built: ${{ steps.pipeline.outcome }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: パイプライン実行（収集 → 記事生成 → サイト生成）
+        id: pipeline
+        env:
+          RAKUTEN_APPLICATION_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          SITE_NAME: ${{ vars.SITE_NAME }}
+          SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
+          SITE_AUTHOR: ${{ vars.SITE_AUTHOR }}
+          MOCK: ${{ inputs.mock && '1' || '0' }}
+        run: npm run run
+
+      - name: 蓄積データをコミット
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data config
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "chore: $(date -u +%Y-%m-%d) のランキングを記録"
+            git push
+          fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,7 @@
+{
+  "_note": "このファイルは `npm run genres` が楽天APIから実ジャンルを取得して上書きします。IDと名称を手で推測して書かないでください（誤ったIDは静かに別カテゴリの記事を生成します）。",
+  "_updatedAt": null,
+  "genres": [
+    { "id": "0", "slug": "all", "name": "総合", "enabled": true }
+  ]
+}
