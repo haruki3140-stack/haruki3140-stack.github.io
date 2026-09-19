@@ -60,6 +60,7 @@ export function layout({ title, description, canonical, body, jsonLd = null, bre
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(description)}">
 ${config.site.googleVerification ? `<meta name="google-site-verification" content="${esc(config.site.googleVerification)}">` : ''}
+${config.site.bingVerification ? `<meta name="msvalidate.01" content="${esc(config.site.bingVerification)}">` : ''}
 ${config.mock ? '<meta name="robots" content="noindex,nofollow">' : ''}
 <link rel="canonical" href="${esc(canonical)}">
 <meta property="og:type" content="website">

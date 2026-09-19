@@ -234,6 +234,9 @@ async function main() {
       await compose();
       return 0;
     case 'build':
+      // 静的ホスティング側のビルドには楽天のSecretを渡さない。MOCK=1が明示
+      // されていない限り、保存済みの実データを本番ページとして描画する。
+      config.mock = process.env.MOCK?.trim() === '1';
       await build();
       return 0;
     case 'run': {

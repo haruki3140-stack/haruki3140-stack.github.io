@@ -4,7 +4,7 @@
 アフィリエイトリンク付きの静的サイトとして公開します。GitHub Actions で全自動、サーバー費用ゼロ。
 
 ```
-楽天API → スナップショット保存 → 前日との差分 → 記事生成 → 静的サイト → GitHub Pages
+楽天API → スナップショット保存 → 前日との差分 → 記事生成 → 静的サイト → Cloudflare Pages
   collect                            compose                build          deploy
 ```
 
@@ -30,6 +30,7 @@ node src/cli.js serve
 <http://localhost:4173> が開けば動いています（データはダミーです）。
 
 実データに切り替える手順は **[docs/SETUP.md](docs/SETUP.md)** を参照してください。
+費用ゼロで継続運用する構成と移行手順は **[docs/FREE_OPERATION.md](docs/FREE_OPERATION.md)** にまとめています。
 
 ## コマンド
 

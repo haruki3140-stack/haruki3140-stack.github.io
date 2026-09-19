@@ -11,7 +11,7 @@ APIキーはここで取ります。楽天会員IDが必要です（無ければ
 1. <https://webservice.rakuten.co.jp/> を開き、楽天会員IDでログインする
 2. 「アプリID発行」からアプリを新規登録する
    - **アプリ名**：サイト名（例：楽天ランキング速報）
-   - **アプリURL**：公開予定のURL。GitHub Pages なら `https://<ユーザー名>.github.io/<リポジトリ名>/`
+   - **アプリURL**：公開予定のURL。Cloudflare Pages なら `https://<プロジェクト名>.pages.dev/`
      （まだ公開していなくても、これから使うURLを入れて構いません）
 3. 登録すると **applicationId** と **accessKey** が発行される
 
@@ -72,11 +72,14 @@ npm run serve
 
 <http://localhost:4173> で確認できます。
 
-## 4. GitHub Pages で公開する
+## 4. Cloudflare Pages で公開する
 
-1. GitHub で新しいリポジトリを作り、このディレクトリを push する
-2. リポジトリの **Settings → Pages → Build and deployment → Source** を **GitHub Actions** にする
-3. **Settings → Secrets and variables → Actions** で登録する
+GitHub Pages はオンラインビジネスや商取引を主目的とするサイトの無料ホスティング用途を認めていません。
+アフィリエイトサイトでは利用停止リスクを避けるため、無料枠で静的サイトを公開できる Cloudflare Pages を使います。
+
+具体的な接続手順は **[FREE_OPERATION.md](FREE_OPERATION.md)** を参照してください。
+
+GitHub の **Settings → Secrets and variables → Actions** には次を登録します。
 
    **Secrets**（値が隠される。認証情報はこちら）
    | 名前 | 値 |
@@ -88,12 +91,12 @@ npm run serve
    **Variables**（公開されてよい設定）
    | 名前 | 値 |
    |---|---|
-   | `SITE_URL` | `https://<ユーザー名>.github.io/<リポジトリ名>` |
+| `SITE_URL` | `https://<プロジェクト名>.pages.dev` |
    | `SITE_NAME` | サイト名 |
    | `SITE_DESCRIPTION` | サイトの説明文 |
    | `SITE_AUTHOR` | 運営者名（任意） |
 
-4. **Actions** タブ →「毎日の自動更新」→ **Run workflow** で手動実行して確認する
+Cloudflare Pages の接続後、**Actions** タブ →「毎日の自動更新」→ **Run workflow** で手動実行して確認します。
 
 以降は毎日 07:00（JST）前後に自動で走ります。
 GitHub の cron は混雑時に遅れることがあるので、時刻は厳密ではありません。
@@ -120,7 +123,7 @@ GitHub の cron は混雑時に遅れることがあるので、時刻は厳密�
 | 支払い | 月間3,001円超で楽天キャッシュ（受け取りにID連携が必要） |
 | 確定タイミング | 売上発生の翌月末に確定、翌々月10日に支払い |
 
-3,000円の商品が売れて報酬は60〜120円です。**月1万円に届くには月10万円前後の流通額**が必要で、
+3,000円の商品が売れて報酬は60〜120円です。料率2〜4%なら、**月1万円に届くには月25万〜50万円の承認売上**が必要で、
 そこに到達するまでは記事の蓄積と検索順位の獲得に数ヶ月かかります。自動化は「続けるコストをゼロにする」ための仕組みであって、
 公開した翌日に収益が立つ仕組みではありません。
 
