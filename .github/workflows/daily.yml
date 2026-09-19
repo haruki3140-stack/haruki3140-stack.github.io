@@ -29,6 +29,22 @@ jobs:
         with:
           node-version: '20'
 
+      # 一時的な切り分け用。値そのものは出さず、長さと形式だけを確認する。
+      - name: Secrets の形だけ点検
+        env:
+          APP_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}
+          ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+        run: |
+          node -e '
+            for (const k of ["APP_ID","ACCESS_KEY","AFFILIATE_ID"]) {
+              const v = process.env[k] ?? "";
+              console.log(k.padEnd(14), "長さ:", String(v.length).padStart(3),
+                "先頭が pk_:", v.startsWith("pk_"),
+                "空白混入:", /\s/.test(v));
+            }
+          '
+
       - name: パイプライン実行（収集 → 記事生成 → サイト生成）
         id: pipeline
         env:
