@@ -5,6 +5,7 @@ import path from 'node:path';
 import { config, diagnose } from './config.js';
 import { collect } from './pipeline/collect.js';
 import { compose } from './pipeline/compose.js';
+import { fetchRanking } from './rakuten/api.js';
 import { syncGenres, loadGenres } from './pipeline/genres.js';
 import { build } from './render/site.js';
 import { listSnapshotDates, loadArticles } from './pipeline/store.js';
@@ -13,6 +14,7 @@ const USAGE = `
 楽天アフィリエイト自動化パイプライン
 
   npm run doctor    設定と認証情報を点検する（最初にこれ）
+  npm run verify    実際にAPIを1回叩いて認証が通るか確かめる
   npm run genres    楽天APIから実ジャンル一覧を取得して config/genres.json を更新
   npm run collect   ランキングを取得してスナップショットを保存
   npm run compose   スナップショットから記事データを生成
@@ -62,6 +64,45 @@ async function cmdDoctor() {
   }
   console.log('\n取得手順は docs/SETUP.md を参照してください。');
   return issues.some((i) => i.level === 'error') ? 1 : 0;
+}
+
+/**
+ * 認証情報が通るかだけを1回のAPI呼び出しで確かめる。
+ * CI を回して結果を待つより早く、ファイルも書き換えない。
+ */
+async function cmdVerify() {
+  if (config.mock) {
+    console.error('× 認証情報が未設定のため MOCK モードです。.env に3つの値を設定してください。');
+    return 1;
+  }
+
+  const mask = (v) => `${v.slice(0, 6)}…(${v.length}文字)`;
+  console.log('■ 認証情報の検証\n');
+  console.log(`  APPLICATION_ID  ${mask(config.rakuten.applicationId)}`);
+  console.log(`  ACCESS_KEY      ${mask(config.rakuten.accessKey)}`);
+  console.log(`  AFFILIATE_ID    ${mask(config.rakuten.affiliateId)}`);
+  console.log(`  Referer として送る値  ${config.site.url}/\n`);
+
+  try {
+    const { items } = await fetchRanking({ genreId: 0 });
+    const top = items[0];
+    console.log('✓ 認証に成功しました。');
+    if (top) {
+      console.log(`  1位: ${top.name.slice(0, 40)}… / ${top.price.toLocaleString('ja-JP')}円`);
+      console.log(`  アフィリエイトリンク: ${top.isAffiliate ? '有効' : '× 無効（AFFILIATE_ID を確認してください）'}`);
+    }
+    console.log('\nGitHub Secrets にも同じ値を登録すれば、自動実行でも通ります。');
+    return 0;
+  } catch (err) {
+    console.error(`× 失敗: ${err.message}\n`);
+    if (String(err.message).includes('Invalid Access Key')) {
+      console.error('  ACCESS_KEY の値が実物と一致していません。');
+      console.error('  楽天の管理画面で目のアイコンを押して全体を表示し、');
+      console.error('  フィールド内を Ctrl+A → Ctrl+C で丸ごとコピーしてください。');
+      console.error('  （横スクロールするフィールドなので、見えている範囲だけ選択すると欠けます）');
+    }
+    return 1;
+  }
 }
 
 async function cmdStats() {
@@ -161,6 +202,8 @@ async function main() {
   switch (cmd) {
     case 'doctor':
       return cmdDoctor();
+    case 'verify':
+      return cmdVerify();
     case 'stats':
       return cmdStats();
     case 'serve':

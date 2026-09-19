@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "楽天アフィリエイトの記事生成・静的サイト公開を自動化するパイプライン",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "collect": "node src/cli.js collect",
     "compose": "node src/cli.js compose",
@@ -13,6 +15,7 @@
     "genres": "node src/cli.js genres",
     "doctor": "node src/cli.js doctor",
     "serve": "node src/cli.js serve",
-    "stats": "node src/cli.js stats"
+    "stats": "node src/cli.js stats",
+    "verify": "node src/cli.js verify"
   }
 }
