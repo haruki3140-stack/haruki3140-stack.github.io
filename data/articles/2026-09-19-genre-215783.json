@@ -4,6 +4,7 @@
   "genreId": "215783",
   "genreSlug": "genre-215783",
   "genreName": "日用品雑貨・文房具・手芸",
+  "mock": false,
   "title": "【2026/09/19】楽天「日用品雑貨・文房具・手芸」売れ筋ランキングTOP20",
   "description": "2026/09/19時点の楽天市場「日用品雑貨・文房具・手芸」売れ筋ランキング上位20商品。",
   "lead": [
@@ -426,5 +427,5 @@
     "newcomerCount": 8
   },
   "itemCount": 20,
-  "updatedAt": "2026-09-19T02:36:20.867Z"
+  "updatedAt": "2026-09-19T02:45:07.360Z"
 }

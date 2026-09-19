@@ -4,6 +4,7 @@
   "genreId": "100939",
   "genreSlug": "genre-100939",
   "genreName": "美容・コスメ・香水",
+  "mock": false,
   "title": "【2026/09/19】楽天「美容・コスメ・香水」売れ筋ランキングTOP20",
   "description": "2026/09/19時点の楽天市場「美容・コスメ・香水」売れ筋ランキング上位20商品。",
   "lead": [
@@ -426,5 +427,5 @@
     "newcomerCount": 8
   },
   "itemCount": 20,
-  "updatedAt": "2026-09-19T02:36:20.885Z"
+  "updatedAt": "2026-09-19T02:45:07.378Z"
 }

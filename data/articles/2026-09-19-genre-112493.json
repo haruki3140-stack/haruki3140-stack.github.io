@@ -4,6 +4,7 @@
   "genreId": "112493",
   "genreSlug": "genre-112493",
   "genreName": "楽器・音響機器",
+  "mock": false,
   "title": "【2026/09/19】楽天「楽器・音響機器」売れ筋ランキングTOP20",
   "description": "2026/09/19時点の楽天市場「楽器・音響機器」売れ筋ランキング上位20商品。",
   "lead": [
@@ -426,5 +427,5 @@
     "newcomerCount": 8
   },
   "itemCount": 20,
-  "updatedAt": "2026-09-19T02:36:20.876Z"
+  "updatedAt": "2026-09-19T02:45:07.375Z"
 }

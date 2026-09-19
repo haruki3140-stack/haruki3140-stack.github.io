@@ -4,6 +4,7 @@
   "genreId": "100227",
   "genreSlug": "genre-100227",
   "genreName": "食品",
+  "mock": false,
   "title": "【2026/09/19】楽天「食品」売れ筋ランキングTOP20",
   "description": "2026/09/19時点の楽天市場「食品」売れ筋ランキング上位20商品。",
   "lead": [
@@ -426,5 +427,5 @@
     "newcomerCount": 8
   },
   "itemCount": 20,
-  "updatedAt": "2026-09-19T02:36:20.857Z"
+  "updatedAt": "2026-09-19T02:45:07.349Z"
 }

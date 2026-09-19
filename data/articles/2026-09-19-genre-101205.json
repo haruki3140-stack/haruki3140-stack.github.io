@@ -4,6 +4,7 @@
   "genreId": "101205",
   "genreSlug": "genre-101205",
   "genreName": "テレビゲーム",
+  "mock": false,
   "title": "【2026/09/19】楽天「テレビゲーム」売れ筋ランキングTOP20",
   "description": "2026/09/19時点の楽天市場「テレビゲーム」売れ筋ランキング上位20商品。",
   "lead": [
@@ -426,5 +427,5 @@
     "newcomerCount": 8
   },
   "itemCount": 20,
-  "updatedAt": "2026-09-19T02:36:20.874Z"
+  "updatedAt": "2026-09-19T02:45:07.367Z"
 }
