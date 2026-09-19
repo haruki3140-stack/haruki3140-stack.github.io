@@ -117,10 +117,42 @@ async function cmdServe() {
     }
   });
 
-  await new Promise((resolve) => server.listen(4173, resolve));
-  console.log('プレビュー: http://localhost:4173  (Ctrl+C で終了)');
+  // 前回のプレビューが生きていると 4173 は塞がっている。落とさず隣のポートに逃がす。
+  const basePort = Number(process.env.PORT || 4173);
+  const port = await listenWithFallback(server, basePort, 10);
+  if (port === null) {
+    console.error(`ポート ${basePort}〜${basePort + 9} がすべて使用中です。`);
+    console.error('先に起動しているプレビューを終了するか、PORT=5173 npm run serve のように指定してください。');
+    return 1;
+  }
+
+  console.log(`プレビュー: http://localhost:${port}  (Ctrl+C で終了)`);
+  if (port !== basePort) console.log(`※ ${basePort} が使用中だったため ${port} を使いました。`);
   console.log('※ SITE_URL が localhost 以外だとリンクとCSSが外部URLを指します。');
   return new Promise(() => {});
+}
+
+/** basePort から順に空きポートを探して listen する。見つからなければ null。 */
+function listenWithFallback(server, basePort, attempts) {
+  return new Promise((resolve) => {
+    let port = basePort;
+
+    const onError = (err) => {
+      if (err.code !== 'EADDRINUSE' || port >= basePort + attempts - 1) {
+        server.removeListener('error', onError);
+        resolve(null);
+        return;
+      }
+      port += 1;
+      server.listen(port);
+    };
+
+    server.on('error', onError);
+    server.listen(port, () => {
+      server.removeListener('error', onError);
+      resolve(port);
+    });
+  });
 }
 
 async function main() {

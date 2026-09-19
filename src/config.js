@@ -61,5 +61,10 @@ export function diagnose() {
   if (!accessKey) issues.push({ level: 'error', key: 'RAKUTEN_ACCESS_KEY', msg: '楽天ウェブサービスのアクセスキーが未設定です（2026-07-01版APIから必須）。' });
   if (!affiliateId) issues.push({ level: 'error', key: 'RAKUTEN_AFFILIATE_ID', msg: 'アフィリエイトIDが未設定です。リンクが非アフィリエイトURLになり、1円も発生しません。' });
   if (!config.site.url || config.site.url.includes('example')) issues.push({ level: 'warn', key: 'SITE_URL', msg: '公開URLが既定値のままです。sitemap と RSS の絶対URLが誤ります。' });
+  // SITE_URL は Referer としてそのまま送られ、アプリ登録時の Allowed websites と
+  // 照合される。localhost のまま本番APIを叩くと、認証は通っていても全件弾かれる。
+  if (!config.mock && /^https?:\/\/(localhost|127\.0\.0\.1)/.test(config.site.url)) {
+    issues.push({ level: 'error', key: 'SITE_URL', msg: 'localhost のままです。この値が Referer として送られるため、楽天のアプリ登録で許可したドメインと一致せず拒否されます。' });
+  }
   return issues;
 }

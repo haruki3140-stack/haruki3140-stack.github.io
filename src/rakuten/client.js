@@ -70,7 +70,13 @@ export async function call(endpoint, params = {}) {
     let res;
     try {
       res = await fetch(url, {
-        headers: { 'User-Agent': 'rakuten-affiliate-auto/1.0 (+https://github.com)' },
+        headers: {
+          'User-Agent': 'rakuten-affiliate-auto/1.0',
+          // アプリを「Web Application」種別で登録すると、リファラのドメインで
+          // アクセス可否が判定される。Node の fetch は Referer を自動で付けないため、
+          // 登録した公開URLを明示的に送る。ここが欠けると全リクエストが弾かれる。
+          Referer: `${config.site.url}/`,
+        },
         signal: AbortSignal.timeout(20_000),
       });
     } catch (err) {
