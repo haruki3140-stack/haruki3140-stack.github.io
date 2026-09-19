@@ -45,6 +45,12 @@ jobs:
             }
           '
 
+      - name: 認証パターンの切り分け
+        env:
+          RAKUTEN_APPLICATION_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+        run: node scripts/probe.js
+
       - name: パイプライン実行（収集 → 記事生成 → サイト生成）
         id: pipeline
         env:
