@@ -10,6 +10,10 @@ on:
         description: 'ダミーデータで試す（認証情報なしでも動く）'
         type: boolean
         default: false
+      sync_genres:
+        description: '楽天APIからジャンル一覧を取り込み直す'
+        type: boolean
+        default: false
 
 concurrency:
   group: daily-update
@@ -28,6 +32,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: ジャンル一覧を楽天APIから同期
+        if: ${{ inputs.sync_genres }}
+        env:
+          RAKUTEN_APPLICATION_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: npm run genres
 
       - name: パイプライン実行（収集 → 記事生成 → サイト生成）
         id: pipeline
