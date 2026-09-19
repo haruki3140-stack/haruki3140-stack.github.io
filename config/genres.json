@@ -1,7 +1,246 @@
 {
   "_note": "このファイルは `npm run genres` が楽天APIから実ジャンルを取得して上書きします。IDと名称を手で推測して書かないでください（誤ったIDは静かに別カテゴリの記事を生成します）。",
-  "_updatedAt": null,
+  "_updatedAt": "2026-09-19T02:29:32.859Z",
   "genres": [
-    { "id": "0", "slug": "all", "name": "総合", "enabled": true }
+    {
+      "id": "0",
+      "slug": "all",
+      "name": "総合",
+      "enabled": true
+    },
+    {
+      "id": "100371",
+      "slug": "genre-100371",
+      "name": "レディースファッション",
+      "enabled": true
+    },
+    {
+      "id": "551177",
+      "slug": "genre-551177",
+      "name": "メンズファッション",
+      "enabled": true
+    },
+    {
+      "id": "100433",
+      "slug": "genre-100433",
+      "name": "インナー・下着・ナイトウェア",
+      "enabled": true
+    },
+    {
+      "id": "216131",
+      "slug": "genre-216131",
+      "name": "バッグ・小物・ブランド雑貨",
+      "enabled": true
+    },
+    {
+      "id": "558885",
+      "slug": "genre-558885",
+      "name": "靴",
+      "enabled": true
+    },
+    {
+      "id": "558929",
+      "slug": "genre-558929",
+      "name": "腕時計",
+      "enabled": true
+    },
+    {
+      "id": "216129",
+      "slug": "genre-216129",
+      "name": "ジュエリー・アクセサリー",
+      "enabled": true
+    },
+    {
+      "id": "100533",
+      "slug": "genre-100533",
+      "name": "キッズ・ベビー・マタニティ",
+      "enabled": true
+    },
+    {
+      "id": "566382",
+      "slug": "genre-566382",
+      "name": "おもちゃ",
+      "enabled": true
+    },
+    {
+      "id": "101070",
+      "slug": "genre-101070",
+      "name": "スポーツ・アウトドア",
+      "enabled": true
+    },
+    {
+      "id": "562637",
+      "slug": "genre-562637",
+      "name": "家電",
+      "enabled": true
+    },
+    {
+      "id": "211742",
+      "slug": "tv",
+      "name": "TV・オーディオ・カメラ",
+      "enabled": true
+    },
+    {
+      "id": "100026",
+      "slug": "genre-100026",
+      "name": "パソコン・周辺機器",
+      "enabled": true
+    },
+    {
+      "id": "564500",
+      "slug": "genre-564500",
+      "name": "スマートフォン・タブレット",
+      "enabled": true
+    },
+    {
+      "id": "565004",
+      "slug": "genre-565004",
+      "name": "光回線・モバイル通信",
+      "enabled": true
+    },
+    {
+      "id": "100227",
+      "slug": "genre-100227",
+      "name": "食品",
+      "enabled": true
+    },
+    {
+      "id": "551167",
+      "slug": "genre-551167",
+      "name": "スイーツ・お菓子",
+      "enabled": true
+    },
+    {
+      "id": "100316",
+      "slug": "genre-100316",
+      "name": "水・ソフトドリンク",
+      "enabled": true
+    },
+    {
+      "id": "510915",
+      "slug": "genre-510915",
+      "name": "ビール・洋酒",
+      "enabled": true
+    },
+    {
+      "id": "510901",
+      "slug": "genre-510901",
+      "name": "日本酒・焼酎",
+      "enabled": true
+    },
+    {
+      "id": "100804",
+      "slug": "genre-100804",
+      "name": "インテリア・寝具・収納",
+      "enabled": true
+    },
+    {
+      "id": "215783",
+      "slug": "genre-215783",
+      "name": "日用品雑貨・文房具・手芸",
+      "enabled": true
+    },
+    {
+      "id": "558944",
+      "slug": "genre-558944",
+      "name": "キッチン用品・食器・調理器具",
+      "enabled": true
+    },
+    {
+      "id": "200162",
+      "slug": "genre-200162",
+      "name": "本・雑誌・コミック",
+      "enabled": true
+    },
+    {
+      "id": "101240",
+      "slug": "cd-dvd",
+      "name": "CD・DVD",
+      "enabled": true
+    },
+    {
+      "id": "101205",
+      "slug": "genre-101205",
+      "name": "テレビゲーム",
+      "enabled": true
+    },
+    {
+      "id": "101164",
+      "slug": "genre-101164",
+      "name": "ホビー",
+      "enabled": true
+    },
+    {
+      "id": "112493",
+      "slug": "genre-112493",
+      "name": "楽器・音響機器",
+      "enabled": true
+    },
+    {
+      "id": "101114",
+      "slug": "genre-101114",
+      "name": "車・バイク",
+      "enabled": true
+    },
+    {
+      "id": "503190",
+      "slug": "genre-503190",
+      "name": "車用品・バイク用品",
+      "enabled": true
+    },
+    {
+      "id": "100939",
+      "slug": "genre-100939",
+      "name": "美容・コスメ・香水",
+      "enabled": true
+    },
+    {
+      "id": "100938",
+      "slug": "genre-100938",
+      "name": "ダイエット・健康",
+      "enabled": true
+    },
+    {
+      "id": "551169",
+      "slug": "genre-551169",
+      "name": "医薬品・コンタクト・介護",
+      "enabled": true
+    },
+    {
+      "id": "101213",
+      "slug": "genre-101213",
+      "name": "ペット・ペットグッズ",
+      "enabled": true
+    },
+    {
+      "id": "100005",
+      "slug": "diy",
+      "name": "花・ガーデン・DIY",
+      "enabled": true
+    },
+    {
+      "id": "101438",
+      "slug": "genre-101438",
+      "name": "サービス・リフォーム",
+      "enabled": true
+    },
+    {
+      "id": "111427",
+      "slug": "genre-111427",
+      "name": "住宅・不動産",
+      "enabled": true
+    },
+    {
+      "id": "101381",
+      "slug": "genre-101381",
+      "name": "カタログギフト・チケット",
+      "enabled": true
+    },
+    {
+      "id": "100000",
+      "slug": "genre-100000",
+      "name": "百貨店・総合通販・ギフト",
+      "enabled": true
+    }
   ]
 }
