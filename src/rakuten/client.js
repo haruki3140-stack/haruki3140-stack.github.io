@@ -5,7 +5,7 @@ const BASE = 'https://openapi.rakuten.co.jp';
 export const ENDPOINTS = {
   ranking: `${BASE}/ichibaranking/api/IchibaItem/Ranking/20220601`,
   search: `${BASE}/ichibams/api/IchibaItem/Search/20260701`,
-  genre: `${BASE}/ichibagt/api/IchibaGenre/Search/20260401`,
+  genre: `${BASE}/ichibagt/api/IchibaGenre/Search/20260701`,
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

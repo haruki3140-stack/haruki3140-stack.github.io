@@ -97,11 +97,12 @@ export function mockSearch({ keyword = '', hits = 30 } = {}) {
 }
 
 export function mockGenre(genreId = 0) {
+  // 2026-07-01版のレスポンス形式に合わせる
   return {
-    current: { genreId: String(genreId), genreName: 'モックジャンル', genreLevel: 1 },
+    genre: { genreId: Number(genreId), nameJa: 'モックジャンル', level: 1 },
     children: [
-      { child: { genreId: '100371', genreName: 'レディースファッション', genreLevel: 1 } },
-      { child: { genreId: '551177', genreName: 'メンズファッション', genreLevel: 1 } },
+      { genreId: 100371, nameJa: 'レディースファッション', level: 1 },
+      { genreId: 551177, nameJa: 'メンズファッション', level: 1 },
     ],
   };
 }

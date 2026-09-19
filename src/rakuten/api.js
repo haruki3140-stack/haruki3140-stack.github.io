@@ -62,12 +62,29 @@ export async function fetchSearch({ keyword, genreId, hits = 30, page = 1, sort 
   };
 }
 
-/** ジャンルツリーを1階層取得する。genres コマンドでマスタを作るのに使う。 */
+/**
+ * ジャンルツリーを1階層取得する。genres コマンドでマスタを作るのに使う。
+ *
+ * レスポンス形式はAPIのバージョンで変わっている:
+ *   〜2026-04-01  { current, children:[{child:{genreId, genreName, genreLevel}}] }
+ *   2026-07-01〜  { genre, children:[{genreId, nameJa, level}] }
+ * 将来また変わっても落ちないよう、どちらの綴りも受ける。
+ */
 export async function fetchGenre(genreId = 0) {
   const json = config.mock ? mockGenre(genreId) : await call(ENDPOINTS.genre, { genreId });
-  const pick = (g) => ({ id: String(g.genreId), name: g.genreName, level: Number(g.genreLevel) });
+
+  const pick = (raw) => {
+    const g = raw?.child ?? raw;
+    if (!g) return null;
+    const name = g.nameJa ?? g.genreName ?? g.name;
+    if (g.genreId === undefined || !name) return null;
+    return { id: String(g.genreId), name, level: Number(g.level ?? g.genreLevel ?? 0) };
+  };
+
+  const currentRaw = json.genre ?? json.current;
   return {
-    current: json.current ? pick(Array.isArray(json.current) ? json.current[0] : json.current) : null,
-    children: (json.children || []).map((c) => pick(c.child ?? c)),
+    current: pick(Array.isArray(currentRaw) ? currentRaw[0] : currentRaw),
+    // 名前やIDが欠けた要素は捨てる。1件の欠損で同期全体を落とさない。
+    children: (json.children || []).map(pick).filter(Boolean),
   };
 }
