@@ -44,6 +44,7 @@ node src/cli.js serve
 | `npm run run` | collect → compose → build を通しで実行（CIが使うのはこれ） |
 | `npm run serve` | `public/` をローカルで確認 |
 | `npm run stats` | 蓄積状況とアフィリエイトリンク化率を表示 |
+| `npm run stats:strict` | リンク化率が100%でなければ失敗（CIの公開前検査） |
 | `npm test` | 日付・出力安全性・保存処理の回帰テスト |
 
 ## ディレクトリ

@@ -57,6 +57,9 @@ jobs:
           MOCK: ${{ inputs.mock && '1' || '0' }}
         run: npm run run
 
+      - name: 収益化リンクを検査
+        run: npm run stats:strict
+
       - name: 蓄積データをコミット
         run: |
           git config user.name  "github-actions[bot]"

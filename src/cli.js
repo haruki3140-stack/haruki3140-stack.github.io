@@ -105,7 +105,7 @@ async function cmdVerify() {
   }
 }
 
-async function cmdStats() {
+async function cmdStats({ strict = false } = {}) {
   const dates = await listSnapshotDates();
   const articles = await loadArticles();
   const genres = await loadGenres();
@@ -122,6 +122,12 @@ async function cmdStats() {
   console.log(`  アフィリエイトリンク化率  ${total ? Math.round((affiliate / total) * 100) : 0}% (${affiliate}/${total})`);
   if (total && affiliate === 0) {
     console.log('    → 0% です。RAKUTEN_AFFILIATE_ID が未設定だと報酬は発生しません。');
+  } else if (total && affiliate < total) {
+    console.log(`    → ${total - affiliate}件が通常リンクです。RAKUTEN_AFFILIATE_ID とAPI応答を確認してください。`);
+  }
+  if (strict && (!total || affiliate !== total)) {
+    console.error('× 収益化チェック失敗: 全商品がアフィリエイトリンクになるまで公開処理を続行しません。');
+    return 1;
   }
   return 0;
 }
@@ -214,7 +220,7 @@ async function main() {
     case 'verify':
       return cmdVerify();
     case 'stats':
-      return cmdStats();
+      return cmdStats({ strict: process.argv.includes('--strict') });
     case 'serve':
       return cmdServe();
     case 'genres': {
