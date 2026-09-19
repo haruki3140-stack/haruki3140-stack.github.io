@@ -79,6 +79,23 @@ footer.site a{color:var(--muted)}
   font-size:.85rem;text-decoration:none;background:var(--surface)
 }
 .chips a:hover{border-color:var(--accent);color:var(--accent)}
+.chart{margin:0 0 20px;padding:14px 4px 4px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+.chart figcaption{font-size:.8rem;color:var(--muted);padding:6px 12px 4px;line-height:1.6}
+.ch-grid{stroke:var(--border);stroke-width:1}
+.ch-line{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.ch-area{fill:var(--accent);opacity:.10}
+.ch-dot{fill:var(--accent)}
+.ch-dot-min{fill:var(--up);stroke:var(--bg);stroke-width:2}
+.ch-ylabel{fill:var(--muted);font-size:11px;text-anchor:end;dominant-baseline:middle}
+.ch-xlabel{fill:var(--muted);font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 20px;padding:0;list-style:none}
+.stats li{border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;background:var(--surface)}
+.stats .k{display:block;font-size:.76rem;color:var(--muted);margin-bottom:2px}
+.stats .v{font-size:1.05rem;font-weight:700}
+.stats .v.low{color:var(--up)}
+.verdict{border-left:4px solid var(--accent);background:var(--surface);padding:12px 16px;border-radius:0 var(--radius) var(--radius) 0;margin:0 0 20px}
+.verdict strong{font-size:1.02rem}
+.hist-link{display:inline-block;margin-top:6px;font-size:.8rem;color:var(--muted)}
 .empty{border:1px dashed var(--border);border-radius:var(--radius);padding:28px;text-align:center;color:var(--muted)}
 @media (max-width:520px){
   h1{font-size:1.3rem}

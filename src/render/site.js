@@ -7,18 +7,33 @@ import { layout, esc, jpDate } from './html.js';
 import { renderSection, renderItem } from './components.js';
 import { CSS } from './styles.js';
 import { indexNowKeyFile, pingIndexNow } from './indexnow.js';
+import { buildHistories } from '../pipeline/history.js';
+import { renderHistoryPage, renderHistoryIndex, historyUrl } from './history-page.js';
 
 const OUT = config.paths.public;
 const BASE = config.site.url;
 
 async function writePage(relPath, html) {
-  const file = path.join(OUT, relPath);
+  const root = path.resolve(OUT);
+  const file = path.resolve(root, relPath);
+  const relative = path.relative(root, file);
+  if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new Error(`公開先の外には書き込めません: ${relPath}`);
+  }
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, html, 'utf8');
 }
 
 const articleUrl = (a) => `${BASE}/a/${a.id}/`;
 const genreUrl = (slug) => `${BASE}/g/${slug}/`;
+
+/** mock フラグ追加前の記事も、モック固有の商品情報から安全に判別する。 */
+export function isMockArticle(article) {
+  if (typeof article.mock === 'boolean') return article.mock;
+  const ranking = article.sections?.find((section) => section.type === 'ranking');
+  return (ranking?.items || []).some((item) =>
+    String(item.shopCode).startsWith('mock-shop-') || String(item.url).includes('/MOCK/'));
+}
 
 function crumb(parts) {
   const html = parts
@@ -54,13 +69,13 @@ function articleJsonLd(a) {
   };
 }
 
-function renderArticlePage(a, genres) {
+function renderArticlePage(a, genres, historySlugs = null) {
   const genre = genres.find((g) => g.slug === a.genreSlug);
   const body = `
 <h1>${esc(a.title)}</h1>
 <p class="meta">${esc(jpDate(a.date))} 更新${a.diff.comparedTo ? `　/　前回集計：${esc(jpDate(a.diff.comparedTo))}` : ''}</p>
 <div class="lead">${a.lead.map((p) => `<p>${esc(p)}</p>`).join('')}</div>
-${a.sections.map(renderSection).join('\n')}
+${a.sections.map((sec) => renderSection(sec, { historySlugs })).join('\n')}
 <section>
   <h2>ほかのジャンルのランキング</h2>
   <ul class="chips">${genres.map((g) => `<li><a href="${esc(genreUrl(g.slug))}">${esc(g.name)}</a></li>`).join('')}</ul>
@@ -230,8 +245,11 @@ async function copyStatic() {
 }
 
 export async function build() {
-  const [articles, genres] = await Promise.all([loadArticles(), loadGenres()]);
+  const [storedArticles, genres] = await Promise.all([loadArticles(), loadGenres()]);
+  const articles = storedArticles.filter((article) => isMockArticle(article) === config.mock);
   console.log(`■ サイト生成  記事 ${articles.length}件 / ジャンル ${genres.length}件`);
+  const excluded = storedArticles.length - articles.length;
+  if (excluded) console.log(`  · 現在のモードと異なる記事 ${excluded}件は公開対象から除外`);
 
   await fs.rm(OUT, { recursive: true, force: true });
   await fs.mkdir(OUT, { recursive: true });
@@ -240,11 +258,22 @@ export async function build() {
   // GitHub Pages の Jekyll 処理を止める（_ で始まるパスが無視されるのを防ぐ）。
   await fs.writeFile(path.join(OUT, '.nojekyll'), '', 'utf8');
 
+  // 価格推移ページを先に確定させる。記事から「この商品の価格推移を見る」で
+  // 内部リンクを張るため、どの商品にページがあるかを記事より前に知る必要がある。
+  const histories = config.mock ? [] : await buildHistories();
+  const historySlugs = new Set(histories.map((h) => h.slug));
+
+  await writePage('p/index.html', renderHistoryIndex(histories));
+  for (const h of histories) {
+    await writePage(`p/${h.slug}/index.html`, renderHistoryPage(h, genres));
+  }
+  console.log(`  ✓ 価格推移ページ ${histories.length}件`);
+
   await writePage('index.html', renderIndex(articles, genres));
   await writePage('about/index.html', renderAbout(genres));
 
   for (const a of articles) {
-    await writePage(`a/${a.id}/index.html`, renderArticlePage(a, genres));
+    await writePage(`a/${a.id}/index.html`, renderArticlePage(a, genres, historySlugs));
   }
 
   for (const g of genres) {
@@ -257,8 +286,10 @@ export async function build() {
   const urls = [
     { loc: `${BASE}/`, lastmod: articles[0]?.date },
     { loc: `${BASE}/about/` },
+    { loc: `${BASE}/p/`, lastmod: articles[0]?.date },
     ...genres.map((g) => ({ loc: genreUrl(g.slug), lastmod: articles.find((a) => a.genreSlug === g.slug)?.date })),
     ...articles.map((a) => ({ loc: articleUrl(a), lastmod: a.date })),
+    ...histories.map((h) => ({ loc: historyUrl(h.slug), lastmod: h.points.at(-1).date })),
   ];
   await writePage('sitemap.xml', renderSitemap(urls));
   await writePage('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);

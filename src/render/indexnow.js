@@ -12,19 +12,30 @@ const ENDPOINT = 'https://api.indexnow.org/indexnow';
 
 /** 1回の通知に含められるURLは1万件まで。実際にはそこまで増えない。 */
 const MAX_URLS = 10_000;
+const VALID_KEY = /^[A-Za-z0-9-]{8,128}$/;
+
+function validKey() {
+  const key = config.site.indexNowKey;
+  return key && VALID_KEY.test(key) ? key : '';
+}
 
 export function indexNowKeyFile() {
-  const key = config.site.indexNowKey;
+  const key = validKey();
   if (!key) return null;
   return { name: `${key}.txt`, content: key };
 }
 
 export async function pingIndexNow(urls) {
-  const key = config.site.indexNowKey;
+  const configuredKey = config.site.indexNowKey;
+  const key = validKey();
 
-  if (!key) {
+  if (!configuredKey) {
     console.log('  · IndexNow: キー未設定のため通知しません（INDEXNOW_KEY）');
     return { skipped: 'no-key' };
+  }
+  if (!key) {
+    console.warn('  · IndexNow: キーの形式が不正です（英数字・ハイフン、8〜128文字）');
+    return { skipped: 'invalid-key' };
   }
   if (config.mock) {
     console.log('  · IndexNow: MOCKモードのため通知しません');

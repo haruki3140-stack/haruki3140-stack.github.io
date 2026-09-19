@@ -16,6 +16,7 @@
     "doctor": "node src/cli.js doctor",
     "serve": "node src/cli.js serve",
     "stats": "node src/cli.js stats",
-    "verify": "node src/cli.js verify"
+    "verify": "node src/cli.js verify",
+    "test": "node --test"
   }
 }

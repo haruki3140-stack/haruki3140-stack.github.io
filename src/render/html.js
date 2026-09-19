@@ -12,6 +12,24 @@ export function esc(s) {
 export const yen = (n) => `${Number(n || 0).toLocaleString('ja-JP')}円`;
 export const jpDate = (d) => String(d).replaceAll('-', '/');
 
+/** API由来のURLは http(s) だけをリンク・画像として許可する。 */
+export function safeHttpUrl(value) {
+  try {
+    const url = new URL(String(value ?? ''));
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '';
+  } catch {
+    return '';
+  }
+}
+
+/** </script> を含む商品名でも JSON-LD の script 要素を抜けられない形式にする。 */
+export function serializeJsonLd(value) {
+  return JSON.stringify(value)
+    .replaceAll('<', '\\u003c')
+    .replaceAll('\u2028', '\\u2028')
+    .replaceAll('\u2029', '\\u2029');
+}
+
 /**
  * 景品表示法の指定告示（いわゆるステマ規制・2023年10月施行）で、
  * 広告であることを一般消費者が判別できる表示が義務付けられている。
@@ -23,7 +41,9 @@ export const PR_NOTICE = `
 /** rel="sponsored nofollow" は広告リンクに対する検索エンジン側の要求仕様。 */
 export function affiliateLink(href, text, className = '') {
   const cls = className ? ` class="${esc(className)}"` : '';
-  return `<a href="${esc(href)}"${cls} rel="sponsored nofollow noopener" target="_blank">${esc(text)}</a>`;
+  const safeHref = safeHttpUrl(href);
+  if (!safeHref) return `<span${cls}>${esc(text)}</span>`;
+  return `<a href="${esc(safeHref)}"${cls} rel="sponsored nofollow noopener" target="_blank">${esc(text)}</a>`;
 }
 
 /** MOCK で生成したサイトを本物と取り違えないための警告。本番ビルドでは出ない。 */
@@ -50,7 +70,7 @@ ${config.mock ? '<meta name="robots" content="noindex,nofollow">' : ''}
 <meta name="twitter:card" content="summary">
 <link rel="alternate" type="application/rss+xml" title="${esc(config.site.name)}" href="${esc(config.site.url)}/feed.xml">
 <link rel="stylesheet" href="${esc(config.site.url)}/style.css">
-${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
+${jsonLd ? `<script type="application/ld+json">${serializeJsonLd(jsonLd)}</script>` : ''}
 </head>
 <body>
 <header class="site">
@@ -58,6 +78,7 @@ ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script
     <a class="brand" href="${esc(config.site.url)}/">${esc(config.site.name)}</a>
     <nav>
       <a href="${esc(config.site.url)}/">ホーム</a>
+      <a href="${esc(config.site.url)}/p/">価格推移</a>
       <a href="${esc(config.site.url)}/about/">このサイトについて</a>
       <a href="${esc(config.site.url)}/feed.xml">RSS</a>
     </nav>

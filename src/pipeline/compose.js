@@ -88,6 +88,8 @@ export function composeArticle({ snapshot, previous }) {
     genreId: snapshot.genreId,
     genreSlug: snapshot.genreSlug,
     genreName: snapshot.genreName,
+    // 本番ビルドに試験用の記事を混ぜないため、記事側にも取得モードを残す。
+    mock: Boolean(snapshot.mock),
     title: buildTitle(snapshot.genreName, snapshot.date, diff),
     description: buildDescription(snapshot.genreName, snapshot.date, items, diff),
     lead,

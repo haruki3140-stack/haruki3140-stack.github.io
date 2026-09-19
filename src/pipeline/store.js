@@ -1,8 +1,24 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { randomUUID } from 'node:crypto';
 import { config } from '../config.js';
 
-export const todayKey = (d = new Date()) => d.toISOString().slice(0, 10);
+const JAPAN_DATE = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Tokyo',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
+
+/** GitHub Actions の実行時刻ではなく、サイトの基準である日本時間の日付を返す。 */
+export function todayKey(d = new Date()) {
+  const parts = Object.fromEntries(
+    JAPAN_DATE.formatToParts(d)
+      .filter((part) => part.type !== 'literal')
+      .map((part) => [part.type, part.value]),
+  );
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
 
 async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
@@ -19,7 +35,15 @@ export async function readJson(file, fallback = null) {
 
 export async function writeJson(file, data) {
   await ensureDir(path.dirname(file));
-  await fs.writeFile(file, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  // 読み手が書き込み途中のJSONを拾わないよう、同じディレクトリで完成させてから置換する。
+  const temp = `${file}.${process.pid}.${randomUUID()}.tmp`;
+  try {
+    await fs.writeFile(temp, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    await fs.rename(temp, file);
+  } catch (err) {
+    await fs.rm(temp, { force: true }).catch(() => {});
+    throw err;
+  }
 }
 
 const snapshotFile = (date, slug) => path.join(config.paths.snapshots, date, `${slug}.json`);

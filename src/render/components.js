@@ -1,4 +1,6 @@
-import { esc, yen, affiliateLink } from './html.js';
+import { esc, yen, affiliateLink, safeHttpUrl } from './html.js';
+import { config } from '../config.js';
+import { historySlug } from '../pipeline/history.js';
 
 function tags(item, type) {
   const out = [];
@@ -18,12 +20,24 @@ function tags(item, type) {
   return out.length ? `<div class="tags">${out.join('')}</div>` : '';
 }
 
-export function renderItem(item, { type = 'ranking', showRank = true } = {}) {
+/**
+ * その商品の価格推移ページが存在するときだけリンクする。
+ * 内部リンクが無いとクロールされにくく、せっかく作ったページが検索に載らない。
+ */
+function historyLink(item, historySlugs) {
+  if (!historySlugs || !item.code) return '';
+  const slug = historySlug(item.code);
+  if (!historySlugs.has(slug)) return '';
+  return `<a class="hist-link" href="${esc(config.site.url)}/p/${esc(slug)}/">この商品の価格推移を見る →</a>`;
+}
+
+export function renderItem(item, { type = 'ranking', showRank = true, historySlugs = null } = {}) {
   const rankBadge = showRank && item.rank
     ? `<div class="rank${type === 'ranking' ? '' : ' plain'}">${item.rank}</div>`
     : '';
-  const img = item.image
-    ? `<img src="${esc(item.image)}" alt="" loading="lazy" decoding="async" width="88" height="88">`
+  const image = safeHttpUrl(item.image);
+  const img = image
+    ? `<img src="${esc(image)}" alt="" loading="lazy" decoding="async" width="88" height="88">`
     : '';
   const was = item.previousPrice ? `<span class="was">${yen(item.previousPrice)}</span>` : '';
 
@@ -36,13 +50,14 @@ export function renderItem(item, { type = 'ranking', showRank = true } = {}) {
     <p class="price">${yen(item.price)}${was}</p>
     ${tags(item, type)}
     ${affiliateLink(item.url, '楽天市場で見る', 'buy')}
+    ${historyLink(item, historySlugs)}
   </div>
 </li>`;
 }
 
-export function renderSection(section) {
+export function renderSection(section, { historySlugs = null } = {}) {
   const note = section.note ? `<p class="note">${esc(section.note)}</p>` : '';
-  const items = section.items.map((it) => renderItem(it, { type: section.type })).join('\n');
+  const items = section.items.map((it) => renderItem(it, { type: section.type, historySlugs })).join('\n');
   return `<section>
   <h2>${esc(section.heading)}</h2>
   ${note}

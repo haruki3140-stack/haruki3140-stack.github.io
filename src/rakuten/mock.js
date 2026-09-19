@@ -4,6 +4,8 @@
  * 「順位変動」「値下がり」の生成ロジックまで実データ無しで検証できる。
  */
 
+import { todayKey } from '../pipeline/store.js';
+
 const PRODUCTS = [
   ['ワイヤレスイヤホン ノイズキャンセリング', 7980, 'サウンドギア楽天市場店'],
   ['北海道産 ほたて貝柱 1kg 訳あり', 5480, '北の海鮮市場'],
@@ -48,7 +50,7 @@ function seeded(seed) {
   return ((h >>> 0) % 100000) / 100000;
 }
 
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => todayKey();
 
 function makeItem(index, genreId, rank) {
   const [baseName, basePrice, shop] = PRODUCTS[index % PRODUCTS.length];

@@ -144,7 +144,8 @@ async function cmdServe() {
       const urlPath = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
       let file = path.join(root, urlPath);
       // root の外に出るパス（../ を含む要求）は拒否する。
-      if (!path.resolve(file).startsWith(path.resolve(root))) {
+      const relative = path.relative(path.resolve(root), path.resolve(file));
+      if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
         res.writeHead(403).end('forbidden');
         return;
       }
@@ -198,6 +199,14 @@ function listenWithFallback(server, basePort, attempts) {
 
 async function main() {
   const cmd = process.argv[2];
+
+  // CIでSecretが欠けたとき、暗黙のMOCKへ切り替わってダミー記事を公開する事故を防ぐ。
+  const needsApi = ['run', 'collect', 'genres'].includes(cmd);
+  const isCI = ['1', 'true'].includes(String(process.env.CI ?? '').toLowerCase());
+  if (isCI && needsApi && config.mock && process.env.MOCK?.trim() !== '1') {
+    console.error('CIでは認証情報不足による暗黙のMOCK実行を拒否します。ダミー実行は MOCK=1 を明示してください。');
+    return 1;
+  }
 
   switch (cmd) {
     case 'doctor':
