@@ -72,13 +72,17 @@ export async function call(endpoint, params = {}) {
       res = await fetch(url, {
         headers: {
           'User-Agent': 'rakuten-affiliate-auto/1.0',
-          // アクセスキーはヘッダでもクエリでも受け付ける仕様だが、
-          // 環境によってクエリが無視される場合に備えて両方で送る。
-          accessKey: config.rakuten.accessKey,
-          // アプリを「Web Application」種別で登録すると、リファラのドメインで
-          // アクセス可否が判定される。Node の fetch は Referer を自動で付けないため、
-          // 登録した公開URLを明示的に送る。ここが欠けると全リクエストが弾かれる。
+          // アプリを「Web Application」種別で登録すると、送信元ドメインで
+          // アクセス可否が判定される。Node の fetch はブラウザと違って
+          // Referer も Origin も自動で付けないため、両方を明示的に送る。
+          //
+          // 実測（scripts/probe.js による総当たり）で判明したこと:
+          //   Referer のみ           → 403 REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING
+          //   Origin なし・key=header → 同上
+          //   Referer + Origin       → 200
+          // つまり Origin が必須。片方だけでは通らないので、両方消さないこと。
           Referer: `${config.site.url}/`,
+          Origin: config.site.url,
         },
         signal: AbortSignal.timeout(20_000),
       });
