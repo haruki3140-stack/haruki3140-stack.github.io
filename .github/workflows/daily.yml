@@ -52,6 +52,7 @@ jobs:
           SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
           SITE_AUTHOR: ${{ vars.SITE_AUTHOR }}
           GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
+          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
           MOCK: ${{ inputs.mock && '1' || '0' }}
         run: npm run run
 

@@ -6,6 +6,7 @@ import { loadGenres } from '../pipeline/genres.js';
 import { layout, esc, jpDate } from './html.js';
 import { renderSection, renderItem } from './components.js';
 import { CSS } from './styles.js';
+import { indexNowKeyFile, pingIndexNow } from './indexnow.js';
 
 const OUT = config.paths.public;
 const BASE = config.site.url;
@@ -262,7 +263,13 @@ export async function build() {
   await writePage('sitemap.xml', renderSitemap(urls));
   await writePage('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
 
+  // 所有証明ファイルは毎回生成するので、キーを変えても取り違えが起きない。
+  const keyFile = indexNowKeyFile();
+  if (keyFile) await writePage(keyFile.name, keyFile.content);
+
   await copyStatic();
+
+  await pingIndexNow(urls.map((u) => u.loc));
 
   console.log(`  ✓ ${urls.length} ページを ${path.relative(config.paths.root, OUT)}/ に出力`);
   return { pages: urls.length, articles: articles.length };

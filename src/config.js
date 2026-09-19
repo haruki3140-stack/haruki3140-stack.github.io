@@ -43,6 +43,8 @@ export const config = {
     author: env('SITE_AUTHOR', ''),
     // Search Console の「HTMLタグ」方式で認証する場合の content 値。
     googleVerification: env('GOOGLE_SITE_VERIFICATION'),
+    // IndexNow の所有証明キー（8〜128文字の英数字）。未設定なら通知しない。
+    indexNowKey: env('INDEXNOW_KEY'),
   },
   paths: {
     root: ROOT,
