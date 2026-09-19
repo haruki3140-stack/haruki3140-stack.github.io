@@ -72,6 +72,9 @@ export async function call(endpoint, params = {}) {
       res = await fetch(url, {
         headers: {
           'User-Agent': 'rakuten-affiliate-auto/1.0',
+          // アクセスキーはヘッダでもクエリでも受け付ける仕様だが、
+          // 環境によってクエリが無視される場合に備えて両方で送る。
+          accessKey: config.rakuten.accessKey,
           // アプリを「Web Application」種別で登録すると、リファラのドメインで
           // アクセス可否が判定される。Node の fetch は Referer を自動で付けないため、
           // 登録した公開URLを明示的に送る。ここが欠けると全リクエストが弾かれる。
