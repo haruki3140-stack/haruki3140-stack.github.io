@@ -202,6 +202,32 @@ ${body}
 </urlset>`;
 }
 
+/**
+ * static/ の中身を public/ にそのまま複製する。
+ *
+ * build() は毎回 public/ を消してから作り直すため、そこに直接置いたファイルは
+ * 翌日のビルドで消える。Search Console の認証用HTML、ads.txt、独自ドメインの
+ * CNAME など「生成物ではないが公開したいファイル」は static/ に置く。
+ */
+async function copyStatic() {
+  const src = path.join(config.paths.root, 'static');
+  try {
+    await fs.access(src);
+  } catch {
+    return 0;
+  }
+  // フォルダの説明書きと .gitkeep は公開対象ではない。
+  const skip = new Set(['README.md', '.gitkeep']);
+  await fs.cp(src, OUT, {
+    recursive: true,
+    filter: (from) => !skip.has(path.basename(from)),
+  });
+
+  const copied = (await fs.readdir(src, { recursive: true })).filter((f) => !skip.has(path.basename(f)));
+  if (copied.length) console.log(`  ✓ static/ の ${copied.length} 件をそのまま公開`);
+  return copied.length;
+}
+
 export async function build() {
   const [articles, genres] = await Promise.all([loadArticles(), loadGenres()]);
   console.log(`■ サイト生成  記事 ${articles.length}件 / ジャンル ${genres.length}件`);
@@ -235,6 +261,8 @@ export async function build() {
   ];
   await writePage('sitemap.xml', renderSitemap(urls));
   await writePage('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
+
+  await copyStatic();
 
   console.log(`  ✓ ${urls.length} ページを ${path.relative(config.paths.root, OUT)}/ に出力`);
   return { pages: urls.length, articles: articles.length };

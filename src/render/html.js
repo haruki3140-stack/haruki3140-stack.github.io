@@ -39,6 +39,7 @@ export function layout({ title, description, canonical, body, jsonLd = null, bre
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(description)}">
+${config.site.googleVerification ? `<meta name="google-site-verification" content="${esc(config.site.googleVerification)}">` : ''}
 ${config.mock ? '<meta name="robots" content="noindex,nofollow">' : ''}
 <link rel="canonical" href="${esc(canonical)}">
 <meta property="og:type" content="website">
