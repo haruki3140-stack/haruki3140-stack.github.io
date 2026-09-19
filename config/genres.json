@@ -180,7 +180,8 @@
       "id": "101114",
       "slug": "genre-101114",
       "name": "車・バイク",
-      "enabled": true
+      "enabled": false,
+      "disabledReason": "ランキングAPIが400を返すため自動で除外"
     },
     {
       "id": "503190",
@@ -228,7 +229,8 @@
       "id": "111427",
       "slug": "genre-111427",
       "name": "住宅・不動産",
-      "enabled": true
+      "enabled": false,
+      "disabledReason": "ランキングAPIが400を返すため自動で除外"
     },
     {
       "id": "101381",
@@ -240,7 +242,8 @@
       "id": "100000",
       "slug": "genre-100000",
       "name": "百貨店・総合通販・ギフト",
-      "enabled": true
+      "enabled": false,
+      "disabledReason": "ランキングAPIが400を返すため自動で除外"
     }
   ]
 }

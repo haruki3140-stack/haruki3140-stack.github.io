@@ -1,5 +1,5 @@
 import { fetchRanking } from '../rakuten/api.js';
-import { loadGenres } from './genres.js';
+import { loadGenres, disableGenres } from './genres.js';
 import { saveSnapshot, todayKey, pruneSnapshots } from './store.js';
 import { config } from '../config.js';
 
@@ -11,6 +11,7 @@ export async function collect({ date = todayKey(), limit = 20 } = {}) {
   const genres = await loadGenres();
   const results = [];
   const failures = [];
+  const permanentlyBroken = [];
 
   console.log(`■ 収集開始 (${date})  対象 ${genres.length} ジャンル${config.mock ? '  ※MOCKモード' : ''}`);
 
@@ -37,7 +38,15 @@ export async function collect({ date = todayKey(), limit = 20 } = {}) {
     } catch (err) {
       failures.push({ genre: genre.name, reason: err.message });
       console.error(`  × ${genre.name}: ${err.message}`);
+      // 400 はパラメータが恒久的に不正、つまりそのジャンルにランキングが存在しない。
+      // 再試行しても直らないので、翌日から対象外にして無駄な呼び出しとログを減らす。
+      if (err.status === 400) permanentlyBroken.push(genre);
     }
+  }
+
+  if (permanentlyBroken.length) {
+    await disableGenres(permanentlyBroken.map((g) => g.id));
+    console.log(`  … ランキング非対応のため除外: ${permanentlyBroken.map((g) => g.name).join('、')}`);
   }
 
   const pruned = await pruneSnapshots();

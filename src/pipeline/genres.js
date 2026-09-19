@@ -53,3 +53,19 @@ export async function syncGenres() {
   await fs.writeFile(FILE, JSON.stringify(out, null, 2) + '\n', 'utf8');
   return genres;
 }
+
+/** 指定したジャンルIDを恒久的に対象外にする（config/genres.json を書き換える）。 */
+export async function disableGenres(ids) {
+  const json = JSON.parse(await fs.readFile(FILE, 'utf8'));
+  const target = new Set(ids.map(String));
+  let changed = 0;
+  for (const g of json.genres) {
+    if (target.has(g.id) && g.enabled !== false) {
+      g.enabled = false;
+      g.disabledReason = 'ランキングAPIが400を返すため自動で除外';
+      changed++;
+    }
+  }
+  if (changed) await fs.writeFile(FILE, JSON.stringify(json, null, 2) + '\n', 'utf8');
+  return changed;
+}
