@@ -107,7 +107,9 @@ export async function call(endpoint, params = {}) {
 function describeClientError(status, body) {
   if (status === 400) return 'HTTP 400: リクエストパラメータが不正です（genreId や keyword を確認してください）。';
   if (status === 401 || status === 403) {
-    return `HTTP ${status}: 認証に失敗しました。RAKUTEN_APPLICATION_ID と RAKUTEN_ACCESS_KEY の組み合わせを確認してください。`;
+    // 楽天側の本文には拒否理由（キー不正／リファラ不一致／未有効化など）が入る。
+    // 握りつぶすと原因の切り分けができないので、必ず一緒に出す。
+    return `HTTP ${status}: 認証に失敗しました。RAKUTEN_APPLICATION_ID と RAKUTEN_ACCESS_KEY の組み合わせ、アプリに登録した Allowed websites と SITE_URL の一致を確認してください。楽天の応答: ${String(body).replace(/\s+/g, ' ').slice(0, 300)}`;
   }
   if (status === 404) return 'HTTP 404: エンドポイントが存在しません（APIのバージョン変更の可能性）。';
   return `HTTP ${status}: ${String(body).slice(0, 200)}`;
