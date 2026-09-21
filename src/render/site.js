@@ -9,6 +9,8 @@ import { CSS } from './styles.js';
 import { indexNowKeyFile, pingIndexNow } from './indexnow.js';
 import { buildHistories } from '../pipeline/history.js';
 import { renderHistoryPage, renderHistoryIndex, historyUrl } from './history-page.js';
+import { buildWeeklyReport } from '../pipeline/weekly.js';
+import { renderWeeklyPage, weeklyUrl } from './weekly-page.js';
 
 const OUT = config.paths.public;
 const BASE = config.site.url;
@@ -119,7 +121,7 @@ ${latest ? `<div class="lead"><p>最新は <a href="${esc(articleUrl(latest))}">
   });
 }
 
-function renderIndex(articles, genres) {
+function renderIndex(articles, genres, weeklyReport) {
   const latestDate = articles[0]?.date;
   const todays = articles.filter((a) => a.date === latestDate);
   const older = articles.filter((a) => a.date !== latestDate).slice(0, 24);
@@ -136,6 +138,11 @@ function renderIndex(articles, genres) {
 <h1>${esc(config.site.name)}</h1>
 <div class="lead"><p>${esc(config.site.description)}</p></div>
 <ul class="chips">${genres.map((g) => `<li><a href="${esc(genreUrl(g.slug))}">${esc(g.name)}</a></li>`).join('')}</ul>
+${weeklyReport ? `<section>
+  <h2>直近7日間の注目商品</h2>
+  <div class="verdict"><strong><a href="${esc(weeklyUrl())}">値下がり・急上昇の週間レポートを見る →</a></strong><br>
+  ${esc(jpDate(weeklyReport.startDate))}〜${esc(jpDate(weeklyReport.endDate))}の${weeklyReport.observedDays}日分を比較しています。</div>
+</section>` : ''}
 ${highlights.length ? `<section>
   <h2>今日いちばん値下がりした商品</h2>
   <p class="note">前回集計時の価格との比較です。価格は変動します。</p>
@@ -262,6 +269,7 @@ export async function build() {
   // 内部リンクを張るため、どの商品にページがあるかを記事より前に知る必要がある。
   const histories = config.mock ? [] : await buildHistories();
   const historySlugs = new Set(histories.map((h) => h.slug));
+  const weeklyReport = await buildWeeklyReport();
 
   await writePage('p/index.html', renderHistoryIndex(histories));
   for (const h of histories) {
@@ -269,7 +277,9 @@ export async function build() {
   }
   console.log(`  ✓ 価格推移ページ ${histories.length}件`);
 
-  await writePage('index.html', renderIndex(articles, genres));
+  await writePage('index.html', renderIndex(articles, genres, weeklyReport));
+  await writePage('weekly/index.html', renderWeeklyPage(weeklyReport));
+  console.log(`  ✓ 週間レポート ${weeklyReport ? `${weeklyReport.observedDays}日分` : '準備中'}`);
   await writePage('about/index.html', renderAbout(genres));
 
   for (const a of articles) {
@@ -287,6 +297,7 @@ export async function build() {
     { loc: `${BASE}/`, lastmod: articles[0]?.date },
     { loc: `${BASE}/about/` },
     { loc: `${BASE}/p/`, lastmod: articles[0]?.date },
+    ...(weeklyReport ? [{ loc: weeklyUrl(), lastmod: weeklyReport.endDate }] : []),
     ...genres.map((g) => ({ loc: genreUrl(g.slug), lastmod: articles.find((a) => a.genreSlug === g.slug)?.date })),
     ...articles.map((a) => ({ loc: articleUrl(a), lastmod: a.date })),
     ...histories.map((h) => ({ loc: historyUrl(h.slug), lastmod: h.points.at(-1).date })),

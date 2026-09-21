@@ -50,7 +50,7 @@ export function affiliateLink(href, text, className = '') {
 const MOCK_BANNER = `
 <p class="pr-badge" style="border-color:#bf0000"><strong>MOCKモードで生成されたページです。</strong>掲載されている商品・価格・リンクはすべてダミーで、実在しません。.env に楽天の認証情報を設定して再生成してください。</p>`;
 
-export function layout({ title, description, canonical, body, jsonLd = null, breadcrumb = '' }) {
+export function layout({ title, description, canonical, body, jsonLd = null, breadcrumb = '', robots = '' }) {
   const fullTitle = title === config.site.name ? title : `${title}｜${config.site.name}`;
   return `<!doctype html>
 <html lang="ja">
@@ -61,7 +61,7 @@ export function layout({ title, description, canonical, body, jsonLd = null, bre
 <meta name="description" content="${esc(description)}">
 ${config.site.googleVerification ? `<meta name="google-site-verification" content="${esc(config.site.googleVerification)}">` : ''}
 ${config.site.bingVerification ? `<meta name="msvalidate.01" content="${esc(config.site.bingVerification)}">` : ''}
-${config.mock ? '<meta name="robots" content="noindex,nofollow">' : ''}
+${config.mock ? '<meta name="robots" content="noindex,nofollow">' : robots ? `<meta name="robots" content="${esc(robots)}">` : ''}
 <link rel="canonical" href="${esc(canonical)}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(fullTitle)}">
@@ -79,6 +79,7 @@ ${jsonLd ? `<script type="application/ld+json">${serializeJsonLd(jsonLd)}</scrip
     <a class="brand" href="${esc(config.site.url)}/">${esc(config.site.name)}</a>
     <nav>
       <a href="${esc(config.site.url)}/">ホーム</a>
+      <a href="${esc(config.site.url)}/weekly/">週間レポート</a>
       <a href="${esc(config.site.url)}/p/">価格推移</a>
       <a href="${esc(config.site.url)}/about/">このサイトについて</a>
       <a href="${esc(config.site.url)}/feed.xml">RSS</a>

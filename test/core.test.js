@@ -7,6 +7,7 @@ import { todayKey, readJson, writeJson } from '../src/pipeline/store.js';
 import { composeArticle } from '../src/pipeline/compose.js';
 import { safeHttpUrl, serializeJsonLd } from '../src/render/html.js';
 import { isMockArticle } from '../src/render/site.js';
+import { compileWeeklyReport } from '../src/pipeline/weekly.js';
 
 test('todayKey uses Japan time across the UTC date boundary', () => {
   assert.equal(todayKey(new Date('2026-09-19T14:59:59Z')), '2026-09-19');
@@ -54,4 +55,37 @@ test('writeJson safely replaces an existing document', async () => {
   } finally {
     await fs.rm(dir, { recursive: true, force: true });
   }
+});
+
+test('compileWeeklyReport finds price drops and rank risers from the latest seven days', () => {
+  const item = (overrides) => ({
+    code: 'shop:item', name: '商品A', price: 2000, rank: 10, url: 'https://example.com/item',
+    shopName: 'テスト店', isAffiliate: true, reviewCount: 10, reviewAverage: 4.5,
+    ...overrides,
+  });
+  const snapshot = (date, overrides) => ({
+    date, genreSlug: 'food', genreName: '食品', mock: false, items: [item(overrides)],
+  });
+
+  const report = compileWeeklyReport([
+    snapshot('2026-09-15', { price: 2000, rank: 18 }),
+    snapshot('2026-09-18', { price: 1800, rank: 12 }),
+    snapshot('2026-09-21', { price: 1500, rank: 5 }),
+  ]);
+
+  assert.equal(report.startDate, '2026-09-15');
+  assert.equal(report.endDate, '2026-09-21');
+  assert.equal(report.observedDays, 3);
+  assert.equal(report.priceDrops[0].priceDelta, 500);
+  assert.equal(report.priceDrops[0].priceDeltaPct, 25);
+  assert.equal(report.risers[0].rankDelta, 13);
+  assert.equal(report.risers[0].previousRank, 18);
+});
+
+test('compileWeeklyReport waits for at least two collection days', () => {
+  const report = compileWeeklyReport([{
+    date: '2026-09-21', genreSlug: 'all', genreName: '総合', mock: false,
+    items: [{ code: 'shop:item', name: '商品A', price: 1000, rank: 1 }],
+  }]);
+  assert.equal(report, null);
 });
