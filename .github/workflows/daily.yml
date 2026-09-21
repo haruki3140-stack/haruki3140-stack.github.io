@@ -27,11 +27,11 @@ jobs:
     outputs:
       built: ${{ steps.pipeline.outcome }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: ジャンル一覧を楽天APIから同期
         if: ${{ inputs.sync_genres }}
