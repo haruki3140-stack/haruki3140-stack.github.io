@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
     outputs:
       built: ${{ steps.pipeline.outcome }}
     steps:
@@ -79,6 +80,23 @@ jobs:
         with:
           path: public
           retention-days: 1
+
+      - name: 失敗をGitHub Issueで通知
+        if: ${{ failure() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="[自動通知] 毎日の自動更新に失敗"
+          body="毎日の自動更新に失敗しました。実行ログ: ${RUN_URL}"
+          issue_number="$(gh issue list --repo "$REPOSITORY" --state open --search "$title in:title" --json number --jq ".[0].number // empty")"
+
+          if [ -n "$issue_number" ]; then
+            gh issue comment "$issue_number" --repo "$REPOSITORY" --body "$body"
+          else
+            gh issue create --repo "$REPOSITORY" --title "$title" --body "$body"
+          fi
 
   deploy:
     if: ${{ vars.HOSTING_PROVIDER != 'cloudflare' }}
