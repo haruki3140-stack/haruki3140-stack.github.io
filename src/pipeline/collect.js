@@ -3,6 +3,7 @@ import { loadGenres, disableGenres } from './genres.js';
 import { saveSnapshot, todayKey, pruneSnapshots } from './store.js';
 import { config } from '../config.js';
 import { selectTopRankingItems } from './ranking.js';
+import { archiveExpiringSnapshots } from './history.js';
 
 /**
  * 有効ジャンルのランキングを取得して当日のスナップショットとして保存する。
@@ -52,6 +53,9 @@ export async function collect({ date = todayKey(), limit = 20 } = {}) {
     console.log(`  … ランキング非対応のため除外: ${permanentlyBroken.map((g) => g.name).join('、')}`);
   }
 
+  // 消す前に、価格推移ページで使う記録だけを長期保存へ移す。
+  const archived = await archiveExpiringSnapshots();
+  if (archived) console.log(`  … 価格推移の記録 ${archived}件を長期保存へ移動`);
   const pruned = await pruneSnapshots();
   if (pruned.length) console.log(`  … 古いスナップショット ${pruned.length}日分を削除`);
 

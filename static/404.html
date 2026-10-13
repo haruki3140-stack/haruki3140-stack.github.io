@@ -57,9 +57,23 @@
   <body>
     <main>
       <p class="status" aria-hidden="true">404</p>
-      <h1>ページが見つかりません</h1>
-      <p>URLが変更されたか、ページが削除された可能性があります。</p>
-      <a href="/">楽天ランキング速報のトップへ戻る</a>
+      <h1 id="title">ページが見つかりません</h1>
+      <p id="message">URLが変更されたか、ページが削除された可能性があります。</p>
+      <a id="next" href="/">楽天ランキング速報のトップへ戻る</a>
     </main>
+    <script>
+      // 保存期間を過ぎて削除した日別記事（/a/日付-ジャンル/）なら、同じジャンルの一覧へ案内する。
+      // 直近の削除分は _redirects で転送しているので、ここに来るのはそれより古いURL。
+      (function () {
+        var match = /^\/a\/(\d{4})-(\d{2})-(\d{2})-([a-z0-9-]+)\/?$/.exec(location.pathname);
+        if (!match) return;
+        document.getElementById('title').textContent = 'この日のランキングは公開を終了しました';
+        document.getElementById('message').textContent =
+          match[1] + '/' + match[2] + '/' + match[3] + ' のランキング記事は、保存期間を過ぎたため削除しました。最新のランキングはジャンルの一覧ページでご覧いただけます。';
+        var next = document.getElementById('next');
+        next.setAttribute('href', '/g/' + match[4] + '/');
+        next.textContent = 'このジャンルの最新ランキングを見る';
+      })();
+    </script>
   </body>
 </html>

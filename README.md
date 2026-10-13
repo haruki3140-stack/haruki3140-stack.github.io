@@ -53,6 +53,8 @@ node src/cli.js serve
 ```
 config/genres.json      対象ジャンル（npm run genres が自動更新）
 data/snapshots/<日付>/  日次のランキング記録（45日分を保持、Gitにコミットされる）
+data/history/archive.json  45日を過ぎた価格履歴（価格推移ページの対象商品だけ長期保存）
+data/expired-articles.json 削除した記事のID（_redirects で転送するために記録）
 data/articles/          生成された記事データ
 public/                 出力される静的サイト（Git管理外）
 src/rakuten/            楽天APIクライアント（レート制限・再試行・モック）
@@ -114,6 +116,18 @@ src/render/             HTML/RSS/サイトマップ生成
 日本語のジャンル名はASCIIのslugを作れないため、多くが `genre-100371` のような
 ID形式になります。読みやすいURLにしたい場合は `config/genres.json` の `slug` を
 手で書き換えてください（`name` は同期のたびにAPIの値で上書きされますが、`slug` は保持されます）。
+
+### 古いデータとURLの扱い
+
+スナップショットと日別記事は45日分だけ残します。それより古いものは次のように扱います。
+
+- **価格履歴**：消す前に、価格推移ページの対象商品（3日以上の記録があり、価格が動いた商品）の記録だけを
+  `data/history/archive.json` に移します。価格推移ページは45日を過ぎても消えず、記録も途切れません。
+  最新の集計日にランクインしていない商品は「最終記録時の価格」と表示し、構造化データの販売情報（Offer）は出しません。
+- **日別記事のURL**：消した記事のIDを `data/expired-articles.json` に記録し、build が `public/_redirects` に
+  同じジャンルの一覧ページへの 301 転送を書き出します。Cloudflare Pages の上限（固定ルール2,000件）に合わせて
+  新しいものから1,900件までです。それより古いURLは 404 ページが同じジャンルの一覧へ案内します。
+- 手書きの転送ルールが必要な場合は `static/_redirects` に置いてください。自動ルールと合わせて出力されます。
 
 ### ランキングの順位を検査する
 

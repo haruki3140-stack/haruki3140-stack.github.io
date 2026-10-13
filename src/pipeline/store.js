@@ -83,8 +83,19 @@ export async function findPreviousSnapshot(date, slug, { mock } = {}) {
   return null;
 }
 
+/** スナップショットと記事を残す日数。超えた分は価格履歴を archive へ移してから消す。 */
+export const SNAPSHOT_KEEP_DAYS = 45;
+export const ARTICLE_KEEP_DAYS = 45;
+
+/**
+ * 削除した記事のIDを残す件数。build() が _redirects の転送ルールにするため、
+ * Cloudflare Pages の固定ルール上限（2,000件）に余裕を持たせた値にする。
+ */
+export const EXPIRED_ARTICLES_LIMIT = 1900;
+export const expiredArticlesFile = () => path.join(config.paths.data, 'expired-articles.json');
+
 /** 古いスナップショットを削除してリポジトリの肥大化を防ぐ。 */
-export async function pruneSnapshots(keepDays = 45) {
+export async function pruneSnapshots(keepDays = SNAPSHOT_KEEP_DAYS) {
   const dates = await listSnapshotDates();
   const stale = dates.slice(keepDays);
   for (const d of stale) {
@@ -110,8 +121,17 @@ export async function loadArticles() {
   }
 }
 
-/** 記事も一定数で打ち止めにする（サイトマップと生成時間を抑える）。 */
-export async function pruneArticles(keepDays = 45) {
+/** 削除済み記事のIDを新しい順に返す。 */
+export async function loadExpiredArticleIds() {
+  const saved = await readJson(expiredArticlesFile(), { ids: [] });
+  return Array.isArray(saved.ids) ? saved.ids : [];
+}
+
+/**
+ * 記事も一定数で打ち止めにする（サイトマップと生成時間を抑える）。
+ * 消したURLは検索エンジンに登録済みのことがあるので、転送用にIDを記録しておく。
+ */
+export async function pruneArticles(keepDays = ARTICLE_KEEP_DAYS) {
   const articles = await loadArticles();
   const dates = [...new Set(articles.map((a) => a.date))].sort().reverse();
   const keep = new Set(dates.slice(0, keepDays));
@@ -120,6 +140,16 @@ export async function pruneArticles(keepDays = 45) {
     if (keep.has(a.date)) continue;
     await fs.rm(path.join(config.paths.articles, `${a.id}.json`), { force: true });
     removed.push(a.id);
+  }
+  // モック記事は公開されていないので転送対象にしない。
+  const published = articles.filter((a) => removed.includes(a.id) && a.mock !== true).map((a) => a.id);
+  if (published.length) {
+    // IDは日付で始まるので、文字列の降順がそのまま新しい順になる。
+    const ids = [...new Set([...published, ...(await loadExpiredArticleIds())])]
+      .sort()
+      .reverse()
+      .slice(0, EXPIRED_ARTICLES_LIMIT);
+    await writeJson(expiredArticlesFile(), { ids });
   }
   return removed;
 }

@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { config } from '../config.js';
-import { loadArticles } from '../pipeline/store.js';
+import { loadArticles, loadExpiredArticleIds } from '../pipeline/store.js';
 import { loadGenres } from '../pipeline/genres.js';
 import { correctArticleRanking } from '../pipeline/compose.js';
 import { layout, esc, jpDate } from './html.js';
@@ -252,6 +252,42 @@ async function copyStatic() {
   return copied.length;
 }
 
+/** Cloudflare Pages の _redirects は固定ルール2,000件・動的ルール100件まで。 */
+const MAX_STATIC_REDIRECTS = 2000;
+
+/**
+ * 保存期間を過ぎて消した記事のURLを、同じジャンルの一覧ページへ 301 で転送するルール。
+ * 検索結果やブックマークから来た人を行き止まりにしない。ジャンルが無効化済みならトップへ。
+ */
+export function renderRedirects(expiredIds, genreSlugs, { limit = MAX_STATIC_REDIRECTS } = {}) {
+  const lines = [];
+  for (const id of expiredIds) {
+    if (lines.length >= limit) break;
+    const match = /^\d{4}-\d{2}-\d{2}-([a-z0-9-]+)$/.exec(id);
+    if (!match) continue;
+    const target = genreSlugs.has(match[1]) ? `/g/${match[1]}/` : '/';
+    lines.push(`/a/${id}/ ${target} 301`);
+  }
+  return lines.length ? `${lines.join('\n')}\n` : '';
+}
+
+/**
+ * static/_redirects（手書きのルール）がある場合は残し、上限の残り枠に自動ルールを入れる。
+ * 自動ルールはすべて固定パスなので、手書きの動的ルールより前に置く。
+ * 上限からあふれた古いURLは 404 ページが同じジャンルへ案内する。
+ */
+async function writeRedirects(genres) {
+  const expired = await loadExpiredArticleIds();
+  if (!expired.length) return;
+  const manual = await fs.readFile(path.join(OUT, '_redirects'), 'utf8').catch(() => '');
+  const manualRules = manual.split(/\r?\n/).filter((line) => line.trim() && !line.trim().startsWith('#')).length;
+  const generated = renderRedirects(expired, new Set(genres.map((g) => g.slug)), {
+    limit: Math.max(0, MAX_STATIC_REDIRECTS - manualRules),
+  });
+  await writePage('_redirects', `${generated}${manual}`);
+  console.log(`  ✓ 削除済み記事の転送ルール ${generated.split('\n').filter(Boolean).length}件`);
+}
+
 export async function build() {
   const [storedArticles, genres] = await Promise.all([loadArticles(), loadGenres()]);
   const articles = storedArticles
@@ -313,6 +349,7 @@ export async function build() {
   if (keyFile) await writePage(keyFile.name, keyFile.content);
 
   await copyStatic();
+  await writeRedirects(genres);
 
   await pingIndexNow(urls.map((u) => u.loc));
 

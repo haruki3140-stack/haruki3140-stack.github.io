@@ -25,9 +25,18 @@ export function renderHistoryPage(h, genres) {
   const { item, stats, points } = h;
   const period = `${jpDate(points[0].date)}〜${jpDate(points.at(-1).date)}`;
 
-  const verdict = stats.isLowestNow
-    ? '現在の価格は、当サイトが記録している期間の<strong>最安値と同じ</strong>です。'
-    : `現在の価格は、記録上の最安値より<strong>${esc(yen(stats.diffFromMin))}高い</strong>状態です（最安値は${esc(jpDate(stats.lowestDate))}の${esc(yen(stats.min))}）。`;
+  // 最新の集計日にランクインしていない商品は、最後に記録した値しか分からない。
+  const priceLabel = stats.isCurrent ? '現在の価格' : `最終記録時の価格（${jpDate(stats.lastDate)}）`;
+  const verdictBody = stats.isLowestNow
+    ? stats.isCurrent
+      ? '現在の価格は、当サイトが記録している期間の<strong>最安値と同じ</strong>です。'
+      : `${esc(jpDate(stats.lastDate))}に記録した価格は、記録期間の<strong>最安値と同じ</strong>でした。`
+    : stats.isCurrent
+      ? `現在の価格は、記録上の最安値より<strong>${esc(yen(stats.diffFromMin))}高い</strong>状態です（最安値は${esc(jpDate(stats.lowestDate))}の${esc(yen(stats.min))}）。`
+      : `${esc(jpDate(stats.lastDate))}に記録した価格は、記録上の最安値より<strong>${esc(yen(stats.diffFromMin))}高い</strong>状態でした（最安値は${esc(jpDate(stats.lowestDate))}の${esc(yen(stats.min))}）。`;
+  const verdict = stats.isCurrent
+    ? verdictBody
+    : `${verdictBody}この商品は${esc(jpDate(stats.lastDate))}以降ランキング圏外のため記録が更新されていません。最新の価格は商品ページでご確認ください。`;
 
   const rows = [...points]
     .reverse()
@@ -50,7 +59,7 @@ export function renderHistoryPage(h, genres) {
 <div class="verdict"><p>${verdict}</p></div>
 
 <ul class="stats">
-  <li><span class="k">現在の価格</span><span class="v">${esc(yen(stats.current))}</span></li>
+  <li><span class="k">${esc(priceLabel)}</span><span class="v">${esc(yen(stats.current))}</span></li>
   <li><span class="k">記録上の最安値</span><span class="v low">${esc(yen(stats.min))}</span></li>
   <li><span class="k">記録上の最高値</span><span class="v">${esc(yen(stats.max))}</span></li>
   <li><span class="k">平均</span><span class="v">${esc(yen(stats.average))}</span></li>
@@ -73,20 +82,23 @@ ${priceChart(points)}
 
   return layout({
     title: `${item.name.slice(0, 40)}の価格推移`,
-    description: `${item.name.slice(0, 50)}の価格推移を${points.length}日分記録。最安値は${jpDate(stats.lowestDate)}の${yen(stats.min)}、現在は${yen(stats.current)}です。`,
+    description: `${item.name.slice(0, 50)}の価格推移を${points.length}日分記録。最安値は${jpDate(stats.lowestDate)}の${yen(stats.min)}、${stats.isCurrent ? '現在' : `最終記録（${jpDate(stats.lastDate)}）`}は${yen(stats.current)}です。`,
     canonical: historyUrl(h.slug),
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: item.name,
       image: item.image || undefined,
-      offers: {
-        '@type': 'Offer',
-        price: stats.current,
-        priceCurrency: 'JPY',
-        url: item.url,
-        availability: item.availability === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
-      },
+      // 古い記録を販売価格として構造化データに出すと、販売ページとの不一致になる。
+      offers: stats.isCurrent
+        ? {
+          '@type': 'Offer',
+          price: stats.current,
+          priceCurrency: 'JPY',
+          url: item.url,
+          availability: item.availability === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+        }
+        : undefined,
     },
     breadcrumb: crumb([
       { label: 'ホーム', url: `${BASE}/` },
@@ -103,7 +115,7 @@ export function renderHistoryIndex(histories) {
     .map(
       (h) => `<li class="card">
   <h3><a href="${esc(historyUrl(h.slug))}">${esc(h.item.name.slice(0, 60))}</a></h3>
-  <p class="sub">${esc(yen(h.stats.current))}　/　最安 ${esc(yen(h.stats.min))}　/　${h.points.length}日分${h.stats.isLowestNow ? '　/　<strong>いまが最安</strong>' : ''}</p>
+  <p class="sub">${esc(yen(h.stats.current))}　/　最安 ${esc(yen(h.stats.min))}　/　${h.points.length}日分${h.stats.isCurrent && h.stats.isLowestNow ? '　/　<strong>いまが最安</strong>' : ''}${h.stats.isCurrent ? '' : `　/　${esc(jpDate(h.stats.lastDate))}時点`}</p>
 </li>`,
     )
     .join('\n');
