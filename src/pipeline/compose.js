@@ -36,15 +36,28 @@ function rankingLabel(coverage) {
   return '記録';
 }
 
-function correctionNotice(coverage) {
-  if (coverage.completeTop || !coverage.count) return '';
-  const missingTop = coverage.minRank > 1
-    ? `${coverage.minRank === 2 ? '1位' : `1〜${coverage.minRank - 1}位`}のデータは保存されていません。`
-    : '一部の順位のデータが保存されていません。';
+function correctionNotice(coverage, items, selection, limit) {
+  if (!coverage.count) return '';
+  const endRank = selection ? Math.max(coverage.maxRank, limit || coverage.maxRank) : coverage.maxRank;
+  const present = new Set(items.map((item) => Number(item.rank)));
+  const missing = Array.from({ length: endRank }, (_, index) => index + 1)
+    .filter((rank) => !present.has(rank));
+  if (!missing.length) return '';
+  const ranges = [];
+  for (let index = 0; index < missing.length; index += 1) {
+    const start = missing[index];
+    let end = start;
+    while (missing[index + 1] === end + 1) end = missing[++index];
+    ranges.push(start === end ? `${start}位` : `${start}〜${end}位`);
+  }
+  const missingTop = `${ranges.join('、')}のデータは${selection ? '取得できませんでした' : '保存されていません'}。`;
   const range = coverage.minRank === coverage.maxRank
     ? `${coverage.minRank}位`
     : `${coverage.minRank}〜${coverage.maxRank}位`;
-  return `訂正：この日の記録は${range}の${coverage.count}商品です。${missingTop}上位ランキングとしての表記を訂正し、記録に残っている商品だけを掲載しています。`;
+  const ending = selection
+    ? '取得できた商品だけを掲載し、欠測した順位を補完していません。'
+    : '上位ランキングとしての表記を訂正し、記録に残っている商品だけを掲載しています。';
+  return `${selection ? '取得データの注意' : '訂正'}：この日の記録は${range}の${coverage.count}商品です。${missingTop}${ending}`;
 }
 
 function buildTitle(genreName, date, diff, coverage) {
@@ -73,7 +86,10 @@ export function correctArticleRanking(article) {
   const introduction = coverage.completeTop
     ? LEAD_TEMPLATES[v](article.genreName, dateLabel)
     : `${dateLabel}時点の楽天市場「${article.genreName}」で記録に残っている商品を、実際の順位順に掲載しています。`;
-  const lead = [introduction, describeTop(items), correctionNotice(coverage)].filter(Boolean);
+  const lead = [
+    introduction, describeTop(items),
+    correctionNotice(coverage, items, article.rankingSelection, article.rankingLimit),
+  ].filter(Boolean);
   if (article.comparisonNotice) lead.push(article.comparisonNotice);
 
   return {
@@ -99,12 +115,9 @@ export function composeArticle({ snapshot, previous }) {
   const items = sortRankingItems(snapshot.items);
   const coverage = rankingCoverage(items);
   // 修正前の11〜30位と修正後のTOP20では、新規ランクインなどを比較できない。
-  const previousCoverage = previous ? rankingCoverage(previous.items) : null;
-  const changedCoverage = previousCoverage && (
-    coverage.completeTop !== previousCoverage.completeTop
-    || coverage.minRank !== previousCoverage.minRank
-    || coverage.maxRank !== previousCoverage.maxRank
-  );
+  const ranks = items.map((item) => Number(item.rank)).join(',');
+  const previousRanks = previous ? sortRankingItems(previous.items).map((item) => Number(item.rank)).join(',') : null;
+  const changedCoverage = previousRanks !== null && ranks !== previousRanks;
   const diff = diffSnapshots({ ...snapshot, items }, changedCoverage ? null : previous);
 
   const sections = [];
@@ -151,6 +164,8 @@ export function composeArticle({ snapshot, previous }) {
     genreName: snapshot.genreName,
     // 本番ビルドに試験用の記事を混ぜないため、記事側にも取得モードを残す。
     mock: Boolean(snapshot.mock),
+    rankingSelection: snapshot.rankingSelection || '',
+    rankingLimit: snapshot.rankingLimit || items.length,
     comparisonNotice: changedCoverage
       ? '今回から取得順位の範囲を訂正したため、前回との比較は掲載していません。同じ取得範囲の記録がそろった次回から比較を再開します。'
       : '',

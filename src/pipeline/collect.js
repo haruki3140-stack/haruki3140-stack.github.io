@@ -31,6 +31,8 @@ export async function collect({ date = todayKey(), limit = 20 } = {}) {
         genreName: genre.name,
         fetchedAt,
         mock: config.mock,
+        rankingSelection: 'rank-ascending-v1',
+        rankingLimit: limit,
         items: selectTopRankingItems(items, limit),
       };
       await saveSnapshot(date, genre.slug, payload);
