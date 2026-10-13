@@ -19,6 +19,8 @@
     "stats": "node src/cli.js stats",
     "stats:strict": "node src/cli.js stats --strict",
     "verify": "node src/cli.js verify",
+    "indexnow:plan": "node src/cli.js indexnow plan",
+    "indexnow:send": "node src/cli.js indexnow send",
     "test": "node --test"
   }
 }

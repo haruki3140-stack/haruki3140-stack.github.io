@@ -8,6 +8,7 @@ import { compose } from './pipeline/compose.js';
 import { fetchRanking } from './rakuten/api.js';
 import { syncGenres, loadGenres } from './pipeline/genres.js';
 import { build } from './render/site.js';
+import { planIndexNow, sendIndexNow } from './render/indexnow.js';
 import { listSnapshotDates, loadArticles } from './pipeline/store.js';
 
 const USAGE = `
@@ -22,6 +23,8 @@ const USAGE = `
   npm run run       collect → compose → build を通しで実行（CIが使うのはこれ）
   npm run serve     public/ をローカルで確認（http://localhost:4173）
   npm run stats     蓄積状況を表示
+  npm run indexnow:plan  公開中のサイトと比べて IndexNow で通知するURLを決める（push 前）
+  npm run indexnow:send  公開を待ってから IndexNow で通知する（push 後）
 `;
 
 function banner() {
@@ -245,6 +248,18 @@ async function main() {
       config.mock = process.env.MOCK?.trim() === '1';
       await build();
       return 0;
+    case 'indexnow': {
+      // 通知のステップには楽天のSecretを渡さない。build と同じく MOCK=1 の明示だけで判定する。
+      config.mock = process.env.MOCK?.trim() === '1';
+      const sub = process.argv[3];
+      if (sub === 'plan') await planIndexNow();
+      else if (sub === 'send') await sendIndexNow();
+      else {
+        console.error('使い方: node src/cli.js indexnow plan|send');
+        return 1;
+      }
+      return 0;
+    }
     case 'run': {
       banner();
       const started = Date.now();

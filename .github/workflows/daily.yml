@@ -56,7 +56,6 @@ jobs:
           SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
           SITE_AUTHOR: ${{ vars.SITE_AUTHOR }}
           GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
-          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
           BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
           MOCK: ${{ inputs.mock && '1' || '0' }}
         run: npm run run
@@ -64,7 +63,16 @@ jobs:
       - name: 収益化リンクを検査
         run: npm run stats:strict
 
+      # 公開中の sitemap がまだ前回のものであるうちに、変わったURLだけを決めておく。
+      - name: IndexNowで通知するURLを決める
+        if: ${{ vars.HOSTING_PROVIDER == 'cloudflare' && !inputs.mock }}
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
+        run: npm run indexnow:plan
+
       - name: 蓄積データをコミット
+        id: commit
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -74,7 +82,16 @@ jobs:
           else
             git commit -m "chore: $(date -u +%Y-%m-%d) のランキングを記録"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # push を受けて Cloudflare Pages が公開し終えてから通知する（最大10分待つ）。
+      - name: 公開を待ってIndexNowで通知
+        if: ${{ vars.HOSTING_PROVIDER == 'cloudflare' && !inputs.mock && steps.commit.outputs.pushed == 'true' }}
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
+        run: npm run indexnow:send
 
       # Cloudflare Pagesへ移行後は二重デプロイを止める。
       # Repository variable HOSTING_PROVIDER=cloudflare で自動的にスキップされる。

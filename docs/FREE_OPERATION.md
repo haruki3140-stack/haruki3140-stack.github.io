@@ -45,7 +45,8 @@ Cloudflare Pages は静的ファイルのリクエストが無料で、Freeプ�
 | `SITE_DESCRIPTION` | サイト説明 |
 | `SITE_AUTHOR` | 運営者名（任意） |
 | `GOOGLE_SITE_VERIFICATION` | Search Consoleの確認値（取得後） |
-| `INDEXNOW_KEY` | 8〜128文字の英数字・ハイフン（任意） |
+
+IndexNowのキーはCloudflareへ登録しません（下の「IndexNow」を参照）。
 
 楽天のAPIキーはCloudflareへ登録しません。Cloudflareでは、Gitに保存された記事から静的HTMLを
 作るだけです。APIキーは毎日の収集を行うGitHub ActionsのSecretsにだけ置きます。
@@ -61,6 +62,19 @@ Cloudflare Pages は静的ファイルのリクエストが無料で、Freeプ�
 
 `HOSTING_PROVIDER=cloudflare` を設定すると、GitHub Pagesへの二重デプロイだけが止まり、毎日の
 データ収集とGitへの保存は継続します。Gitへのpushを検知してCloudflare Pagesが自動公開します。
+
+## IndexNow
+
+更新したURLをBingなどへ直接通知します。設定は2か所です。
+
+1. `static/<キー>.txt` に、キーの文字列だけを書いたファイルを置いてコミットする（キーは公開されて構わない値）。
+2. GitHub ActionsのRepository variablesに `INDEXNOW_KEY` として同じキーを登録する。
+
+毎日の自動更新は、push前に公開中のsitemapと比べて変わったURLだけを決め（`npm run indexnow:plan`）、
+push後にCloudflare Pagesの公開を待ってから通知します（`npm run indexnow:send`）。
+キーファイルが公開されていない、または拒否された場合は、Actionsの実行画面に警告が出ます。
+
+キーを変えるときは、新しいキーファイルを `static/` に追加して公開してから `INDEXNOW_KEY` を書き換えます。
 
 ## 検索登録
 

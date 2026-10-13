@@ -32,8 +32,8 @@ export function normalizeItem(raw, fallbackRank = null) {
     image: sizedImage(imageUrl, 400),
     rank: Number(raw.rank) || fallbackRank,
     pointRate: Number(raw.pointRate) || 1,
-    catchcopy: (raw.catchcopy || '').trim(),
-    caption: (raw.itemCaption || '').trim(),
+    // 商品説明（itemCaption）とキャッチコピーはどのページにも出さないので保存しない。
+    // 1商品あたり数千文字あり、残すとスナップショットと記事の半分以上を占める。
     genreId: String(raw.genreId ?? ''),
     availability: Number(raw.availability ?? 1),
     postageFlag: Number(raw.postageFlag ?? 1), // 0 = 送料込み
