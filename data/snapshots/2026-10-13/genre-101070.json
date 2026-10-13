@@ -3,8 +3,10 @@
   "genreId": "101070",
   "genreSlug": "genre-101070",
   "genreName": "スポーツ・アウトドア",
-  "fetchedAt": "2026-10-13T06:00:08.898Z",
+  "fetchedAt": "2026-10-13T06:07:55.700Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "rakuteneagles:10098768",

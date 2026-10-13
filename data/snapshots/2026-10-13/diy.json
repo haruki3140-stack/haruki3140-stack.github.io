@@ -3,8 +3,10 @@
   "genreId": "100005",
   "genreSlug": "diy",
   "genreName": "花・ガーデン・DIY",
-  "fetchedAt": "2026-10-13T06:00:34.830Z",
+  "fetchedAt": "2026-10-13T06:08:22.651Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "luckynavi:10000665",

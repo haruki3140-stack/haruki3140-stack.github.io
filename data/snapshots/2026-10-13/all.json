@@ -3,8 +3,10 @@
   "genreId": "0",
   "genreSlug": "all",
   "genreName": "総合",
-  "fetchedAt": "2026-10-13T05:59:55.690Z",
+  "fetchedAt": "2026-10-13T06:07:45.516Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "meta:10000005",

@@ -3,8 +3,10 @@
   "genreId": "100939",
   "genreSlug": "genre-100939",
   "genreName": "美容・コスメ・香水",
-  "fetchedAt": "2026-10-13T06:00:30.748Z",
+  "fetchedAt": "2026-10-13T06:08:17.719Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "fancylifecosme:10002185",

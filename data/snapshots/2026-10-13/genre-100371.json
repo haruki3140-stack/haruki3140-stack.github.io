@@ -3,8 +3,10 @@
   "genreId": "100371",
   "genreSlug": "genre-100371",
   "genreName": "レディースファッション",
-  "fetchedAt": "2026-10-13T05:59:58.811Z",
+  "fetchedAt": "2026-10-13T06:07:45.939Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "auc-sawarabi:10019883",

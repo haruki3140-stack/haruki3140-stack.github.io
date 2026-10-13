@@ -3,8 +3,10 @@
   "genreId": "510901",
   "genreSlug": "genre-510901",
   "genreName": "日本酒・焼酎",
-  "fetchedAt": "2026-10-13T06:00:19.424Z",
+  "fetchedAt": "2026-10-13T06:08:06.837Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "kanazawa-saketen:10001073",

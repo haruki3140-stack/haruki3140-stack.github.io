@@ -3,8 +3,10 @@
   "genreId": "216131",
   "genreSlug": "genre-216131",
   "genreName": "バッグ・小物・ブランド雑貨",
-  "fetchedAt": "2026-10-13T06:00:01.890Z",
+  "fetchedAt": "2026-10-13T06:07:49.613Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "zoff:10004562",

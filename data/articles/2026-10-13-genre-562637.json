@@ -5,6 +5,8 @@
   "genreSlug": "genre-562637",
   "genreName": "家電",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "comparisonNotice": "今回から取得順位の範囲を訂正したため、前回との比較は掲載していません。同じ取得範囲の記録がそろった次回から比較を再開します。",
   "sections": [
     {
@@ -422,7 +424,7 @@
     "newcomerCount": 0
   },
   "itemCount": 20,
-  "updatedAt": "2026-10-13T06:00:37.099Z",
+  "updatedAt": "2026-10-13T06:08:24.350Z",
   "title": "【2026/10/13】楽天「家電」売れ筋ランキングTOP20",
   "description": "2026/10/13時点の楽天市場「家電」売れ筋ランキング上位20商品。",
   "lead": [

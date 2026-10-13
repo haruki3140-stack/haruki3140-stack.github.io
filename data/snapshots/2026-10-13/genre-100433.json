@@ -3,8 +3,10 @@
   "genreId": "100433",
   "genreSlug": "genre-100433",
   "genreName": "インナー・下着・ナイトウェア",
-  "fetchedAt": "2026-10-13T06:00:00.767Z",
+  "fetchedAt": "2026-10-13T06:07:48.478Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "red-jpn:10000027",

@@ -3,8 +3,10 @@
   "genreId": "558885",
   "genreSlug": "genre-558885",
   "genreName": "靴",
-  "fetchedAt": "2026-10-13T06:00:02.941Z",
+  "fetchedAt": "2026-10-13T06:07:50.216Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "gettrymag:10010800",

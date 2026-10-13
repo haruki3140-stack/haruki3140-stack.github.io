@@ -3,8 +3,10 @@
   "genreId": "100804",
   "genreSlug": "genre-100804",
   "genreName": "インテリア・寝具・収納",
-  "fetchedAt": "2026-10-13T06:00:21.002Z",
+  "fetchedAt": "2026-10-13T06:08:07.821Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "chihuahua:10000004",

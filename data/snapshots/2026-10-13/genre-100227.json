@@ -3,8 +3,10 @@
   "genreId": "100227",
   "genreSlug": "genre-100227",
   "genreName": "食品",
-  "fetchedAt": "2026-10-13T06:00:15.036Z",
+  "fetchedAt": "2026-10-13T06:08:02.730Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "kanidokoro:10001780",

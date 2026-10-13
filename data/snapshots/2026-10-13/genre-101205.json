@@ -3,8 +3,10 @@
   "genreId": "101205",
   "genreSlug": "genre-101205",
   "genreName": "テレビゲーム",
-  "fetchedAt": "2026-10-13T06:00:26.010Z",
+  "fetchedAt": "2026-10-13T06:08:13.689Z",
   "mock": false,
+  "rankingSelection": "rank-ascending-v1",
+  "rankingLimit": 20,
   "items": [
     {
       "code": "book:22095438",
