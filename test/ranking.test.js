@@ -62,6 +62,15 @@ test('collection rejects missing first rank, gaps, duplicates and invalid ranks'
   }
 });
 
+test('collection never fills a missing rank 20 with rank 21', () => {
+  const items = top30.filter((rank) => rank !== 20).reverse().map(rankingItem);
+  const selected = selectTopRankingItems(items);
+  assert.deepEqual(selected.map((item) => item.rank), top20.slice(0, 19));
+  const article = composeArticle({ snapshot: { ...snapshot('2026-10-13', []), items: selected }, previous: null });
+  assert.match(article.title, /TOP19/);
+  assert.doesNotMatch(article.title, /TOP20/);
+});
+
 test('historical articles report the preserved 11-30 ranks without inventing the top 10', () => {
   const source = snapshot('2026-10-12', [...top30].slice(10).reverse());
   const original = structuredClone(source);
@@ -131,4 +140,14 @@ test('partial records containing rank 1 still disclose their missing ranks', () 
   assert.equal(article.lead.some((line) => line.startsWith('1位は')), true);
   assert.equal(article.lead.some((line) => line.includes('一部の順位のデータが保存されていません')), true);
   assert.equal(article.itemCount, 18);
+});
+
+test('comparison is withheld when the available top-rank range changes', () => {
+  const article = composeArticle({
+    snapshot: snapshot('2026-10-14', top20),
+    previous: snapshot('2026-10-13', top20.slice(0, 19)),
+  });
+  assert.equal(article.diff.comparedTo, null);
+  assert.equal(article.diff.newcomerCount, 0);
+  assert.match(article.comparisonNotice, /前回との比較は掲載していません/);
 });

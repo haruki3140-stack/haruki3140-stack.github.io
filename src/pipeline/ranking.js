@@ -17,7 +17,11 @@ export function rankingCoverage(items) {
 /** 切り出した結果が本当に1位からのTOP Nか検査してから保存する。 */
 export function selectTopRankingItems(items, limit = 20) {
   if (!Number.isInteger(limit) || limit < 1) throw new Error('取得件数は正の整数で指定してください。');
-  const selected = sortRankingItems(items).slice(0, limit);
+  // APIが20位を返さない場合に21位を繰り上げてTOP20へ混ぜない。
+  // 1〜19位がそろっていれば、記事は実際の件数に合わせたTOP19になる。
+  const selected = sortRankingItems(items)
+    .filter((item) => Number(item.rank) <= limit)
+    .slice(0, limit);
   if (!rankingCoverage(selected).completeTop) {
     throw new Error(`ランキングの順位が1位から連続していません: ${selected.map((item) => item.rank).join(',')}`);
   }

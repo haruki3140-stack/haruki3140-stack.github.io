@@ -99,7 +99,12 @@ export function composeArticle({ snapshot, previous }) {
   const items = sortRankingItems(snapshot.items);
   const coverage = rankingCoverage(items);
   // 修正前の11〜30位と修正後のTOP20では、新規ランクインなどを比較できない。
-  const changedCoverage = previous && coverage.completeTop !== rankingCoverage(previous.items).completeTop;
+  const previousCoverage = previous ? rankingCoverage(previous.items) : null;
+  const changedCoverage = previousCoverage && (
+    coverage.completeTop !== previousCoverage.completeTop
+    || coverage.minRank !== previousCoverage.minRank
+    || coverage.maxRank !== previousCoverage.maxRank
+  );
   const diff = diffSnapshots({ ...snapshot, items }, changedCoverage ? null : previous);
 
   const sections = [];
