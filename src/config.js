@@ -41,6 +41,8 @@ export const config = {
     name: env('SITE_NAME', '楽天ランキング速報'),
     description: env('SITE_DESCRIPTION', '楽天市場のランキングを毎日自動集計しています。'),
     author: env('SITE_AUTHOR', ''),
+    // お問い合わせ先（https:// のフォームURL か mailto:）。未設定なら運営者情報に出さない。
+    contact: env('SITE_CONTACT', ''),
     // Search Console の「HTMLタグ」方式で認証する場合の content 値。
     googleVerification: env('GOOGLE_SITE_VERIFICATION'),
     // Bing Webmaster Tools の「HTML Meta Tag」方式で使う content 値。

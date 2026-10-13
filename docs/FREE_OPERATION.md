@@ -43,7 +43,8 @@ Cloudflare Pages は静的ファイルのリクエストが無料で、Freeプ�
 | `SITE_URL` | Cloudflareが発行した `https://<プロジェクト名>.pages.dev` |
 | `SITE_NAME` | サイト名 |
 | `SITE_DESCRIPTION` | サイト説明 |
-| `SITE_AUTHOR` | 運営者名（任意） |
+| `SITE_AUTHOR` | 運営者名（「このサイトについて」の運営者情報に表示） |
+| `SITE_CONTACT` | お問い合わせ先。`https://` のフォームURLか `mailto:アドレス` |
 | `GOOGLE_SITE_VERIFICATION` | Search Consoleの確認値（取得後） |
 
 IndexNowのキーはCloudflareへ登録しません（下の「IndexNow」を参照）。

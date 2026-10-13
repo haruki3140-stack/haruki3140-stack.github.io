@@ -2,8 +2,8 @@ name: 毎日の自動更新
 
 on:
   schedule:
-    # 22:00 UTC = 翌 07:00 JST。GitHub の cron は混雑時に数分〜十数分遅れることがある。
-    - cron: '0 22 * * *'
+    # 21:17 UTC = 翌 06:17 JST。毎時0分は予約が集中し、実測で2〜5時間遅れていたため分をずらす。
+    - cron: '17 21 * * *'
   workflow_dispatch:
     inputs:
       mock:
@@ -28,9 +28,9 @@ jobs:
     outputs:
       built: ${{ steps.pipeline.outcome }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: '24'
 
@@ -55,6 +55,7 @@ jobs:
           SITE_NAME: ${{ vars.SITE_NAME }}
           SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
           SITE_AUTHOR: ${{ vars.SITE_AUTHOR }}
+          SITE_CONTACT: ${{ vars.SITE_CONTACT }}
           GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
           BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
           MOCK: ${{ inputs.mock && '1' || '0' }}
@@ -95,7 +96,7 @@ jobs:
 
       # Cloudflare Pagesへ移行後は二重デプロイを止める。
       # Repository variable HOSTING_PROVIDER=cloudflare で自動的にスキップされる。
-      - uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         if: ${{ vars.HOSTING_PROVIDER != 'cloudflare' }}
         with:
           path: public
@@ -130,4 +131,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

@@ -76,6 +76,7 @@ src/render/             HTML/RSS/サイトマップ生成
 | `RAKUTEN_AFFILIATE_ID` | ○ | アフィリエイトID。**未設定だと報酬が発生しません** |
 | `SITE_URL` | ○ | 公開URL。sitemap と RSS の絶対URLに使う |
 | `SITE_NAME` / `SITE_DESCRIPTION` / `SITE_AUTHOR` | | サイトの表示情報 |
+| `SITE_CONTACT` | | お問い合わせ先（`https://` のフォームURLか `mailto:`）。運営者情報に表示 |
 | `MOCK` | | `1` でダミーデータ動作 |
 
 ## 注意
@@ -116,6 +117,12 @@ src/render/             HTML/RSS/サイトマップ生成
 日本語のジャンル名はASCIIのslugを作れないため、多くが `genre-100371` のような
 ID形式になります。読みやすいURLにしたい場合は `config/genres.json` の `slug` を
 手で書き換えてください（`name` は同期のたびにAPIの値で上書きされますが、`slug` は保持されます）。
+
+### 検索に出すページ
+
+日別記事（`/a/`）は `noindex,follow` にしてサイトマップから外しています。ジャンル×毎日で増え続ける
+テンプレート的なページは、Google の「スケーラブルなコンテンツの不正使用」と判定されやすいためです。
+検索の入口は、毎日最新の集計に差し替わるジャンルページ（`/g/`）、価格推移ページ（`/p/`）、週間レポートです。
 
 ### 古いデータとURLの扱い
 

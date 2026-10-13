@@ -4,7 +4,7 @@ import { config } from '../config.js';
 import { loadArticles, loadExpiredArticleIds } from '../pipeline/store.js';
 import { loadGenres } from '../pipeline/genres.js';
 import { correctArticleRanking } from '../pipeline/compose.js';
-import { layout, esc, jpDate } from './html.js';
+import { layout, esc, jpDate, safeContactUrl, UNOFFICIAL_NOTICE } from './html.js';
 import { renderSection, renderItem } from './components.js';
 import { CSS } from './styles.js';
 import { buildHistories } from '../pipeline/history.js';
@@ -54,22 +54,14 @@ function articleCard(a) {
 </li>`;
 }
 
-function articleJsonLd(a) {
-  const ranking = a.sections.find((s) => s.type === 'ranking');
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: a.title,
-    description: a.description,
-    numberOfItems: a.itemCount,
-    itemListElement: (ranking?.items || []).map((it, i) => ({
-      '@type': 'ListItem',
-      position: Number(it.rank) || i + 1,
-      name: it.name,
-      url: it.url,
-    })),
-  };
-}
+/**
+ * 日別記事は検索結果に出さない（noindex,follow）。
+ * 37ジャンル×毎日、テンプレート文＋APIの値で増え続けるページは、Google の
+ * 「スケーラブルなコンテンツの不正使用」と判定されやすく、サイト全体の評価を下げうる。
+ * 検索からの入口は、毎日更新される1ジャンル1URLのジャンルページと価格推移ページに集める。
+ * follow のままなので、記事内の価格推移ページへのリンクはクロールされる。
+ */
+const ARTICLE_ROBOTS = 'noindex,follow';
 
 function renderArticlePage(a, genres, historySlugs = null) {
   const genre = genres.find((g) => g.slug === a.genreSlug);
@@ -87,7 +79,7 @@ ${a.sections.map((sec) => renderSection(sec, { historySlugs })).join('\n')}
     title: a.title,
     description: a.description,
     canonical: articleUrl(a),
-    jsonLd: articleJsonLd(a),
+    robots: ARTICLE_ROBOTS,
     breadcrumb: crumb([
       { label: 'ホーム', url: `${BASE}/` },
       { label: genre?.name ?? a.genreName, url: genreUrl(a.genreSlug) },
@@ -97,15 +89,26 @@ ${a.sections.map((sec) => renderSection(sec, { historySlugs })).join('\n')}
   });
 }
 
-function renderGenrePage(genre, articles, genres) {
+/**
+ * ジャンルページ＝そのジャンルの検索の入口。URLは固定のまま、最新の集計を毎日差し替える。
+ * 日別記事に分散していた内容をここに集約し、過去分は日別の記録へのリンクとして残す。
+ */
+function renderGenrePage(genre, articles, genres, historySlugs = null) {
   const latest = articles[0];
+  const latestBody = latest
+    ? `<p class="meta">${esc(jpDate(latest.date))} 更新${latest.diff.comparedTo ? `　/　前回集計：${esc(jpDate(latest.diff.comparedTo))}` : ''}</p>
+<div class="lead">${latest.lead.map((p) => `<p>${esc(p)}</p>`).join('')}</div>
+${latest.sections.map((sec) => renderSection(sec, { historySlugs })).join('\n')}`
+    : '<p class="empty">まだ集計がありません。</p>';
+  const archive = articles.slice(1);
+
   const body = `
-<h1>楽天「${esc(genre.name)}」ランキングの記録</h1>
-<p class="meta">${articles.length}日分の集計を保存しています。</p>
-${latest ? `<div class="lead"><p>最新は <a href="${esc(articleUrl(latest))}">${esc(latest.title)}</a> です。日ごとの順位と価格を残しているので、値動きの傾向を追えます。</p></div>` : ''}
+<h1>楽天「${esc(genre.name)}」売れ筋ランキング（毎日更新）</h1>
+${latestBody}
 <section>
-  <h2>日別アーカイブ</h2>
-  ${articles.length ? `<ul class="grid">${articles.map(articleCard).join('')}</ul>` : '<p class="empty">まだ記事がありません。</p>'}
+  <h2>日別の記録</h2>
+  <p class="note">過去${archive.length}日分の集計です。順位と価格はそれぞれの集計時点のものです。</p>
+  ${archive.length ? `<ul class="grid">${archive.map(articleCard).join('')}</ul>` : '<p class="empty">まだ過去の記録がありません。</p>'}
 </section>
 <section>
   <h2>ほかのジャンル</h2>
@@ -113,8 +116,10 @@ ${latest ? `<div class="lead"><p>最新は <a href="${esc(articleUrl(latest))}">
 </section>`;
 
   return layout({
-    title: `楽天「${genre.name}」ランキングの記録`,
-    description: `楽天市場「${genre.name}」の売れ筋ランキングを毎日自動集計したアーカイブ。順位変動と値下がりを日次で記録しています。`,
+    title: `楽天「${genre.name}」売れ筋ランキング（毎日更新）`,
+    description: latest
+      ? `${jpDate(latest.date)}更新。楽天市場「${genre.name}」の売れ筋ランキングを毎日集計し、順位変動と値下がりを記録しています。`.slice(0, 160)
+      : `楽天市場「${genre.name}」の売れ筋ランキングを毎日集計し、順位変動と値下がりを記録しています。`,
     canonical: genreUrl(genre.slug),
     breadcrumb: crumb([{ label: 'ホーム', url: `${BASE}/` }, { label: genre.name }]),
     body,
@@ -180,7 +185,9 @@ function renderAbout(genres) {
 <section>
   <h2>データの出典と注意</h2>
   <p>商品情報は楽天ウェブサービス（Rakuten Web Service）から取得しています。価格・在庫・ポイント倍率・送料条件は常に変動するため、<strong>表示内容は取得時点のもの</strong>です。購入前に必ず楽天市場の商品ページで最新の情報をご確認ください。表示と実際の条件が異なることによる損害について、運営者は責任を負いかねます。</p>
+  <p>${esc(UNOFFICIAL_NOTICE)}</p>
 </section>
+${renderOperator()}
 <section>
   <h2>掲載ジャンル</h2>
   <ul class="chips">${genres.map((g) => `<li><a href="${esc(genreUrl(g.slug))}">${esc(g.name)}</a></li>`).join('')}</ul>
@@ -188,9 +195,62 @@ function renderAbout(genres) {
 
   return layout({
     title: 'このサイトについて',
-    description: `${config.site.name}の運営方針、広告表記、データの出典について。`,
+    description: `${config.site.name}の運営方針、広告表記、運営者情報、データの出典について。`,
     canonical: `${BASE}/about/`,
     breadcrumb: crumb([{ label: 'ホーム', url: `${BASE}/` }, { label: 'このサイトについて' }]),
+    body,
+  });
+}
+
+/** 運営者名とお問い合わせ先は、設定された値だけを出す（推測で埋めない）。 */
+function renderOperator() {
+  const contact = safeContactUrl(config.site.contact);
+  const rows = [
+    config.site.author ? `<li>運営者：${esc(config.site.author)}</li>` : '',
+    contact ? `<li>お問い合わせ：<a href="${esc(contact)}" rel="nofollow">${contact.startsWith('mailto:') ? esc(contact.slice(7)) : 'お問い合わせフォーム'}</a></li>` : '',
+  ].filter(Boolean);
+  return `<section>
+  <h2>運営者情報</h2>
+  ${rows.length ? `<ul>${rows.join('')}</ul>` : ''}
+  <p>個人情報の取り扱いは<a href="${esc(BASE)}/privacy/">プライバシーポリシー</a>をご覧ください。</p>
+</section>`;
+}
+
+/**
+ * プライバシーポリシー。実装と食い違う記述をしないこと
+ * （このサイトのページには解析・広告のスクリプトもCookieも無い。導入したらここを更新する）。
+ */
+function renderPrivacy() {
+  const contact = safeContactUrl(config.site.contact);
+  const body = `
+<h1>プライバシーポリシー</h1>
+<section>
+  <h2>アクセス解析・Cookie</h2>
+  <p>当サイトのページには、アクセス解析や広告配信のためのスクリプトを設置しておらず、当サイトがCookieを設定することもありません。</p>
+</section>
+<section>
+  <h2>サーバーの記録</h2>
+  <p>当サイトは Cloudflare Pages で公開しています。ページの配信にあたり、Cloudflare がIPアドレスやブラウザの種類などの接続情報を処理することがあります。取り扱いは Cloudflare のプライバシーポリシーに従います。</p>
+</section>
+<section>
+  <h2>外部サービスへの送信</h2>
+  <p>商品画像は楽天グループのサーバーから直接読み込んでいるため、ページを表示すると、お使いのブラウザから楽天グループへIPアドレス等の接続情報が送信されます。</p>
+  <p>商品リンクは楽天アフィリエイトのリンクです。リンクをクリックすると楽天グループのサイトへ移動し、成果の計測のために楽天グループがCookie等を使用することがあります。取り扱いは楽天グループのプライバシーポリシーに従います。</p>
+</section>
+${contact ? `<section>
+  <h2>お問い合わせでいただいた情報</h2>
+  <p>お問い合わせでいただいたお名前・連絡先などは、返信のためだけに使用し、法令に基づく場合を除いて第三者に提供しません。</p>
+</section>` : ''}
+<section>
+  <h2>改定</h2>
+  <p>本ポリシーの内容は、必要に応じて予告なく変更することがあります。変更後の内容はこのページに掲載した時点から適用します。</p>
+</section>`;
+
+  return layout({
+    title: 'プライバシーポリシー',
+    description: `${config.site.name}における個人情報・Cookie・外部サービスの取り扱いについて。`,
+    canonical: `${BASE}/privacy/`,
+    breadcrumb: crumb([{ label: 'ホーム', url: `${BASE}/` }, { label: 'プライバシーポリシー' }]),
     body,
   });
 }
@@ -319,6 +379,7 @@ export async function build() {
   await writePage('weekly/index.html', renderWeeklyPage(weeklyReport));
   console.log(`  ✓ 週間レポート ${weeklyReport ? `${weeklyReport.observedDays}日分` : '準備中'}`);
   await writePage('about/index.html', renderAbout(genres));
+  await writePage('privacy/index.html', renderPrivacy());
 
   for (const a of articles) {
     await writePage(`a/${a.id}/index.html`, renderArticlePage(a, genres, historySlugs));
@@ -326,7 +387,7 @@ export async function build() {
 
   for (const g of genres) {
     const list = articles.filter((a) => a.genreSlug === g.slug);
-    await writePage(`g/${g.slug}/index.html`, renderGenrePage(g, list, genres));
+    await writePage(`g/${g.slug}/index.html`, renderGenrePage(g, list, genres, historySlugs));
   }
 
   await writePage('feed.xml', renderFeed(articles));
@@ -334,10 +395,11 @@ export async function build() {
   const urls = [
     { loc: `${BASE}/`, lastmod: articles[0]?.date },
     { loc: `${BASE}/about/` },
+    { loc: `${BASE}/privacy/` },
     { loc: `${BASE}/p/`, lastmod: articles[0]?.date },
     ...(weeklyReport ? [{ loc: weeklyUrl(), lastmod: weeklyReport.endDate }] : []),
     ...genres.map((g) => ({ loc: genreUrl(g.slug), lastmod: articles.find((a) => a.genreSlug === g.slug)?.date })),
-    ...articles.map((a) => ({ loc: articleUrl(a), lastmod: a.date })),
+    // 日別記事は noindex なのでサイトマップに載せない（ARTICLE_ROBOTS）。
     ...histories.map((h) => ({ loc: historyUrl(h.slug), lastmod: h.points.at(-1).date })),
   ];
   await writePage('sitemap.xml', renderSitemap(urls));

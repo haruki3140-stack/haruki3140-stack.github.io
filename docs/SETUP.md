@@ -95,6 +95,7 @@ GitHub の **Settings → Secrets and variables → Actions** には次を登録
    | `SITE_NAME` | サイト名 |
    | `SITE_DESCRIPTION` | サイトの説明文 |
    | `SITE_AUTHOR` | 運営者名（任意） |
+   | `SITE_CONTACT` | お問い合わせ先（`https://` のフォームURLか `mailto:`、任意） |
 
 Cloudflare Pages の接続後、**Actions** タブ →「毎日の自動更新」→ **Run workflow** で手動実行して確認します。
 

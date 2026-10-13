@@ -84,22 +84,25 @@ ${priceChart(points)}
     title: `${item.name.slice(0, 40)}の価格推移`,
     description: `${item.name.slice(0, 50)}の価格推移を${points.length}日分記録。最安値は${jpDate(stats.lowestDate)}の${yen(stats.min)}、${stats.isCurrent ? '現在' : `最終記録（${jpDate(stats.lastDate)}）`}は${yen(stats.current)}です。`,
     canonical: historyUrl(h.slug),
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: item.name,
-      image: item.image || undefined,
-      // 古い記録を販売価格として構造化データに出すと、販売ページとの不一致になる。
-      offers: stats.isCurrent
-        ? {
+    // 古い記録を販売価格として構造化データに出すと、販売ページとの不一致になる。
+    // Offer を外した Product は「offers/review/aggregateRating のどれも無い」不正な
+    // マークアップになるので、最新の集計に無い商品では Product ごと出さない。
+    // （楽天のレビュー件数・評価は他サイトの評価なので aggregateRating には使えない。）
+    jsonLd: stats.isCurrent
+      ? {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: item.name,
+        image: item.image || undefined,
+        offers: {
           '@type': 'Offer',
           price: stats.current,
           priceCurrency: 'JPY',
           url: item.url,
           availability: item.availability === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
-        }
-        : undefined,
-    },
+        },
+      }
+      : null,
     breadcrumb: crumb([
       { label: 'ホーム', url: `${BASE}/` },
       { label: '価格推移', url: `${BASE}/p/` },

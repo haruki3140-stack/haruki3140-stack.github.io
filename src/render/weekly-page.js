@@ -4,23 +4,8 @@ import { renderItem } from './components.js';
 
 export const weeklyUrl = () => `${config.site.url}/weekly/`;
 
-function weeklyJsonLd(report) {
-  const items = [...report.priceDrops, ...report.risers]
-    .filter((item, index, all) => all.findIndex((candidate) => candidate.code === item.code) === index)
-    .slice(0, 20);
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: '楽天市場 直近7日間の値下がり・急上昇まとめ',
-    numberOfItems: items.length,
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      url: item.url,
-    })),
-  };
-}
+// 構造化データの ItemList は、各URLが同じサイト内のページであることが前提。
+// 商品リンクは楽天のアフィリエイトURL（外部サイト）なので、ItemList としては出さない。
 
 export function renderWeeklyPage(report) {
   if (!report) {
@@ -74,7 +59,6 @@ export function renderWeeklyPage(report) {
     title: '楽天市場 直近7日間の値下がり・急上昇まとめ',
     description: `${range}の楽天市場ランキングを比較。値下がり商品と順位急上昇商品を、取得データに基づいて掲載しています。`,
     canonical: weeklyUrl(),
-    jsonLd: weeklyJsonLd(report),
     breadcrumb: '<p class="meta"><a href="/">ホーム</a> &rsaquo; 週間レポート</p>',
     body,
   });

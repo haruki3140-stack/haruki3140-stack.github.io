@@ -46,6 +46,25 @@ export function affiliateLink(href, text, className = '') {
   return `<a href="${esc(safeHref)}"${cls} rel="sponsored nofollow noopener" target="_blank">${esc(text)}</a>`;
 }
 
+/**
+ * 楽天ウェブサービスのクレジット表示（API利用の必須条件）。
+ * 規約で「提供されたHTMLをそのまま使い、改変しないこと」とされているので、一字も変えない。
+ * https://webservice.rakuten.co.jp/guide/credit
+ */
+export const RAKUTEN_CREDIT = `<!-- Rakuten Web Services Attribution Snippet FROM HERE -->
+<a href="https://developers.rakuten.com/" target="_blank">Supported by Rakuten Developers</a>
+<!-- Rakuten Web Services Attribution Snippet TO HERE -->`;
+
+/** サイト名に「楽天」を含むため、楽天グループの公式サイトと誤認されないよう全ページに明記する。 */
+export const UNOFFICIAL_NOTICE = '当サイトは楽天グループ株式会社が運営・公認するサイトではありません。楽天市場の公開データを利用した非公式のサイトです。';
+
+/** お問い合わせ先として表示してよい値（http(s) のURLか mailto: のみ）。 */
+export function safeContactUrl(value) {
+  const v = String(value ?? '').trim();
+  if (/^mailto:[^\s<>"']+@[^\s<>"']+$/i.test(v)) return v;
+  return safeHttpUrl(v);
+}
+
 /** MOCK で生成したサイトを本物と取り違えないための警告。本番ビルドでは出ない。 */
 const MOCK_BANNER = `
 <p class="pr-badge" style="border-color:#bf0000"><strong>MOCKモードで生成されたページです。</strong>掲載されている商品・価格・リンクはすべてダミーで、実在しません。.env に楽天の認証情報を設定して再生成してください。</p>`;
@@ -95,8 +114,10 @@ ${body}
 <footer class="site">
   <div class="wrap">
     <p>${esc(config.site.name)}${config.site.author ? `　運営：${esc(config.site.author)}` : ''}</p>
-    <p>掲載データは楽天ウェブサービスから取得しています（Supported by Rakuten Developers）。商品情報は取得時点のもので、実際の価格・在庫とは異なる場合があります。</p>
-    <p><a href="${esc(config.site.url)}/about/">このサイトについて・広告表記</a></p>
+    <p>${UNOFFICIAL_NOTICE}</p>
+    <p>掲載データは楽天ウェブサービスから取得しています。商品情報は取得時点のもので、実際の価格・在庫とは異なる場合があります。</p>
+    <p>${RAKUTEN_CREDIT}</p>
+    <p><a href="${esc(config.site.url)}/about/">このサイトについて・広告表記・運営者情報</a>　<a href="${esc(config.site.url)}/privacy/">プライバシーポリシー</a></p>
   </div>
 </footer>
 </body>
