@@ -34,6 +34,9 @@ jobs:
         with:
           node-version: '24'
 
+      - name: ランキングと記事の回帰テスト
+        run: npm test
+
       - name: ジャンル一覧を楽天APIから同期
         if: ${{ inputs.sync_genres }}
         env:

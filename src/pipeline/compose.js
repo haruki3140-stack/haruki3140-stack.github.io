@@ -1,6 +1,7 @@
 import { loadGenres } from './genres.js';
 import { loadSnapshot, findPreviousSnapshot, saveArticle, todayKey, pruneArticles } from './store.js';
 import { diffSnapshots } from './diff.js';
+import { rankingCoverage, sortRankingItems } from './ranking.js';
 
 const yen = (n) => `${Number(n).toLocaleString('ja-JP')}円`;
 
@@ -21,30 +22,85 @@ function describeTop(items) {
   const top = items[0];
   if (!top) return '';
   const review = top.reviewCount > 0 ? `レビュー${top.reviewCount.toLocaleString('ja-JP')}件・平均${top.reviewAverage}` : 'レビューはまだ少なめ';
-  return `1位は「${top.name}」（${yen(top.price)}／${top.shopName}）。${review}です。`;
+  return `${top.rank}位は「${top.name}」（${yen(top.price)}／${top.shopName}）。${review}です。`;
 }
 
-function buildTitle(genreName, date, diff) {
+function rankingLabel(coverage) {
+  if (coverage.completeTop) return `TOP${coverage.count}`;
+  if (coverage.minRank !== null) {
+    const range = coverage.minRank === coverage.maxRank
+      ? `${coverage.minRank}位`
+      : `${coverage.minRank}〜${coverage.maxRank}位`;
+    return `記録（${range}）`;
+  }
+  return '記録';
+}
+
+function correctionNotice(coverage) {
+  if (coverage.completeTop || !coverage.count) return '';
+  const missingTop = coverage.minRank > 1
+    ? `${coverage.minRank === 2 ? '1位' : `1〜${coverage.minRank - 1}位`}のデータは保存されていません。`
+    : '一部の順位のデータが保存されていません。';
+  const range = coverage.minRank === coverage.maxRank
+    ? `${coverage.minRank}位`
+    : `${coverage.minRank}〜${coverage.maxRank}位`;
+  return `訂正：この日の記録は${range}の${coverage.count}商品です。${missingTop}上位ランキングとしての表記を訂正し、記録に残っている商品だけを掲載しています。`;
+}
+
+function buildTitle(genreName, date, diff, coverage) {
   const d = date.replaceAll('-', '/');
-  if (diff.priceDrops.length >= 3) return `【${d}】楽天「${genreName}」ランキングTOP20｜値下がり${diff.priceDrops.length}商品あり`;
-  if (diff.risers.length >= 3) return `【${d}】楽天「${genreName}」ランキングTOP20｜急上昇${diff.risers.length}商品`;
-  return `【${d}】楽天「${genreName}」売れ筋ランキングTOP20`;
+  const label = rankingLabel(coverage);
+  if (diff.priceDropCount >= 3) return `【${d}】楽天「${genreName}」ランキング${label}｜値下がり${diff.priceDropCount}商品あり`;
+  if (diff.riserCount >= 3) return `【${d}】楽天「${genreName}」ランキング${label}｜急上昇${diff.riserCount}商品`;
+  return `【${d}】楽天「${genreName}」売れ筋ランキング${label}`;
 }
 
-function buildDescription(genreName, date, items, diff) {
-  const parts = [`${date.replaceAll('-', '/')}時点の楽天市場「${genreName}」売れ筋ランキング上位${items.length}商品。`];
-  if (diff.hasComparison) parts.push(`前回比で順位が上がった商品${diff.risers.length}件、値下がり${diff.priceDrops.length}件を掲載。`);
+function buildDescription(genreName, date, coverage, diff) {
+  const range = coverage.completeTop ? `上位${coverage.count}商品` : `${rankingLabel(coverage)}の${coverage.count}商品`;
+  const parts = [`${date.replaceAll('-', '/')}時点の楽天市場「${genreName}」売れ筋ランキング${range}。`];
+  if (diff.comparedTo) parts.push(`前回比で順位が上がった商品${diff.riserCount}件、値下がり${diff.priceDropCount}件を掲載。`);
   return parts.join('').slice(0, 160);
+}
+
+/** 過去の保存商品を維持し、実順位に合う表記と表示順へ訂正する。 */
+export function correctArticleRanking(article) {
+  const ranking = article.sections.find((section) => section.type === 'ranking');
+  if (!ranking) return article;
+  const items = sortRankingItems(ranking.items);
+  const coverage = rankingCoverage(items);
+  const dateLabel = article.date.replaceAll('-', '/');
+  const v = variant(`${article.date}:${article.genreSlug}`, LEAD_TEMPLATES.length);
+  const introduction = coverage.completeTop
+    ? LEAD_TEMPLATES[v](article.genreName, dateLabel)
+    : `${dateLabel}時点の楽天市場「${article.genreName}」で記録に残っている商品を、実際の順位順に掲載しています。`;
+  const lead = [introduction, describeTop(items), correctionNotice(coverage)].filter(Boolean);
+  if (article.comparisonNotice) lead.push(article.comparisonNotice);
+
+  return {
+    ...article,
+    title: buildTitle(article.genreName, article.date, article.diff, coverage),
+    description: buildDescription(article.genreName, article.date, coverage, article.diff),
+    lead,
+    rankingCoverage: coverage,
+    sections: article.sections.map((section) => {
+      if (section.type === 'ranking') {
+        return { ...section, heading: `「${article.genreName}」ランキング ${rankingLabel(coverage)}`, items };
+      }
+      if (section.type === 'newcomer') {
+        return { ...section, note: '前回の記録に含まれていなかった商品です。' };
+      }
+      return section;
+    }),
+  };
 }
 
 /** 1ジャンル分の記事データを組み立てる。 */
 export function composeArticle({ snapshot, previous }) {
-  const diff = diffSnapshots(snapshot, previous);
-  const items = snapshot.items;
-  const dateLabel = snapshot.date.replaceAll('-', '/');
-  const v = variant(`${snapshot.date}:${snapshot.genreSlug}`, LEAD_TEMPLATES.length);
-
-  const lead = [LEAD_TEMPLATES[v](snapshot.genreName, dateLabel), describeTop(items)].filter(Boolean);
+  const items = sortRankingItems(snapshot.items);
+  const coverage = rankingCoverage(items);
+  // 修正前の11〜30位と修正後のTOP20では、新規ランクインなどを比較できない。
+  const changedCoverage = previous && coverage.completeTop !== rankingCoverage(previous.items).completeTop;
+  const diff = diffSnapshots({ ...snapshot, items }, changedCoverage ? null : previous);
 
   const sections = [];
 
@@ -70,19 +126,19 @@ export function composeArticle({ snapshot, previous }) {
     sections.push({
       type: 'newcomer',
       heading: `新しくランクインした商品（${diff.newcomers.length}件）`,
-      note: '前回のTOP圏内には無かった商品です。',
+      note: '前回の記録に含まれていなかった商品です。',
       items: diff.newcomers,
     });
   }
 
   sections.push({
     type: 'ranking',
-    heading: `「${snapshot.genreName}」ランキング TOP${items.length}`,
+    heading: `「${snapshot.genreName}」ランキング ${rankingLabel(coverage)}`,
     note: null,
     items,
   });
 
-  return {
+  return correctArticleRanking({
     id: `${snapshot.date}-${snapshot.genreSlug}`,
     date: snapshot.date,
     genreId: snapshot.genreId,
@@ -90,19 +146,19 @@ export function composeArticle({ snapshot, previous }) {
     genreName: snapshot.genreName,
     // 本番ビルドに試験用の記事を混ぜないため、記事側にも取得モードを残す。
     mock: Boolean(snapshot.mock),
-    title: buildTitle(snapshot.genreName, snapshot.date, diff),
-    description: buildDescription(snapshot.genreName, snapshot.date, items, diff),
-    lead,
+    comparisonNotice: changedCoverage
+      ? '今回から取得順位の範囲を訂正したため、前回との比較は掲載していません。同じ取得範囲の記録がそろった次回から比較を再開します。'
+      : '',
     sections,
     diff: {
       comparedTo: diff.comparedTo,
       riserCount: diff.risers.length,
       priceDropCount: diff.priceDrops.length,
-      newcomerCount: diff.newcomers.length,
+      newcomerCount: diff.hasComparison ? diff.newcomers.length : 0,
     },
     itemCount: items.length,
     updatedAt: new Date().toISOString(),
-  };
+  });
 }
 
 /** 当日のスナップショット全件を記事化する。 */

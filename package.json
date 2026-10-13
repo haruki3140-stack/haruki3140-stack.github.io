@@ -10,6 +10,7 @@
   "scripts": {
     "collect": "node src/cli.js collect",
     "compose": "node src/cli.js compose",
+    "repair:rankings": "node scripts/repair-rankings.js",
     "build": "node src/cli.js build",
     "run": "node src/cli.js run",
     "genres": "node src/cli.js genres",

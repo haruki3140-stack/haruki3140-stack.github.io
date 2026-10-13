@@ -2,6 +2,7 @@ import { fetchRanking } from '../rakuten/api.js';
 import { loadGenres, disableGenres } from './genres.js';
 import { saveSnapshot, todayKey, pruneSnapshots } from './store.js';
 import { config } from '../config.js';
+import { selectTopRankingItems } from './ranking.js';
 
 /**
  * 有効ジャンルのランキングを取得して当日のスナップショットとして保存する。
@@ -30,7 +31,7 @@ export async function collect({ date = todayKey(), limit = 20 } = {}) {
         genreName: genre.name,
         fetchedAt,
         mock: config.mock,
-        items: items.slice(0, limit),
+        items: selectTopRankingItems(items, limit),
       };
       await saveSnapshot(date, genre.slug, payload);
       results.push(payload);

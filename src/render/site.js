@@ -3,6 +3,7 @@ import path from 'node:path';
 import { config } from '../config.js';
 import { loadArticles } from '../pipeline/store.js';
 import { loadGenres } from '../pipeline/genres.js';
+import { correctArticleRanking } from '../pipeline/compose.js';
 import { layout, esc, jpDate } from './html.js';
 import { renderSection, renderItem } from './components.js';
 import { CSS } from './styles.js';
@@ -64,7 +65,7 @@ function articleJsonLd(a) {
     numberOfItems: a.itemCount,
     itemListElement: (ranking?.items || []).map((it, i) => ({
       '@type': 'ListItem',
-      position: i + 1,
+      position: Number(it.rank) || i + 1,
       name: it.name,
       url: it.url,
     })),
@@ -253,7 +254,9 @@ async function copyStatic() {
 
 export async function build() {
   const [storedArticles, genres] = await Promise.all([loadArticles(), loadGenres()]);
-  const articles = storedArticles.filter((article) => isMockArticle(article) === config.mock);
+  const articles = storedArticles
+    .filter((article) => isMockArticle(article) === config.mock)
+    .map(correctArticleRanking);
   console.log(`■ サイト生成  記事 ${articles.length}件 / ジャンル ${genres.length}件`);
   const excluded = storedArticles.length - articles.length;
   if (excluded) console.log(`  · 現在のモードと異なる記事 ${excluded}件は公開対象から除外`);

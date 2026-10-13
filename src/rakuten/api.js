@@ -1,6 +1,7 @@
 import { call, ENDPOINTS } from './client.js';
 import { config } from '../config.js';
 import { mockRanking, mockSearch, mockGenre } from './mock.js';
+import { sortRankingItems } from '../pipeline/ranking.js';
 
 /** 画像URLから楽天のサイズ指定サフィックス(_ex=128x128)を外し、指定幅に付け替える。 */
 function sizedImage(url, px = 400) {
@@ -45,7 +46,9 @@ export async function fetchRanking({ genreId = 0, period = 'realtime', age, sex,
     ? mockRanking({ genreId, page })
     : await call(ENDPOINTS.ranking, { genreId, period, age, sex, page });
 
-  const items = (json.Items || []).map((it, i) => normalizeItem(it, (page - 1) * 30 + i + 1));
+  const items = sortRankingItems(
+    (json.Items || []).map((it, i) => normalizeItem(it, (page - 1) * 30 + i + 1)),
+  );
   return { items, genreId: String(genreId), period, fetchedAt: new Date().toISOString() };
 }
 
