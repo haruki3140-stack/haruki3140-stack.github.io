@@ -997,10 +997,10 @@
         "shopName": "アットネットコンタクト",
         "shopCode": "atnet-cl",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s2v8o.bqr6ued2.g00s2v8o.bqr6v20f/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fatnet-cl%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fatnet-cl%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 1085,
+        "reviewCount": 1093,
         "reviewAverage": 4.84,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/atnet-cl/cabinet/rakuraku-pon/k_se_1p96z0_02_h_cp.jpg?_ex=400x400",
-        "rank": 26,
+        "rank": 29,
         "pointRate": 1,
         "genreId": "563999",
         "availability": 1,
@@ -1065,6 +1065,11 @@
           "date": "2026-10-03",
           "price": 8970,
           "rank": 26
+        },
+        {
+          "date": "2026-10-04",
+          "price": 8970,
+          "rank": 29
         }
       ]
     },
@@ -1341,7 +1346,7 @@
         "reviewCount": 303,
         "reviewAverage": 4.88,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/babycresco/cabinet/event/event_thu/alobaby_35_max20off.jpg?_ex=400x400",
-        "rank": 16,
+        "rank": 11,
         "pointRate": 1,
         "genreId": "205205",
         "availability": 1,
@@ -1370,6 +1375,11 @@
           "date": "2026-10-03",
           "price": 6480,
           "rank": 16
+        },
+        {
+          "date": "2026-10-04",
+          "price": 6480,
+          "rank": 11
         }
       ]
     },
@@ -1877,7 +1887,7 @@
         "reviewCount": 0,
         "reviewAverage": 0,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4922/4902370554922.jpg?_ex=400x400",
-        "rank": 19,
+        "rank": 12,
         "pointRate": 1,
         "genreId": "568774",
         "availability": 1,
@@ -1897,6 +1907,11 @@
           "date": "2026-09-28",
           "price": 7768,
           "rank": 19
+        },
+        {
+          "date": "2026-10-04",
+          "price": 7768,
+          "rank": 12
         }
       ]
     },
@@ -1934,16 +1949,16 @@
       "item": {
         "code": "brita:10000052",
         "name": "【レビュー特典あり】【訳アリ】公式 浄水器のブリタ 交換用カートリッジ マクストラプロ ピュアパフォーマンス3個セット | カートリッジ 浄水ポット マクストラ 日本仕様 ブリタカートリッジ brita maxtra アウトレット PFAS (PFOS/PFOA) 除去 pfas浄水器",
-        "price": 3780,
+        "price": 4082,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00tbsuo.bqr6ud2e.g00tbsuo.bqr6vd89/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbrita%2Fmaxtraplus-3-w%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "浄水器のブリタ公式 楽天市場店",
         "shopCode": "brita",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tbsuo.bqr6ud2e.g00tbsuo.bqr6vd89/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fbrita%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbrita%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 13455,
+        "reviewCount": 13501,
         "reviewAverage": 4.75,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/brita/cabinet/thum/thumb_01/maxtraplus-3-w.jpg?_ex=400x400",
-        "rank": 24,
+        "rank": 13,
         "pointRate": 1,
         "genreId": "212491",
         "availability": 1,
@@ -1972,6 +1987,11 @@
           "date": "2026-09-25",
           "price": 3780,
           "rank": 24
+        },
+        {
+          "date": "2026-10-04",
+          "price": 4082,
+          "rank": 13
         }
       ]
     },
@@ -2426,6 +2446,36 @@
         }
       ]
     },
+    "d-ray:10000001": {
+      "item": {
+        "code": "d-ray:10000001",
+        "name": "【クーポンで1,100円★24時間限定！10/4(日)9:59まで】 ファンデーション カバー力 崩れにくい パウダー【D-クリア ファンデーション 12g】 毛穴レス 陶器肌 フィルター肌 敏感肌 混合肌 インナードライ 韓国コスメ ミネラル 60代 プレゼント プチプラ d-ray",
+        "price": 1980,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00sq5ro.bqr6u8f9.g00sq5ro.bqr6vfc8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fd-ray%2Fpakuto1%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "D-RAY",
+        "shopCode": "d-ray",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sq5ro.bqr6u8f9.g00sq5ro.bqr6vfc8/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fd-ray%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fd-ray%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 16550,
+        "reviewAverage": 4.43,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/d-ray/cabinet/09802265/10566858/261003_th_fdn.jpg?_ex=400x400",
+        "rank": 13,
+        "pointRate": 1,
+        "genreId": "405324",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "美容・コスメ・香水"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 1980,
+          "rank": 13
+        }
+      ]
+    },
     "d-shop1one:10239877": {
       "item": {
         "code": "d-shop1one:10239877",
@@ -2524,24 +2574,25 @@
     "darkangel:10036035": {
       "item": {
         "code": "darkangel:10036035",
-        "name": "74%OFF!【期間限定：999円〜1,499円！】【年間ランキング4位】 ルームウェア さらてろリブ セットアップ 上下セット 長袖 ウエストゴム ハイウエスト 腹巻 ワンマイルウェア 部屋着 【秋さらルームウェア上下セット】 長袖/ロンパン/FREE/ピンクがページ内最安",
-        "price": 999,
+        "name": "78%OFF!【10/3 10時〜24H限定：850円～990円！】【年間ランキング4位】 ルームウェア さらてろリブ セットアップ 上下セット 長袖 ウエストゴム ハイウエスト 腹巻 ワンマイルウェア 【秋さらルームウェア上下セット】ロンパン/FREE/ネイビーハート柄グレーがページ内最安",
+        "price": 850,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00q8qjo.bqr6u2ff.g00q8qjo.bqr6v61e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdarkangel%2Fto2305-1114%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "Dark Angel （ダークエンジェル）",
         "shopCode": "darkangel",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q8qjo.bqr6u2ff.g00q8qjo.bqr6v61e/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fdarkangel%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdarkangel%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 19522,
+        "reviewCount": 19854,
         "reviewAverage": 4.32,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/darkangel/cabinet/12863863/13830759/13895685/1114-main-260917-3.jpg?_ex=400x400",
-        "rank": 13,
+        "rank": 11,
         "pointRate": 1,
         "genreId": "303656",
         "availability": 1,
         "postageFlag": 0
       },
       "genres": [
-        "レディースファッション"
+        "レディースファッション",
+        "総合"
       ],
       "points": [
         {
@@ -2553,6 +2604,11 @@
           "date": "2026-09-30",
           "price": 999,
           "rank": 13
+        },
+        {
+          "date": "2026-10-04",
+          "price": 850,
+          "rank": 11
         }
       ]
     },
@@ -2831,6 +2887,36 @@
         }
       ]
     },
+    "dogandcat:10069737": {
+      "item": {
+        "code": "dogandcat:10069737",
+        "name": "【0】[10/5限定★抽選で最大100％ポイントバック][約4.225円～/枚] Air Ultra Lightシート ペットシーツ　レギュラー　800枚　(200枚×4袋)　ワイド　400枚　(100枚×4袋)　スーパーワイド　200枚　(50枚×4袋)ペットシート トイレシーツ トイレシート ペット用シーツ",
+        "price": 3380,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ptqco.bqr6uc47.g00ptqco.bqr6vf0b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdogandcat%2F31068-31070%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "ナチュラルスタイル for Pets",
+        "shopCode": "dogandcat",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptqco.bqr6uc47.g00ptqco.bqr6vf0b/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fdogandcat%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdogandcat%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 2511,
+        "reviewAverage": 4.5,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/dogandcat/cabinet/brand/sa/styleplus/ns_air.jpg?_ex=400x400",
+        "rank": 24,
+        "pointRate": 1,
+        "genreId": "409755",
+        "availability": 1,
+        "postageFlag": 1
+      },
+      "genres": [
+        "ペット・ペットグッズ"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 3380,
+          "rank": 24
+        }
+      ]
+    },
     "dondon:10001821": {
       "item": {
         "code": "dondon:10001821",
@@ -3099,17 +3185,17 @@
     "e-ca-web:10000942": {
       "item": {
         "code": "e-ca-web:10000942",
-        "name": "【限定セール】WiFi レンタル 30日 1ヶ月 無制限 送料無料 即日発送 ポケットWiFi レンタルwifi レンタルwi-fi wifiレンタル ワイファイレンタル レンタルワイファイ Wi-Fi ソフトバンク 空港 引っ越しwifi 入院wifi 一時帰国wifi 国内wifi 引越wifi テレワーク",
-        "price": 2300,
+        "name": "【限定！5%OFFクーポン】WiFi レンタル 30日 1ヶ月 無制限 送料無料 即日発送 ポケットWiFi レンタルwifi レンタルwi-fi wifiレンタル ワイファイレンタル レンタルワイファイ Wi-Fi ソフトバンク 空港 引っ越しwifi 入院wifi 一時帰国wifi 国内wifi 引越wifi テレワーク",
+        "price": 2420,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00suc1o.bqr6uc92.g00suc1o.bqr6vfed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-ca-web%2Frental-30day%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "国内WiFiレンタル e-ca楽天市場店",
         "shopCode": "e-ca-web",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00suc1o.bqr6uc92.g00suc1o.bqr6vfed/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fe-ca-web%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-ca-web%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 175,
-        "reviewAverage": 4.46,
-        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-ca-web/cabinet/thu/11632179/11632188/k4_sale_30.jpg?_ex=400x400",
-        "rank": 13,
+        "reviewCount": 180,
+        "reviewAverage": 4.47,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-ca-web/cabinet/thu/12330593/12330604/k4_rental_30d.jpg?_ex=400x400",
+        "rank": 24,
         "pointRate": 1,
         "genreId": "565007",
         "availability": 1,
@@ -3123,6 +3209,11 @@
           "date": "2026-09-27",
           "price": 2300,
           "rank": 13
+        },
+        {
+          "date": "2026-10-04",
+          "price": 2420,
+          "rank": 24
         }
       ]
     },
@@ -3139,7 +3230,7 @@
         "reviewCount": 48,
         "reviewAverage": 4.58,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-ca-web/cabinet/thu/12330593/12330604/k4_rental_7d.jpg?_ex=400x400",
-        "rank": 29,
+        "rank": 22,
         "pointRate": 1,
         "genreId": "565007",
         "availability": 1,
@@ -3163,6 +3254,11 @@
           "date": "2026-10-03",
           "price": 1870,
           "rank": 29
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1870,
+          "rank": 22
         }
       ]
     },
@@ -3344,6 +3440,11 @@
           "date": "2026-10-02",
           "price": 14990,
           "rank": 21
+        },
+        {
+          "date": "2026-10-04",
+          "price": 14990,
+          "rank": 21
         }
       ]
     },
@@ -3457,13 +3558,13 @@
         "shopName": "こめたつ",
         "shopCode": "fuchigami",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.bqr6u783.g00rxaro.bqr6ve39/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Ffuchigami%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 9421,
+        "reviewCount": 9434,
         "reviewAverage": 4.62,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/hino-saisyu-10.jpg?_ex=400x400",
-        "rank": 11,
+        "rank": 18,
         "pointRate": 1,
         "genreId": "201184",
-        "availability": 0,
+        "availability": 1,
         "postageFlag": 0
       },
       "genres": [
@@ -3479,6 +3580,11 @@
           "date": "2026-10-02",
           "price": 4180,
           "rank": 11
+        },
+        {
+          "date": "2026-10-04",
+          "price": 4180,
+          "rank": 18
         }
       ]
     },
@@ -3531,16 +3637,16 @@
       "item": {
         "code": "fujisports-r:10054189",
         "name": "お米 コメ つや姫 新米 10kg 精米 無洗米 送料無料 山形県産 令和8年産 5kg×2袋",
-        "price": 5680,
+        "price": 5780,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00r55vo.bqr6uf13.g00r55vo.bqr6vc73/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffujisports-r%2Ffob-tsxxa10%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "富士スポーツ楽天市場店",
         "shopCode": "fujisports-r",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r55vo.bqr6uf13.g00r55vo.bqr6vc73/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Ffujisports-r%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffujisports-r%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 273,
+        "reviewCount": 277,
         "reviewAverage": 4.84,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fujisports-r/cabinet/fob/new/ts10.jpg?_ex=400x400",
-        "rank": 16,
+        "rank": 29,
         "pointRate": 1,
         "genreId": "201184",
         "availability": 1,
@@ -3559,6 +3665,11 @@
           "date": "2026-09-30",
           "price": 5680,
           "rank": 16
+        },
+        {
+          "date": "2026-10-04",
+          "price": 5780,
+          "rank": 29
         }
       ]
     },
@@ -3852,6 +3963,36 @@
         }
       ]
     },
+    "hikaritv:10256713": {
+      "item": {
+        "code": "hikaritv:10256713",
+        "name": "SOXAI 【docomo select】RING 2 スマートリング 日本製 睡眠管理 健康管理 iPhone android 最長14日間 チタン製 防水 サウナ シルバー マットシルバー マットブラック ピンクゴールド",
+        "price": 39980,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00t2ngo.bqr6u2c0.g00t2ngo.bqr6v4b3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhikaritv%2F1710000394%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "ひかりTVショッピング　楽天市場店",
+        "shopCode": "hikaritv",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t2ngo.bqr6u2c0.g00t2ngo.bqr6v4b3/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fhikaritv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhikaritv%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 12,
+        "reviewAverage": 3.83,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hikaritv/cabinet/plala/171/00003/1710000394_k.jpg?_ex=400x400",
+        "rank": 27,
+        "pointRate": 1,
+        "genreId": "564895",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "スマートフォン・タブレット"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 39980,
+          "rank": 27
+        }
+      ]
+    },
     "hseason:10000260": {
       "item": {
         "code": "hseason:10000260",
@@ -4081,16 +4222,16 @@
       "item": {
         "code": "iiha:10002389",
         "name": "LION ライオン 歯みがき粉 Brilliant more W ブリリアントモアダブル 90g 1本 ホワイトニング 白い歯 ステイン除去 歯磨き粉",
-        "price": 1320,
+        "price": 1650,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00sy9to.bqr6ueaa.g00sy9to.bqr6v1f1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fiiha%2F22000216%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "オーラルケア用品 アットイーハ",
         "shopCode": "iiha",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sy9to.bqr6ueaa.g00sy9to.bqr6v1f1/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fiiha%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fiiha%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 18,
-        "reviewAverage": 4.78,
+        "reviewCount": 24,
+        "reviewAverage": 4.67,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/iiha/cabinet/toothpaste/lion/brimore1-min.jpg?_ex=400x400",
-        "rank": 22,
+        "rank": 26,
         "pointRate": 1,
         "genreId": "204759",
         "availability": 1,
@@ -4104,6 +4245,11 @@
           "date": "2026-09-21",
           "price": 1320,
           "rank": 22
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1650,
+          "rank": 26
         }
       ]
     },
@@ -4257,16 +4403,16 @@
       "item": {
         "code": "irisplaza-r:10136708",
         "name": "[300円OFFクーポン/食いしんぼう祭]【公式】水 500ml 48本 送料無料 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
-        "price": 2980,
+        "price": 2480,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.bqr6u391.g00t3zto.bqr6vbb7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310999-cp%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "アイリスオーヤマ公式 楽天市場店",
         "shopCode": "irisplaza-r",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.bqr6u391.g00t3zto.bqr6vbb7/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Firisplaza-r%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 5987,
+        "reviewCount": 6011,
         "reviewAverage": 4.62,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/13495764/imgrc0123298967.jpg?_ex=400x400",
-        "rank": 17,
+        "rank": 11,
         "pointRate": 1,
         "genreId": "201351",
         "availability": 1,
@@ -4306,6 +4452,11 @@
           "date": "2026-10-01",
           "price": 2980,
           "rank": 17
+        },
+        {
+          "date": "2026-10-04",
+          "price": 2480,
+          "rank": 11
         }
       ]
     },
@@ -4445,7 +4596,7 @@
         "shopName": "アイリスオーヤマ公式 楽天市場店",
         "shopCode": "irisplaza-r",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.bqr6u391.g00t3zto.bqr6vbb7/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Firisplaza-r%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 8495,
+        "reviewCount": 8521,
         "reviewAverage": 4.71,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0120697447.jpg?_ex=400x400",
         "rank": 14,
@@ -4501,6 +4652,11 @@
         },
         {
           "date": "2026-10-03",
+          "price": 3980,
+          "rank": 14
+        },
+        {
+          "date": "2026-10-04",
           "price": 3980,
           "rank": 14
         }
@@ -4606,6 +4762,36 @@
         }
       ]
     },
+    "japan-net-hitachi:10005870": {
+      "item": {
+        "code": "japan-net-hitachi:10005870",
+        "name": "【新品/メーカー直送】日本ヒーター 小型卓上飲料ウォーマー CW36T-R2 4面扉構造 500mlペットボトル対応 単相100V電源",
+        "price": 30969,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ubkvo.bqr6u752.g00ubkvo.bqr6v2ec/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjapan-net-hitachi%2F202250011501%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "ジャパンネットひたち楽天市場店",
+        "shopCode": "japan-net-hitachi",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ubkvo.bqr6u752.g00ubkvo.bqr6v2ec/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fjapan-net-hitachi%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjapan-net-hitachi%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 5,
+        "reviewAverage": 4.8,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/japan-net-hitachi/cabinet/09578800/heater/cw36tr2.jpg?_ex=400x400",
+        "rank": 17,
+        "pointRate": 1,
+        "genreId": "301479",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "キッチン用品・食器・調理器具"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 30969,
+          "rank": 17
+        }
+      ]
+    },
     "jcrops:10001511": {
       "item": {
         "code": "jcrops:10001511",
@@ -4661,11 +4847,11 @@
         "shopName": "会津CROPS米直販・楽天市場店",
         "shopCode": "jcrops",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00plxio.bqr6udb5.g00plxio.bqr6vdb4/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fjcrops%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjcrops%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 8394,
+        "reviewCount": 8401,
         "reviewAverage": 4.79,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jcrops/cabinet/2-ra.jpg?_ex=400x400",
-        "rank": 14,
-        "pointRate": 1,
+        "rank": 24,
+        "pointRate": 3,
         "genreId": "201184",
         "availability": 1,
         "postageFlag": 0
@@ -4708,6 +4894,11 @@
           "date": "2026-10-03",
           "price": 2599,
           "rank": 14
+        },
+        {
+          "date": "2026-10-04",
+          "price": 2599,
+          "rank": 24
         }
       ]
     },
@@ -4775,7 +4966,7 @@
       "item": {
         "code": "jism:13998343",
         "name": "【弊社サービスエリア Aエリア】洗濯機・衣類乾燥機 リサイクル料金＋収集運搬料金　REC-WS-DRY-IA",
-        "price": 4180,
+        "price": 5830,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.bqr6u7e0.g00pukwo.bqr6va33/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0000000006298-21-999999-a%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "Joshin web 家電とPCの大型専門店",
@@ -4784,7 +4975,7 @@
         "reviewCount": 124,
         "reviewAverage": 4.77,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/service/ra-12r.gif?_ex=400x400",
-        "rank": 21,
+        "rank": 10,
         "pointRate": 1,
         "genreId": "550694",
         "availability": 1,
@@ -4798,6 +4989,11 @@
           "date": "2026-09-19",
           "price": 4180,
           "rank": 21
+        },
+        {
+          "date": "2026-10-04",
+          "price": 5830,
+          "rank": 10
         }
       ]
     },
@@ -4844,7 +5040,7 @@
         "reviewCount": 0,
         "reviewAverage": 0,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/joshin-cddvd/cabinet/659/jwcd-25175-b.jpg?_ex=400x400",
-        "rank": 11,
+        "rank": 16,
         "pointRate": 1,
         "genreId": "300011",
         "availability": 1,
@@ -4863,6 +5059,11 @@
           "date": "2026-10-01",
           "price": 3970,
           "rank": 11
+        },
+        {
+          "date": "2026-10-04",
+          "price": 3970,
+          "rank": 16
         }
       ]
     },
@@ -4879,7 +5080,7 @@
         "reviewCount": 0,
         "reviewAverage": 0,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/joshin-cddvd/cabinet/666/jwcd-25176-b.jpg?_ex=400x400",
-        "rank": 11,
+        "rank": 17,
         "pointRate": 1,
         "genreId": "300011",
         "availability": 1,
@@ -4903,6 +5104,11 @@
           "date": "2026-10-03",
           "price": 3970,
           "rank": 11
+        },
+        {
+          "date": "2026-10-04",
+          "price": 3970,
+          "rank": 17
         }
       ]
     },
@@ -5011,10 +5217,10 @@
         "shopName": "KANAGAWAストア",
         "shopCode": "kanagawa-store",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uc2ko.bqr6ubc5.g00uc2ko.bqr6vcd4/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fkanagawa-store%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkanagawa-store%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 1320,
+        "reviewCount": 1323,
         "reviewAverage": 4.79,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kanagawa-store/cabinet/11403368/korea_esim/11768888/kr_esim_3ds.jpg?_ex=400x400",
-        "rank": 21,
+        "rank": 30,
         "pointRate": 1,
         "genreId": "565012",
         "availability": 1,
@@ -5033,6 +5239,11 @@
           "date": "2026-09-27",
           "price": 1680,
           "rank": 21
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1680,
+          "rank": 30
         }
       ]
     },
@@ -5121,10 +5332,10 @@
         "shopName": "ぎんしゃり屋",
         "shopCode": "kawasaki-beikoku",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ql7to.bqr6ubfc.g00ql7to.bqr6vb07/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fkawasaki-beikoku%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasaki-beikoku%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 11227,
+        "reviewCount": 11237,
         "reviewAverage": 4.75,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasaki-beikoku/cabinet/top/04725866/301pirica10w.jpg?_ex=400x400",
-        "rank": 19,
+        "rank": 16,
         "pointRate": 1,
         "genreId": "201184",
         "availability": 1,
@@ -5168,6 +5379,11 @@
           "date": "2026-10-01",
           "price": 6580,
           "rank": 19
+        },
+        {
+          "date": "2026-10-04",
+          "price": 6580,
+          "rank": 16
         }
       ]
     },
@@ -5769,7 +5985,7 @@
         "reviewCount": 703,
         "reviewAverage": 4.51,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kouragumi/cabinet/07495043/07842136/imgrc0104949875.jpg?_ex=400x400",
-        "rank": 17,
+        "rank": 11,
         "pointRate": 1,
         "genreId": "567491",
         "availability": 1,
@@ -5788,6 +6004,11 @@
           "date": "2026-10-03",
           "price": 8980,
           "rank": 17
+        },
+        {
+          "date": "2026-10-04",
+          "price": 8980,
+          "rank": 11
         }
       ]
     },
@@ -5848,6 +6069,36 @@
           "date": "2026-09-21",
           "price": 5880,
           "rank": 14
+        }
+      ]
+    },
+    "kurashi-zakka:10002489": {
+      "item": {
+        "code": "kurashi-zakka:10002489",
+        "name": "＼50％OFFクーポン！10/1〜10/12／sakuraku 深層HERBAL WHITE 洗濯洗剤 「▼衣類の白さがずっと続く」自然派の洗浄成分 蛍光剤無配合 無リン 無香料 手肌にやさしい「▼汗・皮脂汚れ・においの強力消臭」 「▼洗濯するだけで 洗濯槽のカビ予防」「▼血液汚れこすらず落とす」",
+        "price": 3790,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qx1go.bqr6u92b.g00qx1go.bqr6v0d1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashi-zakka%2Fsin-001%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "くらしの雑貨屋さん",
+        "shopCode": "kurashi-zakka",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qx1go.bqr6u92b.g00qx1go.bqr6v0d1/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fkurashi-zakka%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashi-zakka%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 366,
+        "reviewAverage": 4.27,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashi-zakka/cabinet/item/roomth/sin-001_00_2608fl.jpg?_ex=400x400",
+        "rank": 13,
+        "pointRate": 1,
+        "genreId": "210182",
+        "availability": 1,
+        "postageFlag": 1
+      },
+      "genres": [
+        "総合"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 3790,
+          "rank": 13
         }
       ]
     },
@@ -5955,16 +6206,16 @@
       "item": {
         "code": "kurashikenkou:10225574",
         "name": "お茶 緑茶 ほうじ茶 ペットボトル 500ml 24本 48本 選べる ラベルレス 密閉抽出 香り高い 旨みすっきり 飲みやすい 食事 朝に合う まとめ買い 箱買い ケース アイリスのお茶 緑 焙じ茶 アイリスオーヤマ アイリスフーズ *",
-        "price": 1380,
+        "price": 1480,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.bqr6u825.g00qhoao.bqr6v6e8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F312068%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "暮らし健康ネット館",
         "shopCode": "kurashikenkou",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.bqr6u825.g00qhoao.bqr6v6e8/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fkurashikenkou%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 6890,
+        "reviewCount": 6952,
         "reviewAverage": 4.75,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/11663202/13368735/imgrc0105764902.jpg?_ex=400x400",
-        "rank": 18,
+        "rank": 24,
         "pointRate": 1,
         "genreId": "567848",
         "availability": 1,
@@ -5989,6 +6240,11 @@
           "date": "2026-10-02",
           "price": 1380,
           "rank": 18
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1480,
+          "rank": 24
         }
       ]
     },
@@ -6311,7 +6567,7 @@
     "lensrewards:10000117": {
       "item": {
         "code": "lensrewards:10000117",
-        "name": "★最大1,000円OFFクーポン★【2026新色登場】【ポスト便 送料無料★1箱あたり2,646円(税込2,910円)】ワンデーアキュビューディファインモイスト 30枚パック 2箱セット[30枚入x2] 両眼1ヶ月分(ジョンソン・エンド・ジョンソン/1DAY/1日使い捨てコンタクトレンズ)",
+        "name": "【2026新色登場】【ポスト便 送料無料★1箱あたり2,646円(税込2,910円)】ワンデーアキュビューディファインモイスト 30枚パック 2箱セット[30枚入x2] 両眼1ヶ月分(ジョンソン・エンド・ジョンソン/1DAY/1日使い捨てコンタクトレンズ)",
         "price": 5820,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00u7nko.bqr6ua34.g00u7nko.bqr6vafc/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flensrewards%2F1davdm-02p%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
@@ -6321,7 +6577,7 @@
         "reviewCount": 718,
         "reviewAverage": 4.52,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lensrewards/cabinet/item/jj/1davdm/1davdm-02p.jpg?_ex=400x400",
-        "rank": 24,
+        "rank": 14,
         "pointRate": 1,
         "genreId": "408099",
         "availability": 1,
@@ -6391,13 +6647,18 @@
           "date": "2026-10-03",
           "price": 5820,
           "rank": 24
+        },
+        {
+          "date": "2026-10-04",
+          "price": 5820,
+          "rank": 14
         }
       ]
     },
     "lensrewards:10000119": {
       "item": {
         "code": "lensrewards:10000119",
-        "name": "★最大1,000円OFFクーポン★【2026新色登場】【ポスト便 送料無料★1箱あたり2,637円(税込2,900円)】ワンデーアキュビューディファインモイスト 30枚パック 4箱セット[30枚入x4] 両眼2ヶ月分(ジョンソン・エンド・ジョンソン/1DAY/1日使い捨てコンタクトレンズ)",
+        "name": "【2026新色登場】【ポスト便 送料無料★1箱あたり2,637円(税込2,900円)】ワンデーアキュビューディファインモイスト 30枚パック 4箱セット[30枚入x4] 両眼2ヶ月分(ジョンソン・エンド・ジョンソン/1DAY/1日使い捨てコンタクトレンズ)",
         "price": 11600,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00u7nko.bqr6ua34.g00u7nko.bqr6vafc/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flensrewards%2F1davdm-04p%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
@@ -6407,7 +6668,7 @@
         "reviewCount": 127,
         "reviewAverage": 4.7,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lensrewards/cabinet/item/jj/1davdm/1davdm-04p.jpg?_ex=400x400",
-        "rank": 15,
+        "rank": 21,
         "pointRate": 1,
         "genreId": "408099",
         "availability": 1,
@@ -6441,6 +6702,11 @@
           "date": "2026-10-03",
           "price": 11600,
           "rank": 15
+        },
+        {
+          "date": "2026-10-04",
+          "price": 11600,
+          "rank": 21
         }
       ]
     },
@@ -6547,17 +6813,17 @@
     "lifedrinkcompany:10000004": {
       "item": {
         "code": "lifedrinkcompany:10000004",
-        "name": "【食フェスクーポンあり♪10/3まで】炭酸水 500ml 24本 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム ラベルレス 割り材 箱買い まとめ買い ライフドリンクカンパニー LIFEDRINK　ZAO SODA",
+        "name": "【フレーバー・ラベルレス選べる】炭酸水 500ml 24本 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム ラベルレス 割り材 箱買い まとめ買い ライフドリンクカンパニー LIFEDRINK　ZAO SODA",
         "price": 1429,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.bqr6ud6e.g00tkn4o.bqr6v82d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifedrinkcompany%2Fzaosoda-500%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "LIFEDRINKオンラインストア",
         "shopCode": "lifedrinkcompany",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.bqr6ud6e.g00tkn4o.bqr6v82d/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Flifedrinkcompany%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifedrinkcompany%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 52673,
+        "reviewCount": 52685,
         "reviewAverage": 4.68,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifedrinkcompany/cabinet/item-soda/ozasoda/proper/oza24_peach.jpg?_ex=400x400",
-        "rank": 13,
+        "rank": 16,
         "pointRate": 1,
         "genreId": "506536",
         "availability": 1,
@@ -6596,6 +6862,11 @@
           "date": "2026-10-03",
           "price": 1429,
           "rank": 13
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1429,
+          "rank": 16
         }
       ]
     },
@@ -6609,10 +6880,10 @@
         "shopName": "LIFEDRINKオンラインストア",
         "shopCode": "lifedrinkcompany",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.bqr6ud6e.g00tkn4o.bqr6v82d/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Flifedrinkcompany%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifedrinkcompany%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 9068,
+        "reviewCount": 9071,
         "reviewAverage": 4.74,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifedrinkcompany/cabinet/08451052/13906852/ryoku_1004.jpg?_ex=400x400",
-        "rank": 20,
+        "rank": 12,
         "pointRate": 1,
         "genreId": "567848",
         "availability": 1,
@@ -6651,23 +6922,28 @@
           "date": "2026-10-03",
           "price": 1499,
           "rank": 20
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1499,
+          "rank": 12
         }
       ]
     },
     "lifedrinkcompany:10000013": {
       "item": {
         "code": "lifedrinkcompany:10000013",
-        "name": "【食フェスクーポンあり♪10/3まで】国産ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml×24本 送料無料※一部地域除く ライフドリンクカンパニー LIFEDRINK 水 ラベルレス 天然水 飲料水 軟水 備蓄水 非常用（※採水地指定不可）",
+        "name": "【最安値に挑戦中！】国産ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml×24本 送料無料※一部地域除く ライフドリンクカンパニー LIFEDRINK 水 ラベルレス 天然水 飲料水 軟水 備蓄水 非常用（※採水地指定不可）",
         "price": 1370,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.bqr6ud6e.g00tkn4o.bqr6v82d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifedrinkcompany%2Fayamizu-500%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "LIFEDRINKオンラインストア",
         "shopCode": "lifedrinkcompany",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.bqr6ud6e.g00tkn4o.bqr6v82d/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Flifedrinkcompany%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifedrinkcompany%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 3675,
+        "reviewCount": 3677,
         "reviewAverage": 4.72,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifedrinkcompany/cabinet/item-water/ayamizu/proper/mizu24-.jpg?_ex=400x400",
-        "rank": 24,
+        "rank": 22,
         "pointRate": 1,
         "genreId": "201351",
         "availability": 1,
@@ -6701,6 +6977,11 @@
           "date": "2026-10-03",
           "price": 1370,
           "rank": 24
+        },
+        {
+          "date": "2026-10-04",
+          "price": 1370,
+          "rank": 22
         }
       ]
     },
@@ -7135,6 +7416,36 @@
         }
       ]
     },
+    "liquor-boss:10003362": {
+      "item": {
+        "code": "liquor-boss:10003362",
+        "name": "10/4 20:00〜10/8までP2倍 先着最大3000円OFFクーポン 【最強配送】【送料無料】キリン 淡麗プラチナダブル 350ml×2ケース/48本 YTR",
+        "price": 8221,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rryxo.bqr6u1da.g00rryxo.bqr6vc75/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fliquor-boss%2F2153c2%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "リカーBOSS 楽天市場店",
+        "shopCode": "liquor-boss",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rryxo.bqr6u1da.g00rryxo.bqr6vc75/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fliquor-boss%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fliquor-boss%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 912,
+        "reviewAverage": 4.66,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/liquor-boss/cabinet/261001mobile/2153c2.jpg?_ex=400x400",
+        "rank": 15,
+        "pointRate": 2,
+        "genreId": "110632",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "ビール・洋酒"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 8221,
+          "rank": 15
+        }
+      ]
+    },
     "liquor-boss:10004486": {
       "item": {
         "code": "liquor-boss:10004486",
@@ -7248,17 +7559,17 @@
     "liquor-boss:10016446": {
       "item": {
         "code": "liquor-boss:10016446",
-        "name": "【先着300円OFFクーポン】【最強配送】【送料無料】クリスタルガイザー 500ml×2ケース/48本 水 ミネラルウォーター",
+        "name": "先着最大3000円OFFクーポン 【先着300円OFFクーポン】【最強配送】【送料無料】クリスタルガイザー 500ml×2ケース/48本 水 ミネラルウォーター",
         "price": 2832,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00rryxo.bqr6u1da.g00rryxo.bqr6vc75/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fliquor-boss%2F2873c2%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "リカーBOSS 楽天市場店",
         "shopCode": "liquor-boss",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rryxo.bqr6u1da.g00rryxo.bqr6vc75/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fliquor-boss%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fliquor-boss%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 717,
+        "reviewCount": 723,
         "reviewAverage": 4.61,
-        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/liquor-boss/cabinet/260911/2873c2.jpg?_ex=400x400",
-        "rank": 25,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/liquor-boss/cabinet/261001mobile/2873c2.jpg?_ex=400x400",
+        "rank": 27,
         "pointRate": 1,
         "genreId": "201351",
         "availability": 1,
@@ -7272,6 +7583,11 @@
           "date": "2026-09-29",
           "price": 2832,
           "rank": 25
+        },
+        {
+          "date": "2026-10-04",
+          "price": 2832,
+          "rank": 27
         }
       ]
     },
@@ -7565,6 +7881,36 @@
         }
       ]
     },
+    "ministop-netshop-bev:10001659": {
+      "item": {
+        "code": "ministop-netshop-bev:10001659",
+        "name": "サントリー 伊右衛門 特茶 (特定保健用食品) 500ml×40本+お試し品8本 計48本（2ケース） (送料無料 、一部地域は除く)",
+        "price": 7343,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00um7bo.bqr6uef0.g00um7bo.bqr6v4d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fministop-netshop-bev%2F662039-02%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "ミニストップネットショップ飲料店",
+        "shopCode": "ministop-netshop-bev",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00um7bo.bqr6uef0.g00um7bo.bqr6v4d6/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fministop-netshop-bev%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fministop-netshop-bev%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 14,
+        "reviewAverage": 4.36,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ministop-netshop-bev/cabinet/12905453/662039-02_2608.jpg?_ex=400x400",
+        "rank": 25,
+        "pointRate": 1,
+        "genreId": "567848",
+        "availability": 1,
+        "postageFlag": 1
+      },
+      "genres": [
+        "水・ソフトドリンク"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 7343,
+          "rank": 25
+        }
+      ]
+    },
     "mituwa:10001956": {
       "item": {
         "code": "mituwa:10001956",
@@ -7638,17 +7984,17 @@
     "moltishop:10000041": {
       "item": {
         "code": "moltishop:10000041",
-        "name": "【37,980円★マラソンクーポン利用で！】PHILIPS タブレット T7250 2.5K 8.8インチ IPS 2560×1600解像度 Android16 Wi-Fi/SIM通話モデル 8コアCPU 24GB RAM+128GB ROM+1TB拡張 4G LTE WidevineL1 6300mAhバッテリー PD18W充電器付き GPS+顔認証+6軸ジャイロ",
+        "name": "【37,980円★クーポン利用で！】PHILIPS タブレット T7250 2.5K 8.8インチ IPS 2560×1600解像度 Android16 Wi-Fi/SIM通話モデル 8コアCPU 24GB RAM+128GB ROM+1TB拡張 4G LTE WidevineL1 6300mAhバッテリー PD18W充電器付き GPS+顔認証+6軸ジャイロ",
         "price": 40980,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00upjso.bqr6u7a7.g00upjso.bqr6v38f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmoltishop%2Ft7250%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "エルモショップ",
         "shopCode": "moltishop",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00upjso.bqr6u7a7.g00upjso.bqr6v38f/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fmoltishop%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmoltishop%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 709,
-        "reviewAverage": 4.65,
+        "reviewCount": 726,
+        "reviewAverage": 4.64,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/moltishop/cabinet/11836932/11836933/13170477/imgrc0113563068.jpg?_ex=400x400",
-        "rank": 27,
+        "rank": 30,
         "pointRate": 1,
         "genreId": "560029",
         "availability": 1,
@@ -7667,6 +8013,11 @@
           "date": "2026-09-29",
           "price": 40980,
           "rank": 27
+        },
+        {
+          "date": "2026-10-04",
+          "price": 40980,
+          "rank": 30
         }
       ]
     },
@@ -8327,7 +8678,7 @@
         "reviewCount": 3,
         "reviewAverage": 4.33,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/netbaby/cabinet/155/4582770022155.jpg?_ex=400x400",
-        "rank": 19,
+        "rank": 20,
         "pointRate": 1,
         "genreId": "400817",
         "availability": 1,
@@ -8346,6 +8697,11 @@
           "date": "2026-09-29",
           "price": 16800,
           "rank": 19
+        },
+        {
+          "date": "2026-10-04",
+          "price": 16800,
+          "rank": 20
         }
       ]
     },
@@ -8704,10 +9060,10 @@
         "shopName": "楽天24 ペット館",
         "shopCode": "nyanzaq",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q36go.bqr6uc99.g00q36go.bqr6v63d/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fnyanzaq%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnyanzaq%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 202,
+        "reviewCount": 203,
         "reviewAverage": 4.79,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nyanzaq/cabinet/926/4562358781926.jpg?_ex=400x400",
-        "rank": 22,
+        "rank": 19,
         "pointRate": 1,
         "genreId": "565715",
         "availability": 1,
@@ -8726,6 +9082,11 @@
           "date": "2026-10-02",
           "price": 12673,
           "rank": 22
+        },
+        {
+          "date": "2026-10-04",
+          "price": 12673,
+          "rank": 19
         }
       ]
     },
@@ -8773,16 +9134,16 @@
       "item": {
         "code": "nyanzaq:10194290",
         "name": "腸内バイオーム 繊維＆消化ケア 小粒 チキン 犬用特別療法食 ドライ(3kg)【ヒルズ プリスクリプション・ダイエット】",
-        "price": 9460,
+        "price": 8514,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00q36go.bqr6uc99.g00q36go.bqr6v63d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnyanzaq%2F406873%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "楽天24 ペット館",
         "shopCode": "nyanzaq",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q36go.bqr6uc99.g00q36go.bqr6v63d/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fnyanzaq%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnyanzaq%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 72,
-        "reviewAverage": 4.75,
+        "reviewCount": 79,
+        "reviewAverage": 4.73,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nyanzaq/cabinet/873/406873.jpg?_ex=400x400",
-        "rank": 22,
+        "rank": 30,
         "pointRate": 1,
         "genreId": "404094",
         "availability": 1,
@@ -8796,6 +9157,11 @@
           "date": "2026-09-23",
           "price": 9460,
           "rank": 22
+        },
+        {
+          "date": "2026-10-04",
+          "price": 8514,
+          "rank": 30
         }
       ]
     },
@@ -9203,7 +9569,7 @@
       "item": {
         "code": "petdr-x:10000002",
         "name": "ロイヤルカナン 食事療法食 犬用 満腹感サポート ドライ 8kg",
-        "price": 17374,
+        "price": 17988,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00sudho.bqr6ua43.g00sudho.bqr6v642/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpetdr-x%2F10000003%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "ペットみらい　楽天市場店",
@@ -9212,7 +9578,7 @@
         "reviewCount": 514,
         "reviewAverage": 4.66,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/petdr-x/cabinet/mem_item/imgrc0084507809.jpg?_ex=400x400",
-        "rank": 14,
+        "rank": 11,
         "pointRate": 1,
         "genreId": "404094",
         "availability": 1,
@@ -9231,6 +9597,11 @@
           "date": "2026-10-02",
           "price": 17374,
           "rank": 14
+        },
+        {
+          "date": "2026-10-04",
+          "price": 17988,
+          "rank": 11
         }
       ]
     },
@@ -9817,8 +10188,8 @@
     "rack-kan:10102276": {
       "item": {
         "code": "rack-kan:10102276",
-        "name": "★超激アツ★チェスト 3段 4段 5段 白 スリム/ワイド 収納ケース 引き出し 幅30.9/53cm 高さ62.5/81/99.5cm 奥行39.5cm タンス 衣装ケース プラスチック アイリスオーヤマ タンス 衣類収納 クローゼット 寝室[RNG]",
-        "price": 3280,
+        "name": "【2点目10％OFFクーポン♪13日10時迄】★超激アツ★チェスト 3段 4段 5段 白 スリム/ワイド 収納ケース 引き出し 幅30.9/53cm 高さ62.5/81/99.5cm 奥行39.5cm タンス 衣装ケース プラスチック アイリスオーヤマ タンス 衣類収納 クローゼット 寝室[RNG]",
+        "price": 3380,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00pr3yo.bqr6u6f6.g00pr3yo.bqr6va2b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F283244%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "収納・家具・寝具の収納宅配館",
@@ -9827,7 +10198,7 @@
         "reviewCount": 1170,
         "reviewAverage": 4.1,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rack-kan/cabinet/eigyou01/11601399/imgrc0109450961.jpg?_ex=400x400",
-        "rank": 14,
+        "rank": 23,
         "pointRate": 1,
         "genreId": "400631",
         "availability": 1,
@@ -9841,6 +10212,11 @@
           "date": "2026-10-01",
           "price": 3280,
           "rank": 14
+        },
+        {
+          "date": "2026-10-04",
+          "price": 3380,
+          "rank": 23
         }
       ]
     },
@@ -10449,10 +10825,10 @@
         "shopName": "有限会社　佐藤米穀商店楽天市場店",
         "shopCode": "rs-takeo",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.bqr6u03f.g00ryp3o.bqr6v6a3/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Frs-takeo%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 509,
-        "reviewAverage": 4.12,
+        "reviewCount": 510,
+        "reviewAverage": 4.13,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/sato_burendo30_1.jpg?_ex=400x400",
-        "rank": 19,
+        "rank": 20,
         "pointRate": 1,
         "genreId": "201184",
         "availability": 1,
@@ -10482,6 +10858,11 @@
           "date": "2026-10-02",
           "price": 9980,
           "rank": 19
+        },
+        {
+          "date": "2026-10-04",
+          "price": 9980,
+          "rank": 20
         }
       ]
     },
@@ -10776,10 +11157,10 @@
         "shopName": "sea-story",
         "shopCode": "sea-story-kagoshima",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u87zo.bqr6ue4e.g00u87zo.bqr6v746/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fsea-story-kagoshima%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsea-story-kagoshima%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 1923,
-        "reviewAverage": 4.68,
+        "reviewCount": 1933,
+        "reviewAverage": 4.69,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/sea-story-kagoshima/cabinet/imgrc0115840237.jpg?_ex=400x400",
-        "rank": 19,
+        "rank": 28,
         "pointRate": 1,
         "genreId": "212988",
         "availability": 1,
@@ -10793,6 +11174,11 @@
           "date": "2026-10-01",
           "price": 5680,
           "rank": 19
+        },
+        {
+          "date": "2026-10-04",
+          "price": 5680,
+          "rank": 28
         }
       ]
     },
@@ -11008,6 +11394,36 @@
           "date": "2026-09-29",
           "price": 14799,
           "rank": 14
+        }
+      ]
+    },
+    "shinra-life:10000120": {
+      "item": {
+        "code": "shinra-life:10000120",
+        "name": "＼楽天1位受賞／【クーポン＆ポイントで実質2,171円】予約販売 10/4～5日頃入荷予定 オイルスプレー 片手でシュッ 円形ミスト 霧吹き 料理用 オイルスプレーボトル オリーブオイル ホウケイ酸ガラス 液だれしない ノンフライヤー フライパン オーブン BBQ 100ml TITIROBA",
+        "price": 2680,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00utmfo.bqr6u59d.g00utmfo.bqr6v952/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshinra-life%2F202606002r1%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "森羅LIFE",
+        "shopCode": "shinra-life",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utmfo.bqr6u59d.g00utmfo.bqr6v952/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fshinra-life%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshinra-life%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 170,
+        "reviewAverage": 4.62,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/shinra-life/cabinet/202606002r1/main00.jpg?_ex=400x400",
+        "rank": 26,
+        "pointRate": 1,
+        "genreId": "568203",
+        "availability": 1,
+        "postageFlag": 1
+      },
+      "genres": [
+        "キッチン用品・食器・調理器具"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 2680,
+          "rank": 26
         }
       ]
     },
@@ -11716,16 +12132,16 @@
       "item": {
         "code": "soukaidrink:10006512",
         "name": "キリン 一番搾り生ビール(500ml*24本)【一番搾り】",
-        "price": 6550,
+        "price": 6268,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.bqr6uee3.g00rzxdo.bqr6v203/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901411157801%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "楽天24 ドリンク館",
         "shopCode": "soukaidrink",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.bqr6uee3.g00rzxdo.bqr6v203/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fsoukaidrink%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 441,
+        "reviewCount": 442,
         "reviewAverage": 4.67,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/801/4901411157801.jpg?_ex=400x400",
-        "rank": 12,
+        "rank": 23,
         "pointRate": 1,
         "genreId": "110626",
         "availability": 1,
@@ -11739,6 +12155,11 @@
           "date": "2026-09-22",
           "price": 6550,
           "rank": 12
+        },
+        {
+          "date": "2026-10-04",
+          "price": 6268,
+          "rank": 23
         }
       ]
     },
@@ -11950,7 +12371,7 @@
         "reviewCount": 414,
         "reviewAverage": 4.64,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/388/10388.jpg?_ex=400x400",
-        "rank": 16,
+        "rank": 26,
         "pointRate": 1,
         "genreId": "201351",
         "availability": 1,
@@ -11964,6 +12385,11 @@
           "date": "2026-10-03",
           "price": 2420,
           "rank": 16
+        },
+        {
+          "date": "2026-10-04",
+          "price": 2420,
+          "rank": 26
         }
       ]
     },
@@ -12006,16 +12432,16 @@
       "item": {
         "code": "soukaidrink:10009211",
         "name": "アサヒ スーパードライ 缶( 350ml×24本入)【2shdrk】【アサヒ スーパードライ】[アサヒビール/ビール/スーパードライ]",
-        "price": 4998,
+        "price": 4755,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.bqr6uee3.g00rzxdo.bqr6v203/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901004006707%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "楽天24 ドリンク館",
         "shopCode": "soukaidrink",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.bqr6uee3.g00rzxdo.bqr6v203/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fsoukaidrink%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 1326,
+        "reviewCount": 1328,
         "reviewAverage": 4.58,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/707/4901004006707.jpg?_ex=400x400",
-        "rank": 21,
+        "rank": 30,
         "pointRate": 1,
         "genreId": "110626",
         "availability": 1,
@@ -12029,6 +12455,11 @@
           "date": "2026-09-30",
           "price": 4998,
           "rank": 21
+        },
+        {
+          "date": "2026-10-04",
+          "price": 4755,
+          "rank": 30
         }
       ]
     },
@@ -12220,17 +12651,17 @@
     "starfocus:10002405": {
       "item": {
         "code": "starfocus:10002405",
-        "name": "【10/2 20％OFF】【マイクロSDカード 128GBセット】SDカードリーダー iPhone17 対応 1TB 写真 動画 バックアップ データ 移行 保存 外付け USBメモリ アプリ不要 Type-C Lightning Android iPad 日本語取説付 1年保証 スターフォーカス 正規品[2025楽天年間1位]",
+        "name": "【10/4~10/11 20％OFF】【マイクロSDカード 128GBセット】SDカードリーダー iPhone17 対応 1TB 写真 動画 バックアップ データ 移行 保存 外付け USBメモリ アプリ不要 Type-C Lightning Android iPad 日本語取説付 1年保証 スターフォーカス 正規品[2025楽天年間1位]",
         "price": 8980,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00ruz0o.bqr6ua5f.g00ruz0o.bqr6v87a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fstarfocus%2Fs-ifd-m32-%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "スマホメモリ専門スターフォーカス",
         "shopCode": "starfocus",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ruz0o.bqr6ua5f.g00ruz0o.bqr6v87a/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fstarfocus%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fstarfocus%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 2112,
+        "reviewCount": 2113,
         "reviewAverage": 4.46,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/starfocus/cabinet/sm/rakuten_sale/ifd-m128/ifd-m128_020off.jpg?_ex=400x400",
-        "rank": 30,
+        "rank": 17,
         "pointRate": 1,
         "genreId": "408453",
         "availability": 1,
@@ -12249,6 +12680,11 @@
           "date": "2026-10-03",
           "price": 8980,
           "rank": 30
+        },
+        {
+          "date": "2026-10-04",
+          "price": 8980,
+          "rank": 17
         }
       ]
     },
@@ -12300,17 +12736,17 @@
     "stylife:15790667": {
       "item": {
         "code": "stylife:15790667",
-        "name": "【SALE／40%OFF】GeeRA 【U.S.POLO.USSN】レイヤード風配色スウェット ジーラ トップス スウェット・トレーナー グレー ブラウン ネイビー ブラック【送料無料】",
-        "price": 4620,
+        "name": "【SALE／35%OFF】GeeRA 【U.S.POLO.USSN】レイヤード風配色スウェット ジーラ トップス スウェット・トレーナー グレー ブラウン ネイビー ブラック【送料無料】",
+        "price": 5005,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00rf71o.bqr6u043.g00rf71o.bqr6vc99/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fstylife%2Fsk9591%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "Rakuten Fashion",
         "shopCode": "stylife",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rf71o.bqr6u043.g00rf71o.bqr6vc99/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fstylife%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fstylife%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 0,
-        "reviewAverage": 0,
+        "reviewCount": 1,
+        "reviewAverage": 5,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/591/sk9591-05_1.jpg?_ex=400x400",
-        "rank": 12,
+        "rank": 19,
         "pointRate": 1,
         "genreId": "403923",
         "availability": 1,
@@ -12324,6 +12760,11 @@
           "date": "2026-09-30",
           "price": 4620,
           "rank": 12
+        },
+        {
+          "date": "2026-10-04",
+          "price": 5005,
+          "rank": 19
         }
       ]
     },
@@ -12880,17 +13321,17 @@
     "tanonmasuwa:10000093": {
       "item": {
         "code": "tanonmasuwa:10000093",
-        "name": "ブルーライトカット 液晶テレビ保護パネル 32〜77インチ 32〜77型 固定ベルト付【2mm/3mm厚】【カット率44.73％】【液晶テレビ 保護パネル 保護フィルム 液晶保護パネル テレビ 保護 テレビカバー テレビガード】 MBL",
-        "price": 5830,
+        "name": "ブルーライトカット 液晶テレビ保護パネル 23〜77インチ 23〜77型 固定ベルト付【2mm/3mm厚】【カット率44.73％】【液晶テレビ 保護パネル 保護フィルム 液晶保護パネル テレビ 保護 テレビカバー テレビガード】 MBL",
+        "price": 4290,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00qcnco.bqr6u817.g00qcnco.bqr6vb47/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftanonmasuwa%2F10000093%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "音と映像設備のたのんますわ！",
         "shopCode": "tanonmasuwa",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qcnco.bqr6u817.g00qcnco.bqr6vb47/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Ftanonmasuwa%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftanonmasuwa%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 2584,
+        "reviewCount": 2589,
         "reviewAverage": 4.58,
-        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/tanonmasuwa/cabinet/bluelightpanel/thumb/mbl_3277.jpg?_ex=400x400",
-        "rank": 11,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/tanonmasuwa/cabinet/bluelightpanel/thumb/panel23770.jpg?_ex=400x400",
+        "rank": 29,
         "pointRate": 1,
         "genreId": "560414",
         "availability": 1,
@@ -12909,6 +13350,11 @@
           "date": "2026-09-30",
           "price": 5830,
           "rank": 11
+        },
+        {
+          "date": "2026-10-04",
+          "price": 4290,
+          "rank": 29
         }
       ]
     },
@@ -13154,6 +13600,36 @@
           "date": "2026-09-28",
           "price": 9240,
           "rank": 10
+        }
+      ]
+    },
+    "tireshop-ayano:10003354": {
+      "item": {
+        "code": "tireshop-ayano:10003354",
+        "name": "タイヤ交換チケット（タイヤの組み換え）　17インチ　- 【4本】　タイヤの脱着・バランス調整込み【ゴムバルブ交換・タイヤ廃棄別】",
+        "price": 10560,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00thquo.bqr6u86f.g00thquo.bqr6v360/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftireshop-ayano%2Fr-autoparts-setting-6%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "タイヤショップあやの　楽天市場店",
+        "shopCode": "tireshop-ayano",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00thquo.bqr6u86f.g00thquo.bqr6v360/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Ftireshop-ayano%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftireshop-ayano%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 41,
+        "reviewAverage": 4.32,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/tireshop-ayano/cabinet/tickets/600x600_17_4.jpg?_ex=400x400",
+        "rank": 3,
+        "pointRate": 1,
+        "genreId": "553290",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "サービス・リフォーム"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 10560,
+          "rank": 3
         }
       ]
     },
@@ -13414,6 +13890,36 @@
           "date": "2026-09-26",
           "price": 3582,
           "rank": 22
+        }
+      ]
+    },
+    "trustline:10000035": {
+      "item": {
+        "code": "trustline:10000035",
+        "name": "【1260円OFFクーポン】【公式】倖田來未 開発 キラーバーナードロップ 機能性表示食品 ダイエットサプリ 1袋45粒入 送料無料【効果効能】体重 体脂肪 内臓脂肪 BMI 減少 便通 サポート エイジングケア エラグ酸 ラクリスS乳酸菌 NMN ガラクトオリゴ糖 KILLER BURNER",
+        "price": 4980,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00txa0o.bqr6u65c.g00txa0o.bqr6vcc8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftrustline%2Fkiller-burner-drop%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "TRUSTLINE",
+        "shopCode": "trustline",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00txa0o.bqr6u65c.g00txa0o.bqr6vcc8/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Ftrustline%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftrustline%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 33,
+        "reviewAverage": 4.06,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/trustline/cabinet/13039136/13058199/sale_killerburner02.jpg?_ex=400x400",
+        "rank": 29,
+        "pointRate": 1,
+        "genreId": "567648",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "ダイエット・健康"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 4980,
+          "rank": 29
         }
       ]
     },
@@ -13705,18 +14211,18 @@
     "vancljapan:10003204": {
       "item": {
         "code": "vancljapan:10003204",
-        "name": "【5%クーポン★累計66,340台突破！】三輪車 BTM 折りたたみ 手押し棒付き 安全ストッパー かじとり サンシェード 三輪車カバー 軽量 おしゃれ 自転車 バランスバイク キックバイク 9in1 赤ちゃん プレゼント 誕生日 ギフト箱入り 6ヶ月~6歳まで【2年保証】",
+        "name": "【P5倍！10/3 16:00~10/4 21:59！累計66,340台突破！】三輪車 BTM 折りたたみ 手押し棒付き 安全ストッパー かじとり サンシェード 三輪車カバー 軽量 おしゃれ 自転車 バランスバイク キックバイク 9in1 赤ちゃん プレゼント 誕生日 ギフト箱入り 6ヶ月~6歳まで【2年保証】",
         "price": 8580,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00rgalo.bqr6u573.g00rgalo.bqr6vd47/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvancljapan%2Fms295496%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "CoCo-Shopping",
         "shopCode": "vancljapan",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rgalo.bqr6u573.g00rgalo.bqr6vd47/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fvancljapan%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvancljapan%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 3592,
+        "reviewCount": 3598,
         "reviewAverage": 4.58,
-        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/vancljapan/cabinet/sale/05136602/12624933/n510p253593-2609.jpg?_ex=400x400",
-        "rank": 10,
-        "pointRate": 1,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/vancljapan/cabinet/slt.jpg?_ex=400x400",
+        "rank": 29,
+        "pointRate": 5,
         "genreId": "101201",
         "availability": 1,
         "postageFlag": 0
@@ -13734,6 +14240,11 @@
           "date": "2026-10-01",
           "price": 8580,
           "rank": 10
+        },
+        {
+          "date": "2026-10-04",
+          "price": 8580,
+          "rank": 29
         }
       ]
     },
@@ -13860,7 +14371,7 @@
         "reviewCount": 3112,
         "reviewAverage": 4.61,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wavecontactlenses/cabinet/product/contactcp/cv1da90-2_p10.jpg?_ex=400x400",
-        "rank": 17,
+        "rank": 15,
         "pointRate": 2,
         "genreId": "563999",
         "availability": 1,
@@ -13900,6 +14411,11 @@
           "date": "2026-10-03",
           "price": 6370,
           "rank": 17
+        },
+        {
+          "date": "2026-10-04",
+          "price": 6370,
+          "rank": 15
         }
       ]
     },
@@ -13913,10 +14429,10 @@
         "shopName": "コンタクト通販　レンズアップル",
         "shopCode": "wavecontactlenses",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tnelo.bqr6ufa8.g00tnelo.bqr6vcd3/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fwavecontactlenses%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwavecontactlenses%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 2761,
+        "reviewCount": 2763,
         "reviewAverage": 4.82,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wavecontactlenses/cabinet/product/contactcp3/sd1dpup32-2.jpg?_ex=400x400",
-        "rank": 29,
+        "rank": 20,
         "pointRate": 1,
         "genreId": "563999",
         "availability": 1,
@@ -13935,6 +14451,11 @@
           "date": "2026-10-02",
           "price": 3290,
           "rank": 29
+        },
+        {
+          "date": "2026-10-04",
+          "price": 3290,
+          "rank": 20
         }
       ]
     },
@@ -13948,10 +14469,10 @@
         "shopName": "コンタクト通販　レンズアップル",
         "shopCode": "wavecontactlenses",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tnelo.bqr6ufa8.g00tnelo.bqr6vcd3/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fwavecontactlenses%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwavecontactlenses%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 3649,
+        "reviewCount": 3651,
         "reviewAverage": 4.84,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wavecontactlenses/cabinet/product/contactcp3/sd1dpup96-2.jpg?_ex=400x400",
-        "rank": 19,
+        "rank": 27,
         "pointRate": 1,
         "genreId": "563999",
         "availability": 1,
@@ -14011,6 +14532,11 @@
           "date": "2026-10-03",
           "price": 8970,
           "rank": 19
+        },
+        {
+          "date": "2026-10-04",
+          "price": 8970,
+          "rank": 27
         }
       ]
     },
@@ -14086,6 +14612,36 @@
           "date": "2026-09-25",
           "price": 9240,
           "rank": 15
+        }
+      ]
+    },
+    "wide:10061045": {
+      "item": {
+        "code": "wide:10061045",
+        "name": "腕時計 メンズ カシオ CASIO ソーラー電波腕時計 紳士 電波腕時計 casio 正規品 ソーラー 電波ソーラー腕時計 男性 ブランド ソーラー電波 ウェーブセプター マルチバンド6 太陽光 電池交換不要 防災 停電 誕生日 就職 敬老の日 ギフト ポイント7倍【RSL】",
+        "price": 9980,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00pixyo.bqr6u632.g00pixyo.bqr6v9f5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwide%2F69042%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "いつもショップ",
+        "shopCode": "wide",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pixyo.bqr6u632.g00pixyo.bqr6v9f5/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fwide%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwide%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 944,
+        "reviewAverage": 4.46,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wide/cabinet/guide/69042-.jpg?_ex=400x400",
+        "rank": 29,
+        "pointRate": 7,
+        "genreId": "301981",
+        "availability": 1,
+        "postageFlag": 0
+      },
+      "genres": [
+        "腕時計"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 9980,
+          "rank": 29
         }
       ]
     },
@@ -14207,7 +14763,7 @@
         "reviewCount": 1206,
         "reviewAverage": 4.68,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wwpc/cabinet/571/3182550775571.jpg?_ex=400x400",
-        "rank": 14,
+        "rank": 12,
         "pointRate": 1,
         "genreId": "404149",
         "availability": 1,
@@ -14246,6 +14802,11 @@
           "date": "2026-10-01",
           "price": 5500,
           "rank": 14
+        },
+        {
+          "date": "2026-10-04",
+          "price": 5500,
+          "rank": 12
         }
       ]
     },
@@ -14392,17 +14953,17 @@
     "yama-oatmeal-institute:10000024": {
       "item": {
         "code": "yama-oatmeal-institute:10000024",
-        "name": "[7年産米売り尽くし特価10kg3,700円！10月2日9:59まで] 令和7年産 ブレンド米 極味精米 5kg 10kg 20kg ( きわみせいまい こめ お米 米 白米 全国 送料無料 （北海道 沖縄 離島含む） ブレンド米 安い 生活応援米 備蓄米 不使用 10キロ 5キロ ) 山川食糧",
+        "name": "[2026年 楽天上半期ランキング1位] 令和7年産 ブレンド米 極味精米 5kg 10kg 20kg ( きわみせいまい こめ お米 米 白米 全国 送料無料 （北海道 沖縄 離島含む） ブレンド米 安い 生活応援米 備蓄米 不使用 10キロ 5キロ ) 山川食糧",
         "price": 2280,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00uhmzo.bqr6u465.g00uhmzo.bqr6v21b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyama-oatmeal-institute%2Fkiwamiseimai10%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "山川食糧オートミール研究所",
         "shopCode": "yama-oatmeal-institute",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uhmzo.bqr6u465.g00uhmzo.bqr6v21b/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fyama-oatmeal-institute%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyama-oatmeal-institute%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 6375,
+        "reviewCount": 6386,
         "reviewAverage": 4.49,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yama-oatmeal-institute/cabinet/biiino/item/main-image/20261001115212_1.jpg?_ex=400x400",
-        "rank": 14,
+        "rank": 25,
         "pointRate": 1,
         "genreId": "201184",
         "availability": 1,
@@ -14432,6 +14993,11 @@
           "date": "2026-10-02",
           "price": 2280,
           "rank": 14
+        },
+        {
+          "date": "2026-10-04",
+          "price": 2280,
+          "rank": 25
         }
       ]
     },
@@ -14585,6 +15151,36 @@
         }
       ]
     },
+    "yamada-denki:10700647": {
+      "item": {
+        "code": "yamada-denki:10700647",
+        "name": "グランド・セフト・オートVI 【PS5】 ELJM-31040 (コードインボックス版、配送日：2026年11月12日、プレイ開始日：2026年11月19日)",
+        "price": 8329,
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.bqr6u553.g00t3jpo.bqr6v36b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F2821802016%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "isAffiliate": true,
+        "shopName": "ヤマダ電機　楽天市場店",
+        "shopCode": "yamada-denki",
+        "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.bqr6u553.g00t3jpo.bqr6v36b/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fyamada-denki%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
+        "reviewCount": 0,
+        "reviewAverage": 0,
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000594/2821802016.jpg?_ex=400x400",
+        "rank": 28,
+        "pointRate": 1,
+        "genreId": "568378",
+        "availability": 1,
+        "postageFlag": 1
+      },
+      "genres": [
+        "テレビゲーム"
+      ],
+      "points": [
+        {
+          "date": "2026-10-04",
+          "price": 8329,
+          "rank": 28
+        }
+      ]
+    },
     "yamazenkaden:10005510": {
       "item": {
         "code": "yamazenkaden:10005510",
@@ -14659,16 +15255,16 @@
       "item": {
         "code": "yokogoshi:10000946",
         "name": "新米 令和8年産 新潟 新之助 10kg (5kg×2) 精米したて 五ツ星お米マイスター厳選1等米 白米 精米 食味分析 80点以上の お米 お米 ギフト 新潟県産新之助 米 新潟産 コシヒカリ 新潟 米 産地直送米 低温倉庫管理米 新潟 お米 ギフト お米 10キロ",
-        "price": 6500,
+        "price": 6700,
         "url": "https://hb.afl.rakuten.co.jp/hgc/g00ra1fo.bqr6uec3.g00ra1fo.bqr6vffb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyokogoshi%2Fkome-10kg_006%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
         "isAffiliate": true,
         "shopName": "越後雪国地酒連峰（新潟店）",
         "shopCode": "yokogoshi",
         "shopUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ra1fo.bqr6uec3.g00ra1fo.bqr6vffb/?pc=https%3A%2F%2Fwww.rakuten.co.jp%2Fyokogoshi%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyokogoshi%2F&rafcid=wsc_i_ra_215d5da5-8164-4138-bc3f-2a5b3edcd200",
-        "reviewCount": 1972,
+        "reviewCount": 1973,
         "reviewAverage": 4.69,
         "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yokogoshi/cabinet/shohin/rice/kome-10kg_006.jpg?_ex=400x400",
-        "rank": 13,
+        "rank": 15,
         "pointRate": 1,
         "genreId": "201184",
         "availability": 1,
@@ -14687,6 +15283,11 @@
           "date": "2026-10-01",
           "price": 6500,
           "rank": 13
+        },
+        {
+          "date": "2026-10-04",
+          "price": 6700,
+          "rank": 15
         }
       ]
     },
